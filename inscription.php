@@ -2,43 +2,40 @@
 	//identifier votre BDD 
 	$database = "Amazon";
 
-	$nom = isset($_POST["nom"]) ? $_POST["nom"] : "";
-	$prenom = isset($_POST["prenom"]) ? $_POST["prenom"] : "";
-	$pseudo = isset($_POST["pseudo"]) ? $_POST["pseudo"] : "";
-	$mail = isset($_POST["mail"]) ? $_POST["mail"] : "";
-	$ad1 = isset($_POST["ad1"]) ? $_POST["ad1"] : "";
-	$ad2 = isset($_POST["ad2"]) ? $_POST["ad2"] : "";
-	$pays = isset($_POST["pays"]) ? $_POST["pays"] : "";
-	$CP = isset($_POST["CP"]) ? $_POST["CP"] : "";
-	$tel = isset($_POST["tel"]) ? $_POST["tel"] : "";
-
-	if($nom == ""){
-		echo("alert('Le champ Nom n'est pas remplis !')");
-	}else if($prenom == ""){
-		echo("alert('Le champ Prenom n'est pas remplis !')");
-	}else if($pseudo == ""){
-		echo("alert('Le champ Pseudo n'est pas remplis !')");
-	}else if($mail == ""){
-		echo("alert('Le champ E-mail n'est pas remplis !')");
-	}else if($ad1 == ""){
-		echo("alert('Le champ Adresse 1 n'est pas remplis !')");
-	}else if($pays == ""){
-		echo("alert('Le champ Pays n'est pas remplis !')");
-	}else if($CP == ""){
-		echo("alert('Le champ Code Postal n'est pas remplis !')");
-	}else if($tel == ""){
-		echo("alert('Le champ Telephone n'est pas remplis !')");
-	}
-
-	//connectez-vous dans la BDD
 	$db_handle = mysqli_connect('localhost', 'root', '');
 	$db_found = mysqli_select_db($db_handle, $database);
 
 
 	if($db_found){
-		echo 'BD found'
+		$statut = isset($_POST["type"]) ? $_POST["type"] : "client";
+		$nom = isset($_POST["user_nom"]) ? $_POST["user_nom"] : "";
+		$mdp = isset($_POST["mdp"]) ? $_POST["mdp"] : "";
+		$prenom = isset($_POST["user_prenom"]) ? $_POST["user_prenom"] : "";
+		$pseudo = isset($_POST["user_pseudo"]) ? $_POST["user_pseudo"] : "";
+		$mail = isset($_POST["user_mail"]) ? $_POST["user_mail"] : "";
+		$ad1 = isset($_POST["user_ad1"]) ? $_POST["user_ad1"] : "";
+		$ad2 = isset($_POST["user_ad2"]) ? $_POST["user_ad2"] : "";
+		$pays = isset($_POST["user_pays"]) ? $_POST["user_pays"] : "";
+		$CP = isset($_POST["user_CP"]) ? $_POST["user_CP"] : "";
+		$tel = isset($_POST["user_tel"]) ? $_POST["user_tel"] : "";
+
+		$checkslq = "SELECT `email` FROM `Compte` WHERE `email` LIKE '$mail'";
+
+		$result = mysqli_query($db_handle, $checkslq);
+
+		if(mysqli_num_rows($result) != 0){
+			echo 'Un compte avec cette adress est deja utilise : ' .$mail;
+		}
+		else{
+			$addsql = "INSERT INTO `compte` (`email`, `pseudo`, `mdp`, `statut`, `nom`, `prenom`, `adLine1`, `adLine2`, `numTel`, `photoProfil`, `imageFond`, `pays`, `codePostal`) VALUES ('$mail', '$pseudo', '$mdp', '$statut', '$nom', '$prenom', '$ad1', '$ad2', '$tel', 'imagedefault.jpg', 'imagedefaut.jpg', '$pays', '$CP')";
+			$result2 = mysqli_query($db_handle, $addsql);
+			echo "Compte Creer, veillez vous conneter";
+		}
+
 	}
 	else{
 		echo 'BD not found';
 	}
+
+	mysqli_close($db_handle);	
 ?>
