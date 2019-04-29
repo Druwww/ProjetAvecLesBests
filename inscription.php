@@ -29,7 +29,8 @@
 		else{
 			$addsql = "INSERT INTO `compte` (`email`, `pseudo`, `mdp`, `statut`, `nom`, `prenom`, `adLine1`, `adLine2`, `numTel`, `photoProfil`, `imageFond`, `pays`, `codePostal`) VALUES ('$mail', '$pseudo', '$mdp', '$statut', '$nom', '$prenom', '$ad1', '$ad2', '$tel', 'imagedefault.jpg', 'imagedefaut.jpg', '$pays', '$CP')";
 			$result2 = mysqli_query($db_handle, $addsql);
-			echo "Compte Creer, veillez vous conneter";
+			echo "<script>alert('Compte Creer, veillez vous conneter');</script>";
+			echo "<script>window.close();</script>";
 		}
 
 	}
