@@ -56,7 +56,6 @@ if($erreur == "")
 		else {
 			//on trouve le compte recherché
 			$_SESSION["email"] = $email;
-			echo "Session variables are set.";
 			// lien pour renvoyer vers la page d'accueil de l'espace client
 			include('PageMDP.html');
 		}

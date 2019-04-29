@@ -9,7 +9,6 @@ $mdp = isset($_POST["mdp"])? $_POST["mdp"] : "";
 $erreur = "";
 $email = $_SESSION["email"];
 
-echo "email =" .$email;
 	
 //Si les champs ne sont pas remplis, on ajoute les erreurs
 if($mdp=="")
