@@ -4,21 +4,23 @@ session_start();
 
 //recuperer les données venant de la page HTML
 //le parametre de $_POST = "name" de <input> de votre page HTML
-$pseudo = isset($_POST["pseudo"])? $_POST["pseudo"] : "";
-$email = isset($_POST["email"])? $_POST["email"] : "";
+$mdp = isset($_POST["mdp"])? $_POST["mdp"] : "";
 
 $erreur = "";
+$email = $_SESSION["email"];
 
-
+echo "email =" .$email;
+	
 //Si les champs ne sont pas remplis, on ajoute les erreurs
-if($pseudo=="")
+if($mdp=="")
 {
-   $erreur .= "Le champ pseudo est vide. <br>";
+   $erreur .= "Le champ mot de passe est vide. <br>";
 }
 if($email=="")
 {
-   $erreur .= "Le champ email est vide. <br>";
+   $erreur .= "Le champ email est vide <br>";
 }
+
 
 //s'il n'y a pas d'erreur
 if($erreur == "")
@@ -43,22 +45,21 @@ if($erreur == "")
 		if ($email != "") {
 			//on cherche le compte avec les paramètres email et le pseudo
 			$sql .= " WHERE email LIKE '$email'";
-			if ($pseudo != "") {
-				$sql .= " AND pseudo LIKE '$pseudo'";
+			if ($mdp != "") {
+				$sql .= " AND mdp LIKE '$mdp'";
 			}
 		}
 		$result = mysqli_query($db_handle, $sql);
 		//regarder s'il y a de résultat
 		if (mysqli_num_rows($result) == 0) {
 			//le compte recherché n'existe pas
-			echo "email not found";
+			echo "le mot de passe est erronnee";
 		} 
 		else {
 			//on trouve le compte recherché
-			$_SESSION["email"] = $email;
-			echo "Session variables are set.";
+			
 			// lien pour renvoyer vers la page d'accueil de l'espace client
-			include('PageMDP.html');
+			include('index.html');
 		}
 	} //end if
 	else //si la BDD n'existe passthru
