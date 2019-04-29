@@ -59,7 +59,7 @@ if($erreur == "")
 			//on trouve le compte recherché
 			
 			// lien pour renvoyer vers la page d'accueil de l'espace client
-			include('index.html');
+			include('AccueilClient.html');
 		}
 	} //end if
 	else //si la BDD n'existe passthru
@@ -74,6 +74,7 @@ if($erreur == "")
 else //s'il y a une erreur dans les champs
 {
    echo $erreur;
+   include('PageMDP.html');
 }
 
 ?>
