@@ -74,6 +74,7 @@ if($erreur == "")
 else //s'il y a une erreur dans les champs
 {
    echo $erreur;
+   include('PageMDP.html');
 }
 
 ?>
