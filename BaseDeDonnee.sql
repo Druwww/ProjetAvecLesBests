@@ -100,4 +100,14 @@ FOREIGN KEY (idP) REFERENCES Produit(idP),
 PRIMARY KEY (email,idP)
 );
 
+--
+-- Contenu de la table `Compte`
+--
 
+INSERT INTO `Compte` (`email`, `pseudo`, `mdp`, `statut`, `nom`, `prenom`, `adLine1`, `adLine2`, `numTel`, `photoProfil`, `ImageFond`, `pays`, `codePostal`) VALUES
+('helene@gmail.com', 'LogNep', 'helenecoeur', 'admin', 'Carlier', 'Helene', '1 route de la cascade', 'Le vesinet', '0601020304', 'imagedefault.jpg', 'imagedefaut.jpg', 'Australie', 92500),
+('ines@gmail.com', 'Nessi', 'manger', 'admin', 'Estay', 'Ines', '2 route de la cascade', 'Le vesinet', '0604030201', 'imagedefault.jpg', 'imagedefaut.jpg', 'Mexique', 78001),
+('quentin@gmail.com', 'Ququ', 'bleu', 'admin', 'Mulliez', 'Quentin', '29 rue des Gabillons', 'Croissy', '0601190989', 'imagedefault.jpg', 'imagedefaut.jpg', 'France', 78290),
+('vendeur@gmail.com', 'Picsous', 'argent', 'vendeur', 'Donald', 'Duck', '1 rue de la Paix', 'Paris', '0199999999', 'imagedefault.jpg', 'imagedefaut.jpg', 'Disney', 78291),
+('client@gmail.com', 'Pigeon', 'deficite', 'client', '', 'Quentin', '29 rue des Gabillons', 'Croissy', '0601190989', 'imagedefault.jpg', 'imagedefaut.jpg', 'France', 78290),
+;
