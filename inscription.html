@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Inscription</title>
+	<link rel="icon" href="img/favicon.png" />
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+<center><img src="img/logo.png" alt="Logo" style="width:300px;height:300px;"></center>
+	
+		<form action="inscription.php" method="post">
+			<center><table>
+		    <tr>
+		        <td><label> Je souhaite être</label></td>
+		        <td>
+	    		<select name ="type">
+			  		<option value="client">Client</option>
+			  		<option value="vendeur">Vendeur</option>
+				</select><br></td>
+		    </tr>
+		    <tr>
+		        <td><label for="nom">Nom :</label></td>
+		        <td><input type="text" id="nom" name="user_nom"></td>
+		    </tr>
+		    <tr>
+		        <td><label for="prenom">Prenom :</label></td>
+		        <td><input type="text" id="prenom" name="user_prenom"></td>
+		    </tr>
+		    <tr>
+		        <td><label for="pseudo">Pseudo :</label></td>
+		        <td><input type="text" id="pseudo" name="user_pseudo"></td>
+		    </tr>
+		    <tr>
+		        <td><label for="mail">E-mail :</label></td>
+		        <td><input type="text" id="mail" name="user_mail"></td>
+		    </tr>
+		    <tr>
+		        <td><label for="mdp">Mot de Passe :</label></td>
+		        <td><input type="password" id="mdp" name="mdp"></td>
+		    </tr>
+		    <tr>
+		        <td><label for="ad1">Adresse 1 : </label></td>
+		        <td><input type="text" id="ad1" name="user_ad1"></td>
+		    </tr>
+		    <tr>
+		        <td><label for="ad2">Adresse 2 :</label></td>
+		        <td><input type="text" id="ad2" name="user_ad2"></td>
+		    </tr>
+		      <tr>
+		        <td><label for="pays">Pays :</label></td>
+		        <td><input type="text" id="pays" name="user_pays"></td>
+		    </tr>
+		    <tr>
+		        <td><label for="CP">Code Postal :</label></td>
+		        <td><input type="number" id="CP" name="user_CP"></td>
+		    </tr>
+		    <tr>
+		        <td><label for="tel">Numéro de telephone :</label></td>
+		        <td><input type="tel" id="tel" name="user_tel" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" required></td>
+		        <td><span class="note">Format: 0X-XX-XX-XX-XX</span></td>
+		    </tr>  
+		</table></center>
+		<tr>
+			<button class="button button1">Inscription</button>
+		</tr>
+	</form>
+	 
+	
+</body>
+</html>
