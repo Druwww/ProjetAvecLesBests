@@ -35,14 +35,14 @@ if($db_found)
 			if (mysqli_num_rows($result) == 0) {
 				//le compte recherché n'existe pas
 				echo "email not found";
-			if (mysqli_num_rows($result) == 0) {
-				//le compte recherché n'existe pas
-				echo "email not found";
-			} else {
+			} 
+			else {
 				//on trouve le compte recherché
+				echo "
 				<form method=POST action=accueilClient.php>
-					<input type="hidden" name="email" value="<?php echo "".$email."" ?>"></input>
-				</form>
+					<input type='hidden' name='email' value='<?php echo ' '.$email.' ' ?>'></input>
+				</form> ";
+				include('inscription.html');
 			}
 } //end if
 else //si la BDD n'existe passthru
