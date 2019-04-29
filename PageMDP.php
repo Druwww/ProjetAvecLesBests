@@ -53,6 +53,7 @@ if($erreur == "")
 		if (mysqli_num_rows($result) == 0) {
 			//le compte recherché n'existe pas
 			echo "le mot de passe est erronnee";
+			include('PageMDP.html');
 		} 
 		else {
 			//on trouve le compte recherché
