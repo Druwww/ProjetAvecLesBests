@@ -24,6 +24,7 @@ PRIMARY KEY (email)
 CREATE TABLE Produit(
 idP int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 emailVendeur varchar(255) NOT NULL,
+nom varchar(255) NOT NULL,
 categorie varchar(255) NOT NULL,
 description varchar(255) NOT NULL,
 prix int(11) NOT NULL,
@@ -111,3 +112,24 @@ INSERT INTO `Compte` (`email`, `pseudo`, `mdp`, `statut`, `nom`, `prenom`, `adLi
 ('vendeur@gmail.com', 'Picsous', 'argent', 'vendeur', 'Donald', 'Duck', '1 rue de la Paix', 'Paris', '0199999999', 'imagedefault.jpg', 'imagedefaut.jpg', 'Disney', 78291),
 ('client@gmail.com', 'Pigeon', 'deficite', 'client', '', 'Quentin', '29 rue des Gabillons', 'Croissy', '0601190989', 'imagedefault.jpg', 'imagedefaut.jpg', 'France', 78290)
 ;
+
+--
+-- Contenu de la table `StatVendeur`
+--
+
+INSERT INTO `statvendeur` (`email`, `gain`) VALUES
+('vendeur@gmail.com', 0)
+;
+
+
+--
+-- Contenu de la table `Produit`
+--
+
+INSERT INTO `Produit` (`idP`, `emailVendeur`, `nom` ,`categorie`, `description`, `prix`, `nbVendu`, `nbDispo`) VALUES
+(1, 'vendeur@gmail.com', '50 nuances de Grey',  'Livre', 'un livre sur une histoire d amour', 15, 0, 100),
+(2, 'vendeur@gmail.com', 'Echarpe Tendance',  'Vetement', 'Une echarpe a la mode', 10, 0, 100),
+(3, 'vendeur@gmail.com', 'Chelsy roader',  'Musique', 'un des plus beau morceaux de Prince', 2 ,0, 100),
+(4, 'vendeur@gmail.com', 'Raquette Tennis',  'SL', 'Une raquette pour les champions', 50, 0, 100)
+;
+
