@@ -24,7 +24,8 @@
 		$result = mysqli_query($db_handle, $checkslq);
 
 		if(mysqli_num_rows($result) != 0){
-			echo 'Un compte avec cette adress est deja utilise : ' .$mail;
+			echo "<script>alert('Un compte avec cette adresse est deja utilise !');</script>";
+			echo "<script>window.close();</script>";
 		}
 		else{
 			$addsql = "INSERT INTO `compte` (`email`, `pseudo`, `mdp`, `statut`, `nom`, `prenom`, `adLine1`, `adLine2`, `numTel`, `photoProfil`, `imageFond`, `pays`, `codePostal`) VALUES ('$mail', '$pseudo', '$mdp', '$statut', '$nom', '$prenom', '$ad1', '$ad2', '$tel', 'imagedefault.jpg', 'imagedefaut.jpg', '$pays', '$CP')";
