@@ -68,7 +68,6 @@ if($erreur == "")
 				$_SESSION["pays"] = $data["pays"];
 				$_SESSION["codePostal"] = $data["codePostal"];
 				$_SESSION["numTel"] = $data["numTel"];
-				
 			}
 			
 			
