@@ -88,7 +88,12 @@ session_start();
   </div>
 </div>
 
-<center><button class="button button1">Paramètres à modifier</button></center>
+<form action="EnvoieTomodificationCompte.php" method="post">
+	<tr>
+		<center><button class="button button1">Paramètres à modifier</button></center>
+	</tr>
+</form>
+
 
 <?php
 	if($_SESSION["statut"] == "vendeur")
