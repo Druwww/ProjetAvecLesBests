@@ -78,7 +78,7 @@ PRIMARY KEY (idP)
 );
 
 CREATE TABLE Photo(
-idVetement int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+idPhoto int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 idP int(11) NOT NULL,
 lienPhoto varchar(255) NOT NULL,
 FOREIGN KEY (idP) REFERENCES Produit(idP)
@@ -131,5 +131,13 @@ INSERT INTO `Produit` (`idP`, `emailVendeur`, `nom` ,`categorie`, `description`,
 (2, 'vendeur@gmail.com', 'Echarpe Tendance',  'Vetement', 'Une echarpe a la mode', 10, 0, 100),
 (3, 'vendeur@gmail.com', 'Chelsy roader',  'Musique', 'un des plus beau morceaux de Prince', 2 ,0, 100),
 (4, 'vendeur@gmail.com', 'Raquette Tennis',  'SL', 'Une raquette pour les champions', 50, 0, 100)
+;
+
+--
+-- Contenu de la table `photo`
+--
+
+INSERT INTO `photo` (`idPhoto`, `idP`, `lienPhoto`) VALUES
+(1, 1, 'img/livre1.jpg')
 ;
 

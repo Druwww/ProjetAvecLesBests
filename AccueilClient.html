@@ -7,6 +7,18 @@
 	
 </head>
 <body>
+		<?php
+			// Start the session
+			session_start();
+			$database = "Amazon";
+
+			$db_handle = mysqli_connect('localhost', 'root', '');
+			$db_found = mysqli_select_db($db_handle, $database);
+
+			if(! $db_found){
+			echo "<script>alert('Echec connexion BDD !');</script>";
+		}
+		?>
 
 		<ul class="navigation1">
 				  <li class = "detail1"><a href="#monCompte" class = "detail2">Mon Compte<img src="img/monCompte.png" style="width:45px;height:40px;" class = "detailImg"></a></li>
@@ -144,18 +156,39 @@
 <p class ="myFont">Meilleures ventes livres</p>
 
 <div class="row">
-	  <div class="column">
-		<img src="img/random.jpg" style="width:200px;height:300px;" class="hover-shadow">
-	  </div>
-	  <div class="column">
-		<img src="img/random.jpg" style="width:200px;height:300px;" class="hover-shadow">
-	  </div>
-	  <div class="column">
-		<img src="img/random.jpg" style="width:200px;height:300px;" class="hover-shadow">
-	  </div>
-	  <div class="column">
-		<img src="img/random.jpg" style="width:200px;height:300px;" class="hover-shadow">
-	  </div>
+
+	<?php
+
+		$bestBookslq = "SELECT * FROM `Produit` WHERE `categorie` LIKE 'Livre' ORDER BY `nbVendu`";
+		$resultBestBook = mysqli_query($db_handle, $bestBookslq);
+
+		while ($data = mysqli_fetch_assoc($resultBestBook)) {
+
+			$idP = $data["idP"];
+
+			$photoProduitslq = "SELECT * FROM `photo` WHERE `idP` LIKE '$idP'";
+			$resultPhotoProduit = mysqli_query($db_handle, $photoProduitslq);
+
+			if(mysqli_num_rows($resultPhotoProduit) == 0){
+				echo '<div class="column">
+					<img src="img/random.jpg" style="width:200px;height:300px;" class="hover-shadow">
+	  			</div>';
+			}else{
+					while($dataPhoto = mysqli_fetch_assoc($result)){
+						$myPhoto = $dataPhoto["lienPhoto"];
+					}
+					echo "Nom photo : " . $myPhoto . '<br>';
+					echo '<div class="column"> <img src="' . $myPhoto . '" style="width:200px;height:300px;" class="hover-shadow">
+	  				</div>';
+	  			
+			}
+
+			echo "Nom : " . $data["nom"] . '<br>';
+			echo "prix : " . $data["prix"] . '<br>';
+			echo "Nombre Vendu : " . $data["nbVendu"] . '<br>';
+			echo "<br>";
+		}
+	?>	
   </div>
 
 <p class ="myFontMusique">Meilleures ventes Musique</p>
