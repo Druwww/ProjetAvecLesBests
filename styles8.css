@@ -1,0 +1,120 @@
+body{
+	background-color: #FFEFEC;
+  font-family: monospace;
+}
+.navbarCouleur {
+
+ background:#FFBBAF;
+}
+
+.detailImg{
+  vertical-align: middle;
+}
+
+.navigation2 {
+
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #FF8E79;
+}
+
+.slogan{
+	
+	color: #B2473E;
+    font-size: 30px;
+    margin-top: -90px;
+    margin-bottom: 43px;
+    margin-right: 150px;
+    margin-left: 500px;
+}
+
+
+.detail1{
+	 float: right;
+	 vertical-align: top;
+}
+
+.detail2 {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  
+    font-size: 30px;
+}
+
+.detail2:hover {
+    color: #FF7459;
+}
+
+.miseenpage{
+      text-align: center;
+      color:#00B1A5;
+       font-size: 30px;
+       margin-top: 80px;
+}
+
+
+.button {
+  background-color: #FFEB03; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-family: monospace;
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #FFEB03;
+  margin: auto;
+}
+
+div.produit {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: right;
+  margin-top: -10px;
+  width: 180px;
+  margin-bottom: 20px;
+margin-left: 20px;
+  float:left;
+
+}
+
+div.produit:hover {
+  border: 1px solid #777;
+}
+
+div.produit img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  text-align: center;
+}
+
+.recherche input[type=text] {
+    border: 1px solid #ccc;  
+
+  }
+
+.footer{
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #FF8E79;
+   color: white;
+   text-align: center;
+}
