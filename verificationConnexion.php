@@ -59,7 +59,7 @@ if($erreur == "")
 			//on trouve le compte recherché
 			
 			// lien pour renvoyer vers la page d'accueil de l'espace client
-			header('Location: AccueilClient.html');
+			header('Location: AccueilClient.php');
 		}
 	} //end if
 	else //si la BDD n'existe passthru
