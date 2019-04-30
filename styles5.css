@@ -1,0 +1,147 @@
+body{
+	background-color: #FFEFEC;
+  font-family: monospace;
+}
+.navbarCouleur {
+
+ background:#FFBBAF;
+}
+
+.detailImg{
+  vertical-align: middle;
+}
+
+.navigation2 {
+
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #FF8E79;
+}
+
+.slogan{
+	
+	color: #B2473E;
+    font-size: 30px;
+    margin-top: -90px;
+    margin-bottom: 43px;
+    margin-right: 150px;
+    margin-left: 500px;
+}
+
+
+.detail1{
+	 float: right;
+	 vertical-align: top;
+}
+
+.detail2 {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  
+    font-size: 30px;
+}
+
+.detail2:hover {
+    color: #FF7459;
+}
+
+.button {
+  background-color: #FFEB03; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-family: monospace;
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #FFEB03;
+  margin: auto;
+}
+
+.miseenforme{
+    font-size: 20px;
+    color: #00B1A5;
+    font-weight: bold;
+}
+
+div.mesProduits {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: right;
+  margin-top: -250px;
+  width: 180px;
+  margin-left: 200px;
+  margin-bottom: 270px;
+}
+
+div.mesProduits:hover {
+  border: 1px solid #777;
+}
+
+div.mesProduits img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 1px;
+  text-align: center;
+}
+
+.message {
+  position: fixed;
+  bottom: 35px;
+  right: 20px;
+  margin-left: 20px;
+  max-width: 300px;
+}
+
+.message-header {
+  padding: 25px 15px;
+  background: #6779FF;
+  font-size: 30px;
+  color: white;
+}
+
+.message-container {
+  padding: 15px;
+  background-color: #BAC2FF;
+  color: black
+}
+
+.fermeture {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.fermeture:hover {
+  color: white;
+}
+
+
+.footer{
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #FF8E79;
+   color: white;
+   text-align: center;
+}
