@@ -51,15 +51,51 @@ if($erreur == "")
 		$result = mysqli_query($db_handle, $sql);
 		//regarder s'il y a de résultat
 		if (mysqli_num_rows($result) == 0) {
-			//le compte recherché n'existe pas
+			//le mot de passe n'est pas le bon
 			echo "le mot de passe est erronnee";
-			header('Location: PageMDP.html');
+			header('Location: PageMDP.php');
 		} 
 		else {
-			//on trouve le compte recherché
+			//on trouve le bon mot de passe
+			//on enregistre toutes les informations necessaire
+			while($data = mysqli_fetch_assoc($result))
+			{
+				$_SESSION["pseudo"] = $data["pseudo"];
+				$_SESSION["nom"] = $data["nom"];
+				$_SESSION["prenom"] = $data["prenom"];
+				$_SESSION["adresse1"] = $data["adLine1"];
+				$_SESSION["adresse2"] = $data["adLine2"];
+				$_SESSION["pays"] = $data["pays"];
+				$_SESSION["codePostal"] = $data["codePostal"];
+				$_SESSION["numTel"] = $data["numTel"];
+				$_SESSION["statut"] = $data["statut"];
+			}
+			
+			
+			/*
+			while ($finfo = mysqli_fetch_field($result)) {
+				//Récupération de la position du pointeur de champ
+				$currentfield = mysqli_field_tell($result);
+
+				echo("Colonne : " . $currentfield);
+				echo("<br>");
+				echo("Nom : ". $finfo->name);
+				echo("<br>");
+				echo("Table : ". $finfo->table);
+				echo("<br>");
+				echo("Type : ". $finfo->type);
+				echo("<br>");
+				echo("<br>");
+			}
+			mysqli_free_result($result);
+			*/
+
+	
+			
 			
 			// lien pour renvoyer vers la page d'accueil de l'espace client
 			header('Location: AccueilClient.php');
+			
 		}
 	} //end if
 	else //si la BDD n'existe passthru
@@ -74,7 +110,7 @@ if($erreur == "")
 else //s'il y a une erreur dans les champs
 {
    echo $erreur;
-   header('Location: PageMDP.html');
+   header('Location: PageMDP.php');
 }
 
 ?>
