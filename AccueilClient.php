@@ -43,7 +43,7 @@
 		</ul>
 
 		<nav class="navbarCouleur"> 
-			<a href="AccueilClient.html"><img src="img/LogoSite.png" alt="Logo" style="width:400px;height:160px;"></a> 
+			<a href="AccueilClient.php"><img src="img/LogoSite.png" alt="Logo" style="width:400px;height:160px;"></a> 
 
 		</nav>
 
@@ -200,12 +200,12 @@
 					$resultPhotoProduit = mysqli_query($db_handle, $photoProduitsql);
 
 					if(mysqli_num_rows($resultPhotoProduit) == 0){
-						echo '<a href="index.html?produit=' . $idP .'"><img src="img/random.jpg" style="width:100px;height:150px;" class="hover-shadow"></a>';
+						echo '<a href="FicheProduit.php?produit=' . $idP .'"><img src="img/random.jpg" style="width:100px;height:150px;" class="hover-shadow"></a>';
 					}else{
 							while ($dataPhoto = mysqli_fetch_assoc($resultPhotoProduit)) {
 		        				$myPhoto = $dataPhoto["lienPhoto"];
 		    				}	
-							echo '<a href="index.html?produit=' . $idP .'"><img src="' . $myPhoto . '" style="width:100px;height:150px;" class="hover-shadow"></a>'; 
+							echo '<a href="FicheProduit.php?produit=' . $idP .'"><img src="' . $myPhoto . '" style="width:100px;height:150px;" class="hover-shadow"></a>'; 
 					}
 					echo "<br>Nom : " . $dataVente["nom"] . "<br>";
 					echo "prix : " . $dataVente["prix"] . "<br>";

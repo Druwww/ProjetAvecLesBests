@@ -140,6 +140,7 @@ INSERT INTO `Produit` (`idP`, `emailVendeur`, `nom` ,`categorie`, `description`,
 
 INSERT INTO `photo` (`idPhoto`, `idP`, `lienPhoto`) VALUES
 (1, 1, 'img/livre1.jpg'),
-(2, 5, 'img/cherub.jpg')
+(2, 5, 'img/cherub.jpg'),
+(3, 5, 'img/cherub2.jpg')
 ;
 

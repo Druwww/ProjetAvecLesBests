@@ -1,3 +1,3 @@
 <?php
-include('AccueilClient.html');
+include('AccueilClient.php');
 ?>
