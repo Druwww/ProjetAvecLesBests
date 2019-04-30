@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>COUCOUC</title>
+	<link rel="icon" href="img/favicon.png" />
+	<link rel="stylesheet" type="text/css" href="styles2.css">
+</head>
+<body>
+	<?php
+		echo '<p>Debut </p><br>';
+
+		// Start the session
+		$database = "Amazon";
+
+		$db_handle = mysqli_connect('localhost', 'root', '');
+		$db_found = mysqli_select_db($db_handle, $database);
+		if(! $db_found){
+			echo "<script>alert('Echec connexion BDD !');</script>";
+		}
+		echo 'Produit : ' . $_SESSION["email"];
+	?>
+</body>
+</html>

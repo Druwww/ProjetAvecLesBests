@@ -4,7 +4,14 @@
 	<title>Accueil</title>
 	<link rel="icon" href="img/favicon.png" />
 	<link rel="stylesheet" type="text/css" href="styles2.css">
-	
+	<script> 
+		function goFicheProduit(idP) {
+				<?php 
+					$_SESSION['idProduitClick'] = idP; 
+				?>
+				document.location.href="test.html?name=";
+			}
+	</script>
 </head>
 <body>
 		<?php
@@ -158,6 +165,8 @@
 <div class="row">
 
 	<?php
+		
+			
 
 		$bestBookslq = "SELECT * FROM `Produit` WHERE `categorie` LIKE 'Livre' ORDER BY `nbVendu` DESC";
 		$resultBestBook = mysqli_query($db_handle, $bestBookslq);
@@ -178,20 +187,21 @@
 			$resultPhotoProduit = mysqli_query($db_handle, $photoProduitslq);
 
 			if(mysqli_num_rows($resultPhotoProduit) == 0){
-				echo '<img src="img/random.jpg" style="width:100px;height:150px;" class="hover-shadow">';
+				echo '<img src="img/random.jpg" style="width:100px;height:150px;" class="hover-shadow" onclick="goFicheProduit('. $idP .')">';
 			}else{
 					while ($dataPhoto = mysqli_fetch_assoc($resultPhotoProduit)) {
         				$myPhoto = $dataPhoto["lienPhoto"];
     				}	
-					echo '<img src="' . $myPhoto . '" style="width:100px;height:150px;" class="hover-shadow">';
-	  			
+					echo '<img src="' . $myPhoto . '" style="width:100px;height:150px;" class="hover-shadow" onclick="goFicheProduit('. $idP .')">'; 
 			}
-			echo "<br>Nom : " . $data["nom"] . "<br>";
-			echo "prix : " . $data["prix"] . "<br>";
-			echo "Nombre Vendu : " . $data["nbVendu"] . "<br>";
-			echo "</div>";
+			echo "\n<br>Nom : " . $data["nom"] . "<br>";
+			echo "\nprix : " . $data["prix"] . "<br>";
+			echo "\nNombre Vendu : " . $data["nbVendu"] . "<br>";
+			echo "\n</div>";
 		}
+		
 	?>	
+
  </div>
 
 <p class ="myFontMusique">Meilleures ventes Musique</p>
