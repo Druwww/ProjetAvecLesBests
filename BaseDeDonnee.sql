@@ -128,6 +128,7 @@ INSERT INTO `statvendeur` (`email`, `gain`) VALUES
 
 INSERT INTO `Produit` (`idP`, `emailVendeur`, `nom` ,`categorie`, `description`, `prix`, `nbVendu`, `nbDispo`) VALUES
 (1, 'vendeur@gmail.com', '50 nuances de Grey',  'Livre', 'un livre sur une histoire d amour', 15, 0, 100),
+(5, 'vendeur@gmail.com', 'Cherub',  'Livre', 'un livre sur des espions', 10, 1, 100),
 (2, 'vendeur@gmail.com', 'Echarpe Tendance',  'Vetement', 'Une echarpe a la mode', 10, 0, 100),
 (3, 'vendeur@gmail.com', 'Chelsy roader',  'Musique', 'un des plus beau morceaux de Prince', 2 ,0, 100),
 (4, 'vendeur@gmail.com', 'Raquette Tennis',  'SL', 'Une raquette pour les champions', 50, 0, 100)
@@ -138,6 +139,7 @@ INSERT INTO `Produit` (`idP`, `emailVendeur`, `nom` ,`categorie`, `description`,
 --
 
 INSERT INTO `photo` (`idPhoto`, `idP`, `lienPhoto`) VALUES
-(1, 1, 'img/livre1.jpg')
+(1, 1, 'img/livre1.jpg'),
+(2, 5, 'img/cherub.jpg')
 ;
 

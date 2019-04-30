@@ -159,37 +159,40 @@
 
 	<?php
 
-		$bestBookslq = "SELECT * FROM `Produit` WHERE `categorie` LIKE 'Livre' ORDER BY `nbVendu`";
+		$bestBookslq = "SELECT * FROM `Produit` WHERE `categorie` LIKE 'Livre' ORDER BY `nbVendu` DESC";
 		$resultBestBook = mysqli_query($db_handle, $bestBookslq);
 
+		$nbLivreAffiche = 0;
+
 		while ($data = mysqli_fetch_assoc($resultBestBook)) {
+			$nbLivreAffiche ++;
+			if($nbLivreAffiche > 4){
+				break;
+			}
+
+			echo '<div class="column">';
 
 			$idP = $data["idP"];
 
-			$photoProduitslq = "SELECT * FROM `photo` WHERE `idP` LIKE '$idP'";
+			$photoProduitslq = "SELECT `lienPhoto` FROM `photo` WHERE `idP` LIKE '$idP'";
 			$resultPhotoProduit = mysqli_query($db_handle, $photoProduitslq);
 
 			if(mysqli_num_rows($resultPhotoProduit) == 0){
-				echo '<div class="column">
-					<img src="img/random.jpg" style="width:200px;height:300px;" class="hover-shadow">
-	  			</div>';
+				echo '<img src="img/random.jpg" style="width:100px;height:150px;" class="hover-shadow">';
 			}else{
-					while($dataPhoto = mysqli_fetch_assoc($result)){
-						$myPhoto = $dataPhoto["lienPhoto"];
-					}
-					echo "Nom photo : " . $myPhoto . '<br>';
-					echo '<div class="column"> <img src="' . $myPhoto . '" style="width:200px;height:300px;" class="hover-shadow">
-	  				</div>';
+					while ($dataPhoto = mysqli_fetch_assoc($resultPhotoProduit)) {
+        				$myPhoto = $dataPhoto["lienPhoto"];
+    				}	
+					echo '<img src="' . $myPhoto . '" style="width:100px;height:150px;" class="hover-shadow">';
 	  			
 			}
-
-			echo "Nom : " . $data["nom"] . '<br>';
-			echo "prix : " . $data["prix"] . '<br>';
-			echo "Nombre Vendu : " . $data["nbVendu"] . '<br>';
-			echo "<br>";
+			echo "<br>Nom : " . $data["nom"] . "<br>";
+			echo "prix : " . $data["prix"] . "<br>";
+			echo "Nombre Vendu : " . $data["nbVendu"] . "<br>";
+			echo "</div>";
 		}
 	?>	
-  </div>
+ </div>
 
 <p class ="myFontMusique">Meilleures ventes Musique</p>
 
