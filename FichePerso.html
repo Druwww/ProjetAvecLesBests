@@ -13,13 +13,35 @@ session_start();
 <body>
 
 	<ul class="navigation1">
-				  <li class = "detail1"><a href="#monCompte" class = "detail2">Mon Compte<img src="img/monCompte.png" style="width:45px;height:40px;" class = "detailImg"></a></li>
-				  <li class = "detail1"><a href="#panier" class = "detail2">Mon Panier<img src="img/panier.png" style="width:42px;height:40px;" class = "detailImg"></a></li>
-		</ul>
+		<li class = "detail1">
+			<form action="AccueilClientOuvertureFichePerso.php" method="post">
+			<tr>
+				<button class="button button1">Mon Compte</button>
+			</tr>
+			<tr>
+				<img src="img/monCompte.png" style="width:45px;height:40px;" class = "detailImg">
+			</tr>
+			</form>
+		</li>
+		<li class = "detail1">
+			<form action="AccueilClientOuvertureFichePerso.php" method="post">
+			<tr>
+				<button class="button button1">Mon Panier</button>
+			</tr>
+			<tr>
+				<img src="img/panier.png" style="width:42px;height:40px;" class = "detailImg">
+			</tr>
+			</form>
+		</li>
+	</ul>
 
 		<nav class="navbarCouleur"> 
 			<a href="AccueilClient.html"><img src="img/LogoSite.png" alt="Logo" style="width:400px;height:160px;"></a> 
-			<button class="button button2" >Déconnexion</button>
+			<form action="deconnection.php" method="post">
+				<tr>
+					<button class="button button2" >Déconnexion</button>
+				</tr>
+			</form>
 		</nav>
 
 
@@ -67,12 +89,20 @@ session_start();
 </div>
 
 <center><button class="button button1">Paramètres à modifier</button></center>
-<center><button class="button button1">Mes produits</button></center>
-<center><button class="button button1">Mes vendeurs</button></center>
+
+<?php
+	if($_SESSION["statut"] == "vendeur")
+		echo "<center><button class='button button1'>Mes produits</button></center>";
+	
+	if($_SESSION["statut"] == "admin")
+		echo "<center><button class='button button1'>Mes vendeurs</button></center>";
+	
+?>
 <br>
 <br>
 <br>
 <br>
+
 
 
 </body>
