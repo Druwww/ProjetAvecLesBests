@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mon Compte</title>
+	<link rel="icon" href="img/favicon.png" />
+	<link rel="stylesheet" type="text/css" href="styles4.css">
+</head>
+<body>
+
+	<ul class="navigation1">
+				  <li class = "detail1"><a href="#monCompte" class = "detail2">Mon Compte<img src="img/monCompte.png" style="width:45px;height:40px;" class = "detailImg"></a></li>
+				  <li class = "detail1"><a href="#panier" class = "detail2">Mon Panier<img src="img/panier.png" style="width:42px;height:40px;" class = "detailImg"></a></li>
+		</ul>
+
+		<nav class="navbarCouleur"> 
+			<a href="AccueilClient.html"><img src="img/LogoSite.png" alt="Logo" style="width:400px;height:160px;"></a> 
+		</nav>
+<p class="slogan"> Là où tout achat est possible</p>
+<form action="modification.php" method="post">
+			<br>
+			<br>
+			<br>
+			<center>
+				<table>
+									    <tr>
+									        <td><label for="nom">Nom :</label></td>
+									        <td><input type="text" id="nom" name="user_nom"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="prenom">Prenom :</label></td>
+									        <td><input type="text" id="prenom" name="user_prenom"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="pseudo">Pseudo :</label></td>
+									        <td><input type="text" id="pseudo" name="user_pseudo"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="ad1">Adresse 1 : </label></td>
+									        <td><input type="text" id="ad1" name="user_ad1"</td>
+									    </tr>
+									    <tr>
+									        <td><label for="ad2">Adresse 2 :</label></td>
+									        <td><input type="text" id="ad2" name="user_ad2"></td>
+									    </tr>
+									      <tr>
+									        <td><label for="pays">Pays :</label></td>
+									        <td><input type="text" id="pays" name="user_pays"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="CP">Code Postal :</label></td>
+									        <td><input type="number" id="CP" name="user_CP"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="tel">Numéro de telephone :</label></td>
+									        <td><input type="text" id="tel" name="user_tel" ></td>
+									        
+									    </tr>  
+				</table>
+				<br>
+				<br>
+			<button class="button button1">Enregistrer</button>
+		</center>
+	</form>				
+
+<div class="footer">
+ <p><img src="img/coeur.png" style="width:50px;height:40px;" class = "detailImg"> &copy; 2019 Copyright | Amazon ECE<img src="img/coeur.png" style="width:50px;height:40px;" class = "detailImg"><p>
+</div>
+
+<div class="message">
+  <div class="message-header">Espace de modification<img src="img/star.png" style="width:50px;height:40px;" class = "detailImg"></div>
+  <span class="fermeture" onclick="this.parentElement.style.display='none';">×</span>
+  <div class="message-container">
+    <p>Ici vous pouvez modifier et enregistrer vos données personnelles à votre convenance. </p>
+  </div>
+</div>
+
+</body>
+</html>
