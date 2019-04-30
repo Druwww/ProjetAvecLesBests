@@ -142,8 +142,8 @@
 			}
 
 			echo '<h1>' . $nomInfo[0] . ' : ' . $dataProduit["nom"] . '</h1>';
-			echo '<p>' . $nomInfo[1] . ' : ' . $dataProduit[""] . '</p>'; //à ajouter quand on aura des exemple dans la table
-			echo '<p>' . $nomInfo[2] . ' : ' . $dataProduit[""] . '</p>'; //à ajouter quand on aura des exemple dans la table
+			echo '<p>' . $nomInfo[1] . ' : ' . '</p>'; //à ajouter quand on aura des exemple dans la table
+			echo '<p>' . $nomInfo[2] . ' : ' .  '</p>'; //à ajouter quand on aura des exemple dans la table
 
 			echo '<p>Description : ' . $dataProduit["description"] . '</p>'; 
 			echo '<p>Prix : ' . $dataProduit["prix"] . '</p>';
