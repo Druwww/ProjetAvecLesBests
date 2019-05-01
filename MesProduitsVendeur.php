@@ -81,7 +81,7 @@
 				}
 					
 					echo ("<div class='mesProduits'>
-					<a target='_blank' href='#'>
+					<a href=FicheProduit.php?produit=" . $idP ." >
 					<img src=  " . $myPhoto .  " alt='Forest' width='200' height='300'>
 					</a>
 					<div class='desc'>" . $nom . "<br>" . $categorie . "<br> Supprimer le produit <a href='#'><img src='img/supprimer.png' style='width:25px;height:20px;' class = 'detailImg'></a>

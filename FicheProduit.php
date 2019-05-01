@@ -15,7 +15,7 @@
 			session_start();
 
 			if(!isset($_SESSION["email"])){
-				header('Location: index.html');
+				//header('Location: index.html');
 			}
 
 			$database = "Amazon";
@@ -57,7 +57,7 @@
 						$resultPhotoProduit = mysqli_query($db_handle, $photoProduitsql);
 
 						if(mysqli_num_rows($resultPhotoProduit) == 0){
-							echo '<a href="index.html?produit=' . $idP .'"><img src="img/random.jpg" style="width:100px;height:150px;" class="hover-shadow"></a>';
+							echo '<img class="mySlides" src="img/random.jpg" style="width:100%">';
 						}else{
 								while ($dataPhoto = mysqli_fetch_assoc($resultPhotoProduit)) {
 			        				$myPhoto = $dataPhoto["lienPhoto"];
