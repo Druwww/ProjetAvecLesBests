@@ -28,6 +28,8 @@
 			}	
 
 			$idP = $_GET['produit'];
+			$email = $_SESSION["email"];
+			$_SESSION["produitView"] = $idP;
 		
 		?>
 
@@ -122,7 +124,7 @@
   <article>
 
   	<?php
-
+  		$_SESSION["produitView"] = $idP;
   		$produit = "SELECT * FROM `Produit` WHERE `idP` LIKE '$idP'";
 		$monProduit = mysqli_query($db_handle, $produit);
 
@@ -142,19 +144,58 @@
 			}
 
 			echo '<h1>' . $nomInfo[0] . ' : ' . $dataProduit["nom"] . '</h1>';
-			echo '<p>' . $nomInfo[1] . ' : ' . '</p>'; //à ajouter quand on aura des exemple dans la table
-			echo '<p>' . $nomInfo[2] . ' : ' .  '</p>'; //à ajouter quand on aura des exemple dans la table
+
+			if($nomInfo[0] == 'Titre'){
+				$requetteInfoLivre = "SELECT * FROM `infolivre` WHERE `idP` LIKE '$idP'";
+				$monLivre = mysqli_query($db_handle, $requetteInfoLivre);
+
+				while($dataLivre = mysqli_fetch_assoc($monLivre)){
+					echo '<p>' . $nomInfo[1] . ' : ' . $dataLivre["auteur"] .'</p>'; 
+					echo '<p>' . $nomInfo[2] . ' : ' . $dataLivre["genre"] .'</p>'; 
+				}
+			}
+
+			if($dataProduit["categorie"] == "Vetement"){
+				$requetteInfoLivre = "SELECT * FROM `infovetement` WHERE `idP` LIKE '$idP'";
+				$monLivre = mysqli_query($db_handle, $requetteInfoLivre);
+
+				while($dataLivre = mysqli_fetch_assoc($monLivre)){
+					echo '<p>' . $nomInfo[1] . ' : ' . $dataLivre["marque"] .'</p>'; 
+					echo '<p>' . $nomInfo[2] . ' : ' . $dataLivre["genre"] .'</p>'; 
+				}
+			}
+
+			if($dataProduit["categorie"] == "Musique"){
+				$requetteInfoLivre = "SELECT * FROM `infomusique` WHERE `idP` LIKE '$idP'";
+				$monLivre = mysqli_query($db_handle, $requetteInfoLivre);
+
+				while($dataLivre = mysqli_fetch_assoc($monLivre)){
+					echo '<p>' . $nomInfo[1] . ' : ' . $dataLivre["marque"] .'</p>'; 
+					echo '<p>' . $nomInfo[2] . ' : ' . $dataLivre["genre"] .'</p>'; 
+				}
+			}
+
+			if($dataProduit["categorie"] == "SL"){
+				$requetteInfoLivre = "SELECT * FROM `infosl` WHERE `idP` LIKE '$idP'";
+				$monLivre = mysqli_query($db_handle, $requetteInfoLivre);
+
+				while($dataLivre = mysqli_fetch_assoc($monLivre)){
+					echo '<p>' . $nomInfo[1] . ' : ' . $dataLivre["marque"] .'</p>'; 
+					echo '<p>' . $nomInfo[2] . ' : ' . $dataLivre["genre"] .'</p>'; 
+				}
+			}
 
 			echo '<p>Description : ' . $dataProduit["description"] . '</p>'; 
 			echo '<p>Prix : ' . $dataProduit["prix"] . '</p>';
 			$dispo =  $dataProduit["nbDispo"] - $dataProduit["nbVendu"];
+			$_SESSION["nbProduitDispo"] = $dispo;
 			echo '<p>En stock : ' . $dispo . '</p>';
 		}
 
   	?>
   </article>
 
-    <form action="achat.php" method="post">
+    <form action="ajoutPanier.php" method="post">
 			<center>
 				<table>
 
@@ -165,10 +206,21 @@
 			    
 					
 		    	</table>
-		    	<button class="button button1">Acheter</button>
-				
+		    	<button class="button button1">Acheter</button><br>
+		    	<?php
+					$requetteVerificationAchat = "SELECT * FROM `objetpanier` WHERE `email` LIKE '$email' AND `idP` LIKE '$idP'";
+					$resultVerificationAchat = mysqli_query($db_handle, $requetteVerificationAchat);
+
+					if(mysqli_num_rows($resultVerificationAchat) != 0){
+						while ($dataPrecedentAchat = mysqli_fetch_assoc($resultVerificationAchat)) {
+							echo '<label for="CP">Actuellement dans votre panier : ' . $dataPrecedentAchat["nbArticles"] . '</label>';
+						}
+					}
+				?>
 		    </center>
 	</form>
+
+	
 
   </div>
 </div>
