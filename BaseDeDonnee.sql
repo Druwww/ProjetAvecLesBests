@@ -128,10 +128,16 @@ INSERT INTO `statvendeur` (`email`, `gain`) VALUES
 
 INSERT INTO `Produit` (`idP`, `emailVendeur`, `nom` ,`categorie`, `description`, `prix`, `nbVendu`, `nbDispo`) VALUES
 (1, 'vendeur@gmail.com', '50 nuances de Grey',  'Livre', 'un livre sur une histoire d amour', 15, 0, 100),
-(5, 'vendeur@gmail.com', 'Cherub',  'Livre', 'un livre sur des espions', 10, 1, 100),
 (2, 'vendeur@gmail.com', 'Echarpe Tendance',  'Vetement', 'Une echarpe a la mode', 10, 0, 100),
 (3, 'vendeur@gmail.com', 'Chelsy roader',  'Musique', 'un des plus beau morceaux de Prince', 2 ,0, 100),
-(4, 'vendeur@gmail.com', 'Raquette Tennis',  'SL', 'Une raquette pour les champions', 50, 0, 100)
+(4, 'vendeur@gmail.com', 'Raquette Tennis',  'SL', 'Une raquette pour les champions', 50, 0, 100),
+(5, 'vendeur@gmail.com', 'Cherub',  'Livre', 'un livre sur des espions', 10, 1, 100),
+(6, 'vendeur@gmail.com', 'Harry Potter 1',  'Livre', 'un livre sur un jeune aprentit magicien', 15, 50, 100),
+(7, 'vendeur@gmail.com', 'Un appartement à Paris',  'Livre', 'un livre sur une histoire d amour entre deux artiste', 5, 80, 90),
+(8, 'vendeur@gmail.com', 'Le web pour les nul',  'Livre', 'un livre sur comment avoir une bonne note à la piscine', 30, 0, 10),
+(9, 'vendeur@gmail.com', 'Titeuf : La loi du preau',  'Livre', 'un livre sur les aventures de Titeuf', 15, 6, 50),
+(10, 'vendeur@gmail.com', 'Naruto Tome 1',  'Livre', 'un manga sur un jeune ninja un peu rebelle', 9, 450, 1000),
+(11, 'vendeur@gmail.com', 'Nos etoiles contraire',  'Livre', 'un livre sur une romance entre deux personnes malade', 18, 100, 200)
 ;
 
 --
@@ -140,11 +146,18 @@ INSERT INTO `Produit` (`idP`, `emailVendeur`, `nom` ,`categorie`, `description`,
 
 INSERT INTO `photo` (`idPhoto`, `idP`, `lienPhoto`) VALUES
 (1, 1, 'img/livre1.jpg'),
+(2, 5, 'img/cherub.jpg'),
+(3, 5, 'img/cherub2.jpg'),
 (4, 3, 'img/prince.jpg'),
 (5, 2, 'img/echarpe.jpg'),
 (6, 4, 'img/raquette.jpg'),
-(2, 5, 'img/cherub.jpg'),
-(3, 5, 'img/cherub2.jpg');
+(7, 6, 'img/harry1.jpg'),
+(8, 7, 'img/appartementparis.jpg'),
+(9, 8, 'img/webnul.jpg'),
+(10, 9, 'img/titeuf.jpg'),
+(11, 10, 'img/naruto.jpg'),
+(12, 11, 'img/etoiles.jpg')
+;
 
 
 --
@@ -152,8 +165,14 @@ INSERT INTO `photo` (`idPhoto`, `idP`, `lienPhoto`) VALUES
 --
 
 INSERT INTO `infolivre` (`idP`, `auteur`, `editeur`, `genre`, `anneeParution`) VALUES
-(1, 'E.L James', 'fnac', 'roman', 2011),
-(5, 'Robert Muchamor', 'casterman', 'roman', 2000)
+(1, 'E.L James', 'fnac', 'Historique', 2011),
+(5, 'Robert Muchamor', 'casterman', 'Science Fiction', 2000),
+(6, 'JK Rowlings', 'Bloomsbuty', 'Science Fiction', 1997),
+(7, 'Guillaume Musso', 'XO edition', 'Romance', 2017),
+(8, 'John R. Levine', 'Pour les nul', 'Science Fiction', 2005),
+(9, 'Zep', 'Glenat', 'Romance', 2008),
+(10, 'Masashi Kishimoto', 'Kana', 'Science Fiction', 2002),
+(11, 'John Green', 'Nathan', 'Romance', 2012)
 ;
 
 --
@@ -177,5 +196,5 @@ INSERT INTO `infomusique` (`idP`, `artiste`, `anneeParution` , `genre`) VALUES
 --
 
 INSERT INTO `infosl` (`idP`, `marque`, `genre`) VALUES
-(4, 'Decathlon', 'Confirme')
+(4, 'Decathlon', 'Sport')
 ;
