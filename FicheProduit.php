@@ -28,6 +28,7 @@
 			}	
 
 			$idP = $_GET['produit'];
+			$_SESSION["produitView"] = $idP;
 		
 		?>
 
@@ -122,7 +123,7 @@
   <article>
 
   	<?php
-
+  		$_SESSION["produitView"] = $idP;
   		$produit = "SELECT * FROM `Produit` WHERE `idP` LIKE '$idP'";
 		$monProduit = mysqli_query($db_handle, $produit);
 
@@ -148,13 +149,14 @@
 			echo '<p>Description : ' . $dataProduit["description"] . '</p>'; 
 			echo '<p>Prix : ' . $dataProduit["prix"] . '</p>';
 			$dispo =  $dataProduit["nbDispo"] - $dataProduit["nbVendu"];
+			$_SESSION["nbProduitDispo"] = $dispo;
 			echo '<p>En stock : ' . $dispo . '</p>';
 		}
 
   	?>
   </article>
 
-    <form action="achat.php" method="post">
+    <form action="ajoutPanier.php" method="post">
 			<center>
 				<table>
 
@@ -166,7 +168,6 @@
 					
 		    	</table>
 		    	<button class="button button1">Acheter</button>
-				
 		    </center>
 	</form>
 
