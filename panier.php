@@ -8,10 +8,30 @@
 </head>
 <body>
 
+	<?php
+			// Start the session
+			session_start();
+
+			if(!isset($_SESSION["email"])){
+				header('Location: index.html');
+			}
+
+			$database = "Amazon";
+
+			$db_handle = mysqli_connect('localhost', 'root', '');
+			$db_found = mysqli_select_db($db_handle, $database);
+
+			if(! $db_found){
+			echo "<script>alert('Echec connexion BDD !');</script>";
+			}
+
+			$email = $_SESSION["email"];
+	?>
+
 		<ul class="navigation1">
 				  <div class = "detail1">
 				  	<tr>
-						<button class="button button1">Mon Compte</button>
+						<a href="AccueilClientOuvertureFichePerso.php"><button class="button button1">Mon Compte</button></a>
 					</tr>
 					<tr>
 						<img src="img/monCompte.png" style="width:50px;height:40px;" class = "detailImg">
@@ -230,8 +250,32 @@
 				<p >Total</p>
 				
 				<hr>
-				<p class = "donnezArgent">72 euros</p>
-				
+
+				<?php
+
+					$requetAllProductPannier = "SELECT * FROM `objetpanier` WHERE `email` LIKE '$email'";
+					$resultatrequetAllProductPannier = mysqli_query($db_handle, $requetAllProductPannier);
+
+					$total = 0;
+
+					if(mysqli_num_rows($resultatrequetAllProductPannier) != 0){
+						while ($dataProduit = mysqli_fetch_assoc($resultatrequetAllProductPannier)) {
+							$idProduct = $dataProduit["idP"];
+							$idQuantity = $dataProduit["nbArticles"];
+
+							$requetPrixProduit = "SELECT `prix` FROM `produit` WHERE `idP` LIKE '$idProduct'";
+							$resultatrequetPrixProduit = mysqli_query($db_handle, $requetPrixProduit);
+							if(mysqli_num_rows($resultatrequetPrixProduit) == 1){
+								while ($dataProduitPrix = mysqli_fetch_assoc($resultatrequetPrixProduit)) {
+									$prix = $dataProduitPrix["prix"];
+								}
+							}
+							$total += $idQuantity * $prix;
+						}
+					}
+					echo '<p class = "donnezArgent">' . $total . ' €</p>';
+
+				?>
 				<button class="button button1">Paiement</button>
 
 				<p class ="ecriture">Nous acceptons : </p>
