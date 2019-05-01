@@ -1,6 +1,47 @@
 <?php
 	// Start the session
 	if(!isset($_SESSION)){ session_start(); }
+
+	define('DB_SERVER', 'localhost');
+	define('DB_USER', 'root');
+	define('DB_PASS', '');
+
+
+	//identifier le nom de la BDD
+	$database = "Amazon";
+
+	//se connecter à la BDD
+	//$db_handle = mysql_connect(localhost,root,'');
+	$db_handle = mysqli_connect(DB_SERVER, DB_USER ,DB_PASS);
+	$db_found = mysqli_select_db($db_handle, $database);
+
+	//si la BDD existe, faire le traitement
+	if($db_found)
+	{
+		$email = $_SESSION["email"];
+		$sql = "SELECT * FROM statvendeur WHERE email = '$email'";
+		$result = mysqli_query($db_handle, $sql);
+			
+
+		//regarder s'il y a de résultat
+		if (mysqli_num_rows($result) == 0) {
+			//le compte recherché n'existe pas
+			echo "Il n'y a pas de produit";
+		} 
+		else {
+			//on trouve le compte recherché
+			while ($dataRecherche = mysqli_fetch_assoc($result)) {
+				$gain = $dataRecherche["gain"];
+			}
+		}
+	} //end if
+	else //si la BDD n'existe passthru
+	{
+		echo "Database not found";
+	} //end else
+
+	//fermer la connection
+	mysqli_close($db_handle);
 ?>
 
 <!DOCTYPE html>
@@ -25,28 +66,15 @@
     	<br>
     	<br>
     	<br>
-      <p><img src="img/money.png" style="width:50px;height:40px;" class = "detailImg">Mes gains : 7654€</p><br><br>
+		<?php
+			echo "<p><img src='img/money.png' style='width:50px;height:40px;' class = 'detailImg'>Mes gains : " . $gain . "</p><br><br>"; 
+		?>
       <p><img src="img/product.png" style="width:50px;height:40px;" class = "detailImg">Ajouter un produit : <a href=""><img src="img/ajout.png" style="width:50px;height:40px;" class = "detailImg"></a></p>
     
     </ul>
   </section>
 
-  <div class="mesProduits">
-  <a target="_blank" href="">
-    <img src="img/random.jpg" alt="Cinque Terre" width="200" height="300">
-  </a>
-  <div class="desc">Description <br> Supprimer le produit <a href=""><img src="img/supprimer.png" style="width:25px;height:20px;" class = "detailImg"></a>
-  	<br> Ajouter du stock <a href=""><img src="img/ajoutStock.png" style="width:25px;height:20px;" class = "detailImg"><input type="number" id="stock" name="stock"
-       min="0" style="width:15px;" ></a></div>
-</div>
-
-
 <?php
-	define('DB_SERVER', 'localhost');
-	define('DB_USER', 'root');
-	define('DB_PASS', '');
-
-
 	//identifier le nom de la BDD
 	$database = "Amazon";
 
@@ -84,7 +112,7 @@
 					<a href=FicheProduit.php?produit=" . $idP ." >
 					<img src=  " . $myPhoto .  " alt='Forest' width='200' height='300'>
 					</a>
-					<div class='desc'>" . $nom . "<br>" . $categorie . "<br> Supprimer le produit <a href='#'><img src='img/supprimer.png' style='width:25px;height:20px;' class = 'detailImg'></a>
+					<div class='desc'>" . $nom . "<br>" . $categorie . "<br> Supprimer le produit <a href=deleteProduit.php?produit=" . $idP ."><img src='img/supprimer.png' style='width:25px;height:20px;' class = 'detailImg'></a>
 					<br> Ajouter du stock <a href='#'><img src='img/ajoutStock.png' style='width:25px;height:20px;' class = 'detailImg'><input type='number' id='stock' name='stock'
 						min='0' style='width:15px;' ></a>
 					</div>
