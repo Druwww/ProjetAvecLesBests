@@ -36,7 +36,7 @@ $nombre = isset($_POST["stock"])? $_POST["stock"] : 0;
 		if (mysqli_num_rows($RechercheObjet) == 0) {
 			//le compte recherché n'existe pas
 			$addsql = "INSERT INTO `objetvetement` (`idP`, `couleur`, `taille`, `nbDispo`) 
-			VALUES ('$IDProduit', '$couleur', '$taille', '$nombre')";;
+			VALUES ('$IDProduit', '$couleur', '$taille', '$nombre')";
 			$addToTable = mysqli_query($db_handle, $addsql);
 		} 
 		else

@@ -69,7 +69,7 @@
 		<?php
 			echo "<p><img src='img/money.png' style='width:50px;height:40px;' class = 'detailImg'>Mes gains : " . $gain . "</p><br><br>"; 
 		?>
-      <p><img src="img/product.png" style="width:50px;height:40px;" class = "detailImg">Ajouter un produit : <a href=""><img src="img/ajout.png" style="width:50px;height:40px;" class = "detailImg"></a></p>
+      <p><img src="img/product.png" style="width:50px;height:40px;" class = "detailImg">Ajouter un produit : <a href=creationProduit.html><img src="img/ajout.png" style="width:50px;height:40px;" class = "detailImg"></a></p>
     
     </ul>
   </section>
