@@ -39,7 +39,7 @@
 					</tr>
 				</form>
 				</li>
-				  <li class = "detail1"><a href="#panier" class = "detail2">Mon Panier<img src="img/panier.png" style="width:42px;height:40px;" class = "detailImg"></a></li>
+				  <li class = "detail1"><a href="panier.php" class = "detail2">Mon Panier<img src="img/panier.png" style="width:42px;height:40px;" class = "detailImg"></a></li>
 		</ul>
 
 		<nav class="navbarCouleur"> 
@@ -52,13 +52,13 @@
 
 
 		<ul class="navigation2" id="menu-deroulant">
-		  <li class = "detail3"><a href="#livres" class = "detail4">Livre<img src="img/livre.png" style="width:40px;height:40px;" class = "detailImg"></a>
+		  <li class = "detail3"><a href="categorie.php?categorie=Livre" class = "detail4">Livre<img src="img/livre.png" style="width:40px;height:40px;" class = "detailImg"></a>
 		  	<ul>
 
 				
 
 				<ul id="menu-horizontale">
-					<li><a href="#">Genre</a>
+					<li><a href="categorie.php?categorie=Livre&souscategorie=genre">Genre</a>
 						<ul>
 							<li><a href="#">Science Fiction</a></li>
 							<li><a href="#">Romance</a></li>
@@ -70,30 +70,23 @@
 
 
 				<ul id="menu-horizontale">
-					<li><a href="#">Auteur</a></li>
+					<li><a href="categorie.php?categorie=Livre&souscategorie=Auteur">Auteur</a></li>
 				</ul>
 
 				<ul id="menu-horizontale">
-					<li><a href="#">Langue</a>
-						<ul>
-							<li><a href="#">Science Fiction</a></li>
-							<li><a href="#">Romance</a></li>
-							<li><a href="#">Policier</a></li>
-							<li><a href="#">Historique</a></li>
-						</ul>
-					</li>
+					<li><a href="categorie.php?categorie=Livre&souscategorie=annee">Annee parution</a></li>
 				</ul>
 
 				<ul id="menu-horizontale">
-					<li><a href="#">Prix croissants</a></li>
+					<li><a href="categorie.php?categorie=Livre&order=prix">Prix croissants</a></li>
 				</ul>
 			</ul>
 
 		  </li>
-		  <li class = "detail3"><a href="#musique" class = "detail4">Musique<img src="img/musique.png" style="width:40px;height:40px;" class = "detailImg"></a>
+		  <li class = "detail3"><a href="categorie.php?categorie=Musique" class = "detail4">Musique<img src="img/musique.png" style="width:40px;height:40px;" class = "detailImg"></a>
 		  	<ul>
 				<ul id="menu-horizontale">
-					<li><a href="#">Genre</a>
+					<li><a href="categorie.php?categorie=Musique&souscategorie=genre">Genre</a>
 						<ul>
 							<li><a href="#">POP</a></li>
 							<li><a href="#">Rock</a></li>
@@ -102,20 +95,20 @@
 					</li>
 				</ul>
 				<ul id="menu-horizontale">
-					<li><a href="#">Artiste</a></li>
+					<li><a href="categorie.php?categorie=Musique&souscategorie=Artiste">Artiste</a></li>
 				</ul>
 				<ul id="menu-horizontale">
-					<li><a href="#">Alphabétique</a></li>
+					<li><a href="categorie.php?categorie=Musique&order=nom">Alphabétique</a></li>
 				</ul>
 				<ul id="menu-horizontale">
-					<li><a href="#">Prix croissants</a></li>
+					<li><a href="categorie.php?categorie=Musique&order=prix">Prix croissants</a></li>
 				</ul>
 			</ul>
 		  </li>
-		  <li class = "detail3"><a href="#vetement" class = "detail4">Vetement<img src="img/vetement.png" style="width:40px;height:40px;" class = "detailImg"></a>
+		  <li class = "detail3"><a href="categorie.php?categorie=Vetement" class = "detail4">Vetement<img src="img/vetement.png" style="width:40px;height:40px;" class = "detailImg"></a>
 		  		<ul>
 					<ul id="menu-horizontale">
-					<li><a href="#">Homme</a>
+					<li><a href="categorie.php?categorie=Vetement&genre=Homme">Homme</a>
 						<ul>
 							<li><a href="#">T Shirt</a></li>
 							<li><a href="#">Short</a></li>
@@ -124,7 +117,7 @@
 					</li>
 				</ul>
 					<ul id="menu-horizontale">
-					<li><a href="#">Femme</a>
+					<li><a href="categorie.php?categorie=Vetement&genre=Femme">Femme</a>
 						<ul>
 							<li><a href="#">T Shirt</a></li>
 							<li><a href="#">Jupe</a></li>
@@ -133,7 +126,7 @@
 					</li>
 				</ul>
 					<ul id="menu-horizontale">
-					<li><a href="#">Enfant</a>
+					<li><a href="categorie.php?categorie=Vetement&genre=Enfant">Enfant</a>
 						<ul>
 							<li><a href="#">T Shirt</a></li>
 							<li><a href="#">Pantalon</a></li>
@@ -143,10 +136,10 @@
 				</ul>
 				</ul>
 		  </li>
-		  <li class = "detail3"><a href="#sportloisirs" class = "detail4">Sport et Loisirs<img src="img/sport.png" style="width:40px;height:40px;" class = "detailImg"></a>
+		  <li class = "detail3"><a href="categorie.php?categorie=SL" class = "detail4">Sport et Loisirs<img src="img/sport.png" style="width:40px;height:40px;" class = "detailImg"></a>
 		  		<ul>
 					<ul id="menu-horizontale">
-					<li><a href="#">Tous les sports</a>
+					<li><a href="categorie.php?categorie=SL">Tous les sports</a>
 						<ul>
 							<li><a href="#">Tennis</a></li>
 							<li><a href="#">HandBall</a></li>
@@ -155,7 +148,7 @@
 					</li>
 				</ul>
 					<ul id="menu-horizontale">
-					<li><a href="#">Mode et loisir</a>
+					<li><a href="categorie.php?categorie=SL">Mode et loisir</a>
 						<ul>
 							<li><a href="#">T Shirt</a></li>
 							<li><a href="#">Pantalon</a></li>
@@ -164,7 +157,7 @@
 					</li>
 				</ul>
 					<ul id="menu-horizontale">
-					<li><a href="#">Prix croissants</a></li>
+					<li><a href="categorie.php?categorie=SL&order=prix">Prix croissants</a></li>
 				</ul>
 				</ul>
 		  </li>
