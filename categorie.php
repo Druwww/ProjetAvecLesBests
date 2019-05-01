@@ -74,15 +74,43 @@
 <br>
 
 
-
-  <div class="produit">
-    <a target="_blank" href="">
-      <img src="img/random.jpg" alt="produit" width="200" height="300">
-    </a>
-    <div class="desc">Description <br> blabla </div>
-  </div>
+  <?php
 
 
+
+    $requetteRecherche = "SELECT * FROM `produit` WHERE `nom` LIKE '%$recherche%' AND `categorie` LIKE '%$categorie%'";
+    $resultatRecherche = mysqli_query($db_handle, $requetteRecherche);
+
+    if(mysqli_num_rows($resultatRecherche) == 0){
+      echo '<h1>Oups ... Aucun produit sur notre site correspond à votre recherche</h1>';
+    }else{
+        while ($dataProduit = mysqli_fetch_assoc($resultatRecherche)) {
+            $idProduit = $dataProduit["idP"];
+            $photoProduitsql = "SELECT * FROM `photo` WHERE `idP` LIKE '$idProduit'";
+            $resultPhotoProduit = mysqli_query($db_handle, $photoProduitsql);
+
+            echo '<div class="produit"><a target="_blank" href="FicheProduit?produit=' . $idProduit .'">';
+
+            if(mysqli_num_rows($resultPhotoProduit) == 0){
+              echo '<img src="img/random.jpg" alt="produit" width="200" height="300">';
+            }else{
+              while ($dataPhotoProduit = mysqli_fetch_assoc($resultPhotoProduit)) {
+                $myPhoto = $dataPhotoProduit["lienPhoto"];
+              } 
+              echo '<img src="' . $myPhoto . '" alt="produit" width="200" height="300">'; 
+            }
+
+            echo '</a><div class="desc">'. $dataProduit["nom"] . '<br>Prix : ' . $dataProduit["prix"] . '€ </div>';
+
+            echo '</div>';
+
+           
+        }
+
+
+    }
+
+  ?>
 
 <br>
 <br>

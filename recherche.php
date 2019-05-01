@@ -25,10 +25,10 @@
     $param = "?";
 
     if($categorie != ""){
-    	$param .= "categorie=" . $categorie;
+    	$param .= "categorie=" . $categorie ."&";
     }
     if($souscategorie != ""){
-    	$param .= "souscategorie=" . $souscategorie;
+    	$param .= "souscategorie=" . $souscategorie . "&";
     }
     if($recherche != ""){
     	$param .= "recherche=" . $recherche;
