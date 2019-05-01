@@ -79,6 +79,13 @@
 
 
     $requetteRecherche = "SELECT * FROM `produit` WHERE `nom` LIKE '%$recherche%' AND `categorie` LIKE '%$categorie%'";
+
+    $sort = isset($_GET["order"]) ? $_GET["order"] : "";
+
+    if($sort != ""){
+      $requetteRecherche .= " ORDER BY `$sort`";
+    }
+
     $resultatRecherche = mysqli_query($db_handle, $requetteRecherche);
 
     if(mysqli_num_rows($resultatRecherche) == 0){
