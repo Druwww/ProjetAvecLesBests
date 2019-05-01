@@ -2,11 +2,11 @@
 // Start the session
 session_start();
 
-	$genre = isset($_POST["genre"]) ? $_POST["genre"] : "client";
-	$titre = isset($_POST["Titre"]) ? $_POST["Titre"] : "";
-	$auteur = isset($_POST["Auteur"]) ? $_POST["Auteur"] : "";
-	$editeur = isset($_POST["Editeur"]) ? $_POST["Editeur"] : "";
-	$dateParution = isset($_POST["Date"]) ? $_POST["Date"] : 0;
+	$genre = isset($_POST["genre"]) ? $_POST["genre"] : "";
+	$taille = isset($_POST["taille"]) ? $_POST["taille"] : "";
+	$nom = isset($_POST["Titre"]) ? $_POST["Titre"] : "";
+	$marque = isset($_POST["Marque"]) ? $_POST["Marque"] : "";
+	$couleur = isset($_POST["Couleur"]) ? $_POST["Couleur"] : "";
 	$description = isset($_POST["Description"]) ? $_POST["Description"] : "";
 	$prix = isset($_POST["Prix"]) ? $_POST["Prix"] : 0;
 	$quantite = isset($_POST["Quantité"]) ? $_POST["Quantité"] : 0;
@@ -20,17 +20,17 @@ session_start();
 	$emailVendeur = $_SESSION["email"];
 	
 	//Si les champs ne sont pas remplis, on ajoute les erreurs
-	if($titre=="")
+	if($nom=="")
 	{
 		$erreur .= "Le champ titre est vide. <br>";
 	}
-	if($auteur=="")
+	if($marque=="")
 	{
-		$erreur .= "Le champ auteur est vide. <br>";
+		$erreur .= "Le champ marque est vide. <br>";
 	}
-	if($dateParution==0)
+	if($couleur=="")
 	{
-		$erreur .= "Le champ date de parution est vide. <br>";
+		$erreur .= "Le champ couleur est vide. <br>";
 	}
 	if($description=="")
 	{
@@ -70,10 +70,10 @@ if($erreur == ""){
 	if($db_found)
 	{
 		$nbVendu = 0;
-		$categorie = "Livre";
+		$categorie = "vetement";
 		//On créer dans produit
 		$sqlAjout = "INSERT INTO `produit` (`emailVendeur`, `nom`, `categorie`, `description`, `prix`, `nbVendu`, `nbDispo`)
-		VALUES ('$emailVendeur', '$titre', '$categorie' , '$description' , '$prix', '$nbVendu', '$quantite')";
+		VALUES ('$emailVendeur', '$nom', '$categorie' , '$description' , '$prix', '$nbVendu', '$quantite')";
 		echo $sqlAjout;
 		$ajout = mysqli_query($db_handle, $sqlAjout);
 		
@@ -83,7 +83,7 @@ if($erreur == ""){
 			echo "J'ai pas reussi à l'ajouter";
 		
 		//on retrouve le produit pour avoir son ID Produit
-		$sqlRecherche = "SELECT * FROM `produit` WHERE `emailVendeur` = '$emailVendeur' AND `nom` = '$titre' AND `categorie` = 'Livre' AND `description` = '$description' AND `prix` = '$prix' AND `nbVendu` = '0' AND `nbDispo`= '$quantite'";
+		$sqlRecherche = "SELECT * FROM `produit` WHERE `emailVendeur` = '$emailVendeur' AND `nom` = '$nom' AND `categorie` = 'Livre' AND `description` = '$description' AND `prix` = '$prix' AND `nbVendu` = '0' AND `nbDispo`= '$quantite'";
 		$resultRecherche = mysqli_query($db_handle, $sqlRecherche);
 		
 		if($resultRecherche)
@@ -92,13 +92,18 @@ if($erreur == ""){
 			echo "J'ai pas reussi à le trouver";
 		
 		
-		while ($dataLivre = mysqli_fetch_assoc($resultRecherche)) {
-		    $myID = $dataLivre["idP"];
+		while ($dataVetement = mysqli_fetch_assoc($resultRecherche)) {
+		    $myID = $dataVetement["idP"];
 		 }
 		
-		$sqlAjout2 = "INSERT INTO `infolivre` (`idP`, `auteur`, `editeur`, `genre`, `anneeParution`) 
-			VALUES ('$myID', '$auteur', '$editeur' , '$genre' , '$dateParution')";
+		
+		$sqlAjout2 = "INSERT INTO `infosl` (`idP`, `marque`, `genre`) 
+			VALUES ('$myID', '$marque', '$genre')";
 		$ajout2 = mysqli_query($db_handle, $sqlAjout2);
+		
+		$sqlAjout2BIS = "INSERT INTO `infosl` (`idP`, `couleur`, `taille`, `nbDispo`) 
+			VALUES ('$myID', '$couleur', '$taille', '$quantite')";
+		$ajout2BIS = mysqli_query($db_handle, $sqlAjout2BIS);
 		
 		///Ajouter la photo
 		$sqlAjout3 = "INSERT INTO `photo` (`idP`, `lienPhoto`) 
