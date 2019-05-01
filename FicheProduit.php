@@ -28,6 +28,7 @@
 			}	
 
 			$idP = $_GET['produit'];
+			$email = $_SESSION["email"];
 			$_SESSION["produitView"] = $idP;
 		
 		?>
@@ -167,9 +168,21 @@
 			    
 					
 		    	</table>
-		    	<button class="button button1">Acheter</button>
+		    	<button class="button button1">Acheter</button><br>
+		    	<?php
+					$requetteVerificationAchat = "SELECT * FROM `objetpanier` WHERE `email` LIKE '$email' AND `idP` LIKE '$idP'";
+					$resultVerificationAchat = mysqli_query($db_handle, $requetteVerificationAchat);
+
+					if(mysqli_num_rows($resultVerificationAchat) != 0){
+						while ($dataPrecedentAchat = mysqli_fetch_assoc($resultVerificationAchat)) {
+							echo '<label for="CP">Actuellement dans votre panier : ' . $dataPrecedentAchat["nbArticles"] . '</label>';
+						}
+					}
+				?>
 		    </center>
 	</form>
+
+	
 
   </div>
 </div>
