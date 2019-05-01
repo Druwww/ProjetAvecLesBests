@@ -144,8 +144,46 @@
 			}
 
 			echo '<h1>' . $nomInfo[0] . ' : ' . $dataProduit["nom"] . '</h1>';
-			echo '<p>' . $nomInfo[1] . ' : ' . '</p>'; //à ajouter quand on aura des exemple dans la table
-			echo '<p>' . $nomInfo[2] . ' : ' .  '</p>'; //à ajouter quand on aura des exemple dans la table
+
+			if($nomInfo[0] == 'Titre'){
+				$requetteInfoLivre = "SELECT * FROM `infolivre` WHERE `idP` LIKE '$idP'";
+				$monLivre = mysqli_query($db_handle, $requetteInfoLivre);
+
+				while($dataLivre = mysqli_fetch_assoc($monLivre)){
+					echo '<p>' . $nomInfo[1] . ' : ' . $dataLivre["auteur"] .'</p>'; 
+					echo '<p>' . $nomInfo[2] . ' : ' . $dataLivre["genre"] .'</p>'; 
+				}
+			}
+
+			if($dataProduit["categorie"] == "Vetement"){
+				$requetteInfoLivre = "SELECT * FROM `infovetement` WHERE `idP` LIKE '$idP'";
+				$monLivre = mysqli_query($db_handle, $requetteInfoLivre);
+
+				while($dataLivre = mysqli_fetch_assoc($monLivre)){
+					echo '<p>' . $nomInfo[1] . ' : ' . $dataLivre["marque"] .'</p>'; 
+					echo '<p>' . $nomInfo[2] . ' : ' . $dataLivre["genre"] .'</p>'; 
+				}
+			}
+
+			if($dataProduit["categorie"] == "Musique"){
+				$requetteInfoLivre = "SELECT * FROM `infomusique` WHERE `idP` LIKE '$idP'";
+				$monLivre = mysqli_query($db_handle, $requetteInfoLivre);
+
+				while($dataLivre = mysqli_fetch_assoc($monLivre)){
+					echo '<p>' . $nomInfo[1] . ' : ' . $dataLivre["marque"] .'</p>'; 
+					echo '<p>' . $nomInfo[2] . ' : ' . $dataLivre["genre"] .'</p>'; 
+				}
+			}
+
+			if($dataProduit["categorie"] == "SL"){
+				$requetteInfoLivre = "SELECT * FROM `infosl` WHERE `idP` LIKE '$idP'";
+				$monLivre = mysqli_query($db_handle, $requetteInfoLivre);
+
+				while($dataLivre = mysqli_fetch_assoc($monLivre)){
+					echo '<p>' . $nomInfo[1] . ' : ' . $dataLivre["marque"] .'</p>'; 
+					echo '<p>' . $nomInfo[2] . ' : ' . $dataLivre["genre"] .'</p>'; 
+				}
+			}
 
 			echo '<p>Description : ' . $dataProduit["description"] . '</p>'; 
 			echo '<p>Prix : ' . $dataProduit["prix"] . '</p>';
