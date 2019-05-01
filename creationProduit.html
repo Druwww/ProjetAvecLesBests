@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mon Compte</title>
+<link rel="icon" href="img/favicon.png" />
+	<link rel="stylesheet" type="text/css" href="styles10.css">
+	
+</head>
+<body>
+
+		<ul class="navigation1">
+				  <div class = "detail1">
+				  	<tr>
+						<button class="button button1">Mon Compte</button>
+					</tr>
+					<tr>
+						<img src="img/monCompte.png" style="width:50px;height:40px;" class = "detailImg">
+					</tr>
+				  	 <tr>
+						<button class="button button1">Mon Panier</button>
+					</tr>
+					<tr>
+						<img src="img/panier.png" style="width:45px;height:40px;" class = "detailImg">
+					</tr>
+				  </div>
+				 
+				  
+		</ul>
+
+		<nav class="navbarCouleur"> 
+			<a href="AccueilClient.php"><img src="img/LogoSite.png" alt="Logo" class ="logo"></a> 
+
+		</nav>
+
+
+<p class="slogan"> <img src="img/slogan.png" alt="Logo" style="width:500px;height:80;"></p>
+
+				
+				<div class="row">
+						<center>
+							<div class="column">
+							  <h2>Ajouter un livre</h2><br>
+							    <form action="ajoutLivre.php" method="post">
+										<center><table>
+											<tr>
+									        <td><label> Genre :     </label>
+								    		<select name ="genre">
+										  		<option value="client">Romantique</option>
+										  		<option value="vendeur">Historique</option>
+										  		<option value="client">Policier</option>
+										  		<option value="vendeur">Science Fiction</option>
+											</select><br></td>
+									    </tr>
+									    <tr>
+									        <td><label for="nom">Titre :</label></td>
+									        <td><input type="text" id="Titre" name="Titre"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="prenom">Auteur :</label></td>
+									        <td><input type="text" id="Auteur" name="Auteur"></td>
+									    </tr>
+									    
+									    <tr>
+									        <td><label for="mail">Date de parution:</label></td>
+									        <td><input type="text" id="Date" name="Date"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="nom">Description :</label></td>
+									        <td><input type="text" id="Description" name="Description"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="nom">Prix :</label></td>
+									        <td><input type="number" id="Prix" name="Prix"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="nom">Quantité :</label></td>
+									        <td><input type="number" id="Quantité" name="Quantité"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="nom">Image 1 :</label></td>
+									        <td><input type="text" id="image1" name="image1"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="nom">Image 2 (optionnel) :</label></td>
+									        <td><input type="text" id="image2" name="image2"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="nom">Image 3 (optionnel) :</label></td>
+									        <td><input type="text" id="image3" name="image3"></td>
+									    </tr>
+									    
+									</table><br>
+									<button class="button button1">Ajouter Livre</button><br>
+									<img src="img/ajoutLivre.gif">
+								</center>
+								</form>
+							  </div>
+							  
+							  <div class="column">
+							    <h2>Ajouter une musique</h2><br>
+							    <form action="ajoutMusique.php" method="post">
+										<center><table>
+											<tr>
+									        <td><label> Style :     </label>
+								    		<select name ="Style">
+										  		<option value="pop">Pop</option>
+										  		<option value="rock">Rock</option>
+										  		<option value="classique">Classique</option>
+										  	</select><br></td>
+									    </tr>
+									    <tr>
+									        <td><label for="nom">Artiste :</label></td>
+									        <td><input type="text" id="Artiste" name="Artiste"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="prenom">Titre :</label></td>
+									        <td><input type="text" id="Titre" name="Titre"></td>
+									    </tr>
+									    
+									    <tr>
+									        <td><label for="mail">Date de parution:</label></td>
+									        <td><input type="text" id="Date" name="Date"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="nom">Description :</label></td>
+									        <td><input type="text" id="Description" name="Description"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="nom">Prix :</label></td>
+									        <td><input type="number" id="Prix" name="Prix"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="nom">Quantité :</label></td>
+									        <td><input type="number" id="Quantité" name="Quantité"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="nom">Image 1 :</label></td>
+									        <td><input type="text" id="image1" name="image1"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="nom">Image 2 (optionnel) :</label></td>
+									        <td><input type="text" id="image2" name="image2"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="nom">Image 3 (optionnel) :</label></td>
+									        <td><input type="text" id="image3" name="image3"></td>
+									    </tr>
+									    
+									</table><br>
+									<button class="button button1">Ajouter Musique</button><br>
+									<img src="img/ajoutMusique.gif">
+								</center>
+								</form>
+							   
+							  </div>
+							  
+							  <div class="column">
+							    <h2>Ajouter un vêtement</h2><br>
+							    <form action="ajoutMusique.php" method="post">
+										<center><table>
+											<tr>
+									        <td><label> Genre :     </label>
+								    		<select name ="genre">
+										  		<option value="homme">Homme</option>
+										  		<option value="femme">Femme</option>
+										  		<option value="enfant">Enfant</option>
+										  	</select><br></td>
+									    </tr>
+									    <tr>
+									        <td><label> Taille :     </label>
+								    		<select name ="genre">
+										  		<option value="s">S</option>
+										  		<option value="m">M</option>
+										  		<option value="l">L</option>
+										  	</select><br></td>
+									    </tr>
+									    <tr>
+									        <td><label for="nom">Marque :</label></td>
+									        <td><input type="text" id="Marque" name="Marque"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="prenom">Titre :</label></td>
+									        <td><input type="text" id="Titre" name="Titre"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="nom">Description :</label></td>
+									        <td><input type="text" id="Description" name="Description"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="nom">Prix :</label></td>
+									        <td><input type="number" id="Prix" name="Prix"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="nom">Quantité :</label></td>
+									        <td><input type="number" id="Quantité" name="Quantité"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="nom">Image 1 :</label></td>
+									        <td><input type="text" id="image1" name="image1"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="nom">Image 2 (optionnel) :</label></td>
+									        <td><input type="text" id="image2" name="image2"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="nom">Image 3 (optionnel) :</label></td>
+									        <td><input type="text" id="image3" name="image3"></td>
+									    </tr>
+									    
+									</table><br>
+									<button class="button button1">Ajouter Vetement</button><br><br>
+									<img src="img/ajoutVetement.gif" height="100px">
+								</center>
+								</form>
+							   
+							  </div>
+							  <div class="column">
+							    <h2>Ajouter à sport et loisir</h2><br>
+							    <form action="ajoutMusique.php" method="post">
+										<center><table>
+											<tr>
+									        <td><label> Genre :     </label>
+								    		<select name ="genre">
+										  		<option value="homme">Homme</option>
+										  		<option value="femme">Femme</option>
+										  		<option value="enfant">Enfant</option>
+										  	</select><br></td>
+									    </tr>
+									    <tr>
+									        <td><label for="nom">Marque :</label></td>
+									        <td><input type="text" id="Marque" name="Marque"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="prenom">Titre :</label></td>
+									        <td><input type="text" id="Titre" name="Titre"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="nom">Description :</label></td>
+									        <td><input type="text" id="Description" name="Description"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="nom">Prix :</label></td>
+									        <td><input type="number" id="Prix" name="Prix"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="nom">Quantité :</label></td>
+									        <td><input type="number" id="Quantité" name="Quantité"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="nom">Image 1 :</label></td>
+									        <td><input type="text" id="image1" name="image1"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="nom">Image 2 (optionnel) :</label></td>
+									        <td><input type="text" id="image2" name="image2"></td>
+									    </tr>
+									    <tr>
+									        <td><label for="nom">Image 3 (optionnel) :</label></td>
+									        <td><input type="text" id="image3" name="image3"></td>
+									    </tr>
+									    
+									</table><br>
+									<button class="button button1">Ajouter à Sport et Loisir </button><br><br>
+									<img src="img/ajoutS&P.gif" height="100px">
+								</center>
+								</form>
+							   
+							  </div>
+						</center>
+				  
+				</div>
+				
+
+<div class="message">
+  <div class="message-header">Mes nouveaux produits<img src="img/star.png" style="width:50px;height:40px;" class = "detailImg"></div>
+  <span class="fermeture" onclick="this.parentElement.style.display='none';">×</span>
+  <div class="message-container">
+    <p>Bienvenue sur la page qui vous permettra d'ajouter de nouveaux produits à votre liste actuelle.</p>
+  </div>
+</div>
+
+<div class="footer">
+ <p><img src="img/coeur.png" style="width:50px;height:40px;" class = "detailImg"> &copy; 2019 Copyright | Amazon ECE<img src="img/coeur.png" style="width:50px;height:40px;" class = "detailImg"><p>
+</div>
+
+
+</body>
+</html>
