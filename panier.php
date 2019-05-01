@@ -8,10 +8,30 @@
 </head>
 <body>
 
+	<?php
+			// Start the session
+			session_start();
+
+			if(!isset($_SESSION["email"])){
+				header('Location: index.html');
+			}
+
+			$database = "Amazon";
+
+			$db_handle = mysqli_connect('localhost', 'root', '');
+			$db_found = mysqli_select_db($db_handle, $database);
+
+			if(! $db_found){
+			echo "<script>alert('Echec connexion BDD !');</script>";
+			}
+
+			$email = $_SESSION["email"];
+	?>
+
 		<ul class="navigation1">
 				  <div class = "detail1">
 				  	<tr>
-						<button class="button button1">Mon Compte</button>
+						<a href="AccueilClientOuvertureFichePerso.php"><button class="button button1">Mon Compte</button></a>
 					</tr>
 					<tr>
 						<img src="img/monCompte.png" style="width:50px;height:40px;" class = "detailImg">
@@ -161,28 +181,76 @@
 		<div class="column">
 			<div class = "panier">
 					<p >Mon panier</p>
+
+					<?php
+
+					$requetAllProductPannier = "SELECT * FROM `objetpanier` WHERE `email` LIKE '$email'";
+					$resultatrequetAllProductPannier = mysqli_query($db_handle, $requetAllProductPannier);
+
+					if(mysqli_num_rows($resultatrequetAllProductPannier) != 0){
+						while ($dataProduit = mysqli_fetch_assoc($resultatrequetAllProductPannier)) {
+							
+							echo '<hr><div class="row2"><div class="column2">';
+							
+
+							$idP = $dataProduit["idP"];
+							$nbArticles = $dataProduit["nbArticles"];
+							
+
+							//Affichage de la photo
+							$photoProduitsql = "SELECT `lienPhoto` FROM `photo` WHERE `idP` LIKE '$idP'";
+							$resultPhotoProduit = mysqli_query($db_handle, $photoProduitsql);
+
+							if(mysqli_num_rows($resultPhotoProduit) == 0){
+								echo '<a href="FicheProduit.php?produit='. $idP .'" ><img src="img/random.jpg" class="detailImg2"></a>';
+							}else{
+								while ($dataPhoto = mysqli_fetch_assoc($resultPhotoProduit)) {
+				        			$myPhoto = $dataPhoto["lienPhoto"];
+				        				
+				    			}	
+				    			echo '<a href="FicheProduit.php?produit='. $idP .'" ><img src="'. $myPhoto .'" class="detailImg2"></a>';
+							}
+
+							//Affichage du prix
+							$requetPrixProduit = "SELECT `prix` FROM `produit` WHERE `idP` LIKE '$idP'";
+							$resultatrequetPrixProduit = mysqli_query($db_handle, $requetPrixProduit);
+							if(mysqli_num_rows($resultatrequetPrixProduit) == 1){
+								while ($dataProduitPrix = mysqli_fetch_assoc($resultatrequetPrixProduit)) {
+									$prix = $dataProduitPrix["prix"];
+								}
+							}
+							$prixtotal = $prix * $nbArticles;
+
+							echo '</div><div class="column2"><table width="100%" border ="1" cellspacing="0" ><tr><td><div>';
+
+							echo ' Prix : ' . $prixtotal . '<br>Quantite : ' . $nbArticles;
+
+							echo '<form action="modificationPanier.php?produit=' . $idP . '" method="post">
+										<p class ="ecriture2">Modifier la quantite : </p>
+										<input type="number" id = "quantite" name="quantite">
+										<button class="button button3">Valider</button>
+									</form>';
+
+							echo '</div></td><tr></table>';
+
+							echo '<form action="suppresionProduit.php?produit=' . $idP . '" method="post"><button class="button button2">Supprimer mon produit</button></form></div></div>';
+
+						
+						}
+
+
+					}
+					else{
+						echo '<br><br><p>Vous n\'avez pas d\'articles dans votre panier</p><br><br>';
+					}
+					?>
 					<hr>
-						<div class="row2">
-								<div class="column2">
-									<img src="img/random.jpg" class = "detailImg2">
-								</div>
-								<div class="column2">
-									<table width="100%" border ="1" cellspacing="0" >
-										<tr>
-											<td>
-												<div> Prix : <br>
-													  Quantite : 1
-													  <p class ="ecriture2">Modifier la quantite : </p><input type="number" id = "quantité" name="quantité"><button class="button button3">Valider</button>
-												</div>
-											</td>
-										<tr>
-											 
-									</table>
-									<button class="button button2">Supprimer mon produit</button>
-								</div>
-						</div>
-					<hr>
-					<div class="row2">
+			</div>
+		</div>
+
+
+<!-- POUR LES VETEMENTS -->
+					<!-- <div class="row2">
 								<div class="column2">
 									<img src="img/random.jpg" class = "detailImg2">
 								</div>
@@ -220,18 +288,39 @@
 									<button class="button button2">Supprimer mon produit</button>
 								</div>
 						</div>
-					<hr>
-			</div>
-		</div>
-
+					 -->
 
  		<div class="column">
 			<div class = "total">
 				<p >Total</p>
 				
 				<hr>
-				<p class = "donnezArgent">72 euros</p>
-				
+
+				<?php
+
+					$requetAllProductPannier = "SELECT * FROM `objetpanier` WHERE `email` LIKE '$email'";
+					$resultatrequetAllProductPannier = mysqli_query($db_handle, $requetAllProductPannier);
+
+					$total = 0;
+
+					if(mysqli_num_rows($resultatrequetAllProductPannier) != 0){
+						while ($dataProduit = mysqli_fetch_assoc($resultatrequetAllProductPannier)) {
+							$idProduct = $dataProduit["idP"];
+							$idQuantity = $dataProduit["nbArticles"];
+
+							$requetPrixProduit = "SELECT `prix` FROM `produit` WHERE `idP` LIKE '$idProduct'";
+							$resultatrequetPrixProduit = mysqli_query($db_handle, $requetPrixProduit);
+							if(mysqli_num_rows($resultatrequetPrixProduit) == 1){
+								while ($dataProduitPrix = mysqli_fetch_assoc($resultatrequetPrixProduit)) {
+									$prix = $dataProduitPrix["prix"];
+								}
+							}
+							$total += $idQuantity * $prix;
+						}
+					}
+					echo '<p class = "donnezArgent">' . $total . ' €</p>';
+
+				?>
 				<button class="button button1">Paiement</button>
 
 				<p class ="ecriture">Nous acceptons : </p>
