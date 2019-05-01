@@ -55,7 +55,7 @@ CREATE TABLE ObjetVetement(
 idVetement int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 idP int(11) NOT NULL,
 couleur varchar(255) NOT NULL,
-taille int(11) NOT NULL,
+taille varchar(255) NOT NULL,
 nbDispo int(11) NOT NULL,
 FOREIGN KEY (idP) REFERENCES Produit(idP)
 );
