@@ -129,7 +129,7 @@ session_start();
 
 <?php
 	if($_SESSION["statut"] == "vendeur")
-		echo"<form action='accesProduitVendeur.php' method='post'>
+		echo"<form action='AccesProduitVendeur.php' method='post'>
 				<tr>
 					<center><button class='button button1'>Mes produits</button></center>
 				</tr>
