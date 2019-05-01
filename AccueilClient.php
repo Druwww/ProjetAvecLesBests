@@ -4,9 +4,27 @@
 	<title>Accueil</title>
 	<link rel="icon" href="img/favicon.png" />
 	<link rel="stylesheet" type="text/css" href="styles2.css">
-	
+	<script> 
+	</script>
 </head>
 <body>
+		<?php
+			// Start the session
+			session_start();
+
+			if(!isset($_SESSION["email"])){
+				header('Location: index.html');
+			}
+
+			$database = "Amazon";
+
+			$db_handle = mysqli_connect('localhost', 'root', '');
+			$db_found = mysqli_select_db($db_handle, $database);
+
+			if(! $db_found){
+			echo "<script>alert('Echec connexion BDD !');</script>";
+		}
+		?>
 
 		<ul class="navigation1">
 				 <li class = "detail1">
@@ -25,7 +43,7 @@
 		</ul>
 
 		<nav class="navbarCouleur"> 
-			<a href="AccueilClient.html"><img src="img/LogoSite.png" alt="Logo" style="width:400px;height:160px;"></a> 
+			<a href="AccueilClient.php"><img src="img/LogoSite.png" alt="Logo" style="width:400px;height:160px;"></a> 
 
 		</nav>
 
@@ -152,73 +170,62 @@
 		  </li>
 		</ul>
 
-<p class ="myFont">Meilleures ventes livres</p>
 
-<div class="row">
-	  <div class="column">
-		<img src="img/random.jpg" style="width:200px;height:300px;" class="hover-shadow">
-	  </div>
-	  <div class="column">
-		<img src="img/random.jpg" style="width:200px;height:300px;" class="hover-shadow">
-	  </div>
-	  <div class="column">
-		<img src="img/random.jpg" style="width:200px;height:300px;" class="hover-shadow">
-	  </div>
-	  <div class="column">
-		<img src="img/random.jpg" style="width:200px;height:300px;" class="hover-shadow">
-	  </div>
-  </div>
 
-<p class ="myFontMusique">Meilleures ventes Musique</p>
+		<?php
+			$categorie = array('Livre', 'Musique', 'Vetement', 'SL');
 
-<div class="row">
-	  <div class="column">
-		<img src="img/random.jpg" style="width:200px;height:300px;" class="hover-shadow">
-	  </div>
-	  <div class="column">
-		<img src="img/random.jpg" style="width:200px;height:300px;" class="hover-shadow">
-	  </div>
-	  <div class="column">
-		<img src="img/random.jpg" style="width:200px;height:300px;" class="hover-shadow">
-	  </div>
-	  <div class="column">
-		<img src="img/random.jpg" style="width:200px;height:300px;" class="hover-shadow">
-	  </div>
-  </div>
+			for($i = 0; $i < 4; $i++){
+				echo '<p class ="myFont">Meilleures ventes ' . $categorie[$i] . '</p>';
 
-<p class ="myFont">Meilleures ventes Vêtements</p>
+				echo '<div class="row">';
 
-<div class="row">
-	  <div class="column">
-		<img src="img/random.jpg" style="width:200px;height:300px;" class="hover-shadow">
-	  </div>
-	  <div class="column">
-		<img src="img/random.jpg" style="width:200px;height:300px;" class="hover-shadow">
-	  </div>
-	  <div class="column">
-		<img src="img/random.jpg" style="width:200px;height:300px;" class="hover-shadow">
-	  </div>
-	  <div class="column">
-		<img src="img/random.jpg" style="width:200px;height:300px;" class="hover-shadow">
-	  </div>
-  </div>
 
-<p class ="myFont">Meilleures ventes Sport et Loisirs</p>
+				$bestVentesql = "SELECT * FROM `Produit` WHERE `categorie` LIKE '$categorie[$i]' ORDER BY `nbVendu` DESC";
+				$resultBestVente = mysqli_query($db_handle, $bestVentesql);
 
-<div class="row">
-	  <div class="column">
-		<img src="img/random.jpg" style="width:200px;height:300px;" class="hover-shadow">
-	  </div>
-	  <div class="column">
-		<img src="img/random.jpg" style="width:200px;height:300px;" class="hover-shadow">
-	  </div>
-	  <div class="column">
-		<img src="img/random.jpg" style="width:200px;height:300px;" class="hover-shadow">
-	  </div>
-	  <div class="column">
-		<img src="img/random.jpg" style="width:200px;height:300px;" class="hover-shadow">
-	  </div>
-  </div>
+				$nbProduitAffiche = 0;
+
+				while ($dataVente = mysqli_fetch_assoc($resultBestVente)) {
+					$nbProduitAffiche ++;
+					if($nbProduitAffiche > 4){
+						break;
+					}
+
+					echo '<div class="column">';
+
+					$idP = $dataVente["idP"];
+
+					$photoProduitsql = "SELECT `lienPhoto` FROM `photo` WHERE `idP` LIKE '$idP'";
+					$resultPhotoProduit = mysqli_query($db_handle, $photoProduitsql);
+
+					if(mysqli_num_rows($resultPhotoProduit) == 0){
+						echo '<a href="FicheProduit.php?produit=' . $idP .'"><img src="img/random.jpg" style="width:100px;height:150px;" class="hover-shadow"></a>';
+					}else{
+							while ($dataPhoto = mysqli_fetch_assoc($resultPhotoProduit)) {
+		        				$myPhoto = $dataPhoto["lienPhoto"];
+		    				}	
+							echo '<a href="FicheProduit.php?produit=' . $idP .'"><img src="' . $myPhoto . '" style="width:100px;height:150px;" class="hover-shadow"></a>'; 
+					}
+					echo "<br>Nom : " . $dataVente["nom"] . "<br>";
+					echo "prix : " . $dataVente["prix"] . "<br>";
+					echo "Nombre Vendu : " . $dataVente["nbVendu"] . "<br>";
+					echo "</div>";
+				}
+				echo "</div>";
+			}
+
+		?>
+
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
 
 <div class="footer">
  <p><img src="img/coeur.png" style="width:50px;height:40px;" class = "detailImg"> &copy; 2019 Copyright | Amazon ECE<img src="img/coeur.png" style="width:50px;height:40px;" class = "detailImg"><p>

@@ -56,8 +56,11 @@ if($erreur == "")
 		else {
 			//on trouve le compte recherché
 			$_SESSION["email"] = $email;
+			if(!isset($_SESSION["email"])){
+				echo "<script>alert('Caca');</script>";
+			}
 			// lien pour renvoyer vers la page d'accueil de l'espace client
-			include('PageMDP.html');
+			header('Location: PageMDP.php');
 		}
 	} //end if
 	else //si la BDD n'existe passthru
@@ -72,7 +75,7 @@ if($erreur == "")
 else //s'il y a une erreur dans les champs
 {
    echo $erreur;
-   include('index.html');
+   header('Location: index.html');
 }
 
 ?>
