@@ -107,17 +107,73 @@
 				while ($dataPhoto = mysqli_fetch_assoc($resultPhotoProduit)) {
 					$myPhoto = $dataPhoto["lienPhoto"];
 				}
-					
+				if($categorie != "Vetement") //SI CE N EST PAS UN VETEMENT C EST PLUS SIMPLE
 					echo ("<div class='mesProduits'>
 					<a href=FicheProduit.php?produit=" . $idP ." >
 					<img src=  " . $myPhoto .  " alt='Forest' width='200' height='300'>
 					</a>
 					<div class='desc'>" . $nom . "<br>" . $categorie . "<br> Supprimer le produit <a href=deleteProduit.php?produit=" . $idP ."><img src='img/supprimer.png' style='width:25px;height:20px;' class = 'detailImg'></a>
-					<br> Ajouter du stock <a href='#'><img src='img/ajoutStock.png' style='width:25px;height:20px;' class = 'detailImg'><input type='number' id='stock' name='stock'
-						min='0' style='width:15px;' ></a>
+					<br> Ajouter du stock <form action='AjoutStock.php?produit=" . $idP ."' method='post'><input type='number' id='stock' name='stock'
+						min='0' style='width:25px;' ><tr>
+						<button class='button button1'>Ajouter</button>
+					</tr>
+					</form>
 					</div>
 					</div>");
-				
+				else // SI C EST UN VETEMENT C EST PLUS COMPLIOQU
+				{
+					$sqlVetement = "SELECT * FROM objetvetement WHERE idP = '$idP'";
+					$resultVetement = mysqli_query($db_handle, $sqlVetement);
+		
+					$ensembleCouleur = array();
+					
+					while ($dataVetement = mysqli_fetch_assoc($resultVetement)) {
+						$myColor = $dataVetement["couleur"];
+						if(count($ensembleCouleur) == 0)
+						{
+							$ensembleCouleur[0] = $myColor;
+						}
+						else
+						{
+							$trouve = false;
+							for($i=0; $i< count($ensembleCouleur); $i++ )
+							{
+								if($myColor == $ensembleCouleur[$i])
+									$trouve = true;
+							}
+							
+							if($trouve == false)
+							{
+								$ensembleCouleur[count($ensembleCouleur)] = $myColor;
+							}
+						}
+					
+					}
+		
+					echo ("<div class='mesProduits'>
+					<a href=FicheProduit.php?produit=" . $idP ." >
+					<img src=  " . $myPhoto .  " alt='Forest' width='200' height='300'>
+					</a>
+					<div class='desc'>" . $nom . "<br>" . $categorie . "<br> Supprimer le produit <a href=deleteProduit.php?produit=" . $idP ."><img src='img/supprimer.png' style='width:25px;height:20px;' class = 'detailImg'></a>
+					<br>Ajouter du stock <form action='AjoutStockVetement.php?produit=" . $idP ."' method='post'><br><input type='number' id='stock' name='stock' min='0' style='width:25px;' ></a> <select name ='couleur'>"); 
+					
+					for($i = 0; $i < count($ensembleCouleur) ; $i++)
+					{
+						echo "<option value=" . $ensembleCouleur[$i] ." >" . $ensembleCouleur[$i] . "</option>";
+					}
+					echo "</select></td>
+					<select name ='taille'>
+			  		<option value='S'>S</option>
+			  		<option value='M'>M</option>
+			  		<option value='L'>L</option>
+					</select><br></td>
+					<tr>
+						<button class='button button1'>Ajouter</button>
+					</tr>
+					</form>
+					</div>
+					</div>";
+				}
 			}
 		}
 	} //end if
