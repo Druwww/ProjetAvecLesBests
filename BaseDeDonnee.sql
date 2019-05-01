@@ -140,7 +140,44 @@ INSERT INTO `Produit` (`idP`, `emailVendeur`, `nom` ,`categorie`, `description`,
 
 INSERT INTO `photo` (`idPhoto`, `idP`, `lienPhoto`) VALUES
 (1, 1, 'img/livre1.jpg'),
+(4, 3, 'img/prince.jpg'),
+(5, 1, 'img/echarpe.jpg'),
+(6, 1, 'img/raquette.jpg'),
+
 (2, 5, 'img/cherub.jpg'),
 (3, 5, 'img/cherub2.jpg')
 ;
 
+
+--
+-- Contenu de la table `infolivre`
+--
+
+INSERT INTO `infolivre` (`idP`, `auteur`, `editeur`, `genre`, `anneeParution`) VALUES
+(1, 'E.L James', 'fnac', 'roman', 2011),
+(5, 'Robert Muchamor', 'casterman', 'roman', 2000)
+;
+
+--
+-- Contenu de la table `infovetement`
+--
+
+INSERT INTO `infovetement` (`idP`, `marque`, `genre`) VALUES
+(2, 'Decathlon', 'Running')
+;
+
+--
+-- Contenu de la table `infomusique`
+--
+
+INSERT INTO `infomusique` (`idP`, `artiste`, `anneeParution` , `genre`) VALUES
+(3, 'Prince', 2006, 'Rock')
+;
+
+--
+-- Contenu de la table `infosl`
+--
+
+INSERT INTO `infosl` (`idP`, `marque`, `genre`) VALUES
+(4, 'Decathlon', 'Confirme')
+;
