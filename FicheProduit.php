@@ -10,6 +10,7 @@
 </head>
 <body>
 
+
 		<?php
 			// Start the session
 			session_start();
@@ -53,6 +54,7 @@
 
 
 					<div class="w3-content w3-display-container" style="max-width:400px">
+
 
 						<?php
 						$photoProduitsql = "SELECT `lienPhoto` FROM `photo` WHERE `idP` LIKE '$idP'";
@@ -220,9 +222,6 @@
 				?>
 		    </center>
 	</form>
-
-	
-
   </div>
 </div>
 
