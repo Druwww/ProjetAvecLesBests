@@ -1,7 +1,38 @@
 <?php
-// Start the session
-session_start();
+
+
+	$status = session_status();
+	if($status == PHP_SESSION_NONE){
+		//There is no active session
+		session_start();
+	}
+	
+
+	define('DB_SERVER', 'localhost');
+	define('DB_USER', 'root');
+	define('DB_PASS', '');
+
+
+	//identifier le nom de la BDD
+	$database = "Amazon";
+
+	//se connecter à la BDD
+	//$db_handle = mysql_connect(localhost,root,'');
+	$db_handle = mysqli_connect(DB_SERVER, DB_USER ,DB_PASS);
+	$db_found = mysqli_select_db($db_handle, $database);
+	
+	$email = $_SESSION["email"];
+	
+	$addsql = "SELECT * FROM compte WHERE email = '$email'";
+	$result1 = mysqli_query($db_handle, $addsql);
+	
+	while ($dataVendeur = mysqli_fetch_assoc($result1)) {
+		$myPhotoP = $dataVendeur["photoProfil"];
+		$myPhotoC = $dataVendeur["imageFond"];
+	}
+	
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -55,14 +86,18 @@ session_start();
 
 
 <div class = "contient"> 
-	<img src="img/pdcRandom.jpg" alt="PDC" style="width: 100 ;height:300px;">
+<?php
+	echo "<img class = 'pdcDesign' src=" . $myPhotoC . " alt='PDC' style='width: 100 ;height:300px;'>";
+?>
 	<a href="ChangementPDC.html"><button class="bouton1" >Modifier ma photo de couverture</button></a>
 
 </div>
 
 <div class = "contient"> 
-	<img  class = "pdpDesign" src="img/random.jpg" alt="PDP" style="width:150px;height:150px;">
-	<<a href="ChangementPDP.html"><button class="bouton2">Modifier ma photo de profil</button></a>
+<?php
+	echo "<img class = 'pdpDesign' src=" . $myPhotoP . " alt='PDP' style='width:150px;height:150px;'></div>";
+?>
+	<a href="ChangementPDP.html"><button class="bouton2">Modifier ma photo de profil</button></a>
 </div>
 
 
@@ -113,14 +148,20 @@ session_start();
 	</tr>
 </form>
 
-
 <?php
 	if($_SESSION["statut"] == "vendeur")
-		echo "<center><button class='button button1'>Mes produits</button></center>";
+		echo"<form action='AccesProduitVendeur.php' method='post'>
+				<tr>
+					<center><button class='button button1'>Mes produits</button></center>
+				</tr>
+			</form>";
 	
 	if($_SESSION["statut"] == "admin")
-		echo "<center><button class='button button1'>Mes vendeurs</button></center>";
-	
+		echo"<form action='accesProduitAdmin.php' method='post'>
+				<tr>
+					<center><button class='button button1'>Mes vendeurs</button></center>
+				</tr>
+			</form>";
 ?>
 
 <br>
