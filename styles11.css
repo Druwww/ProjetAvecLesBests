@@ -13,6 +13,7 @@ body{
  background:#FFBBAF;
  width: 100%;
 
+
 }
 
 
@@ -25,16 +26,18 @@ body{
     background-color: #FF8E79;
     width:100%;
 
+
 }
 
 .logo{
-    margin-bottom: 15px;
+
+    margin-bottom: 0px;
     width:250px;
     height:100px;
 }
 
 .slogan{	
-    margin-top: -85px;
+    margin-top: -80px;
     margin-bottom: 0px;
     margin-right: 150px;
     margin-left: 400px;   
@@ -107,70 +110,13 @@ body{
 }
 
 
-#menu-deroulant li {
- 
-   background-image:-webkit-linear-gradient(top, #FF8E79 8%, #FF8E79 100%);
-   background-image: linear-gradient(to bottom, #FF8E79 0%, #FF8E79 100%);
-  
-}
-#menu-deroulant li li {
-   max-height:0;
-   overflow: hidden;
-   transition: all .5s;
-   border-radius:0;
 
+.paiement{
+  font-size: 40px;
+  color : #FF7459;
+  text-align: center;
+  font-weight: bold;
 }
-#menu-deroulant a {
-  display:block;
-  text-decoration: none;
-  color: white;
-  font-family: monospace;
-  font-size:1.5em;
-}
-#menu-deroulant ul li a, #menu-deroulant li:hover li a {
-  font-size:1em;
-}
-#menu-deroulant li:hover {
-   background: #FF7459;
-}
-#menu-deroulant li li:hover {
-   background: #FF7459;
-}
-#menu-deroulant li:hover li {
-  max-height: 1em;
-}
-
-
-#menu-horizontale, #menu-horizontale ul {
-    padding: 0;
-    margin: 0;
-    list-style: none;
-}
-
-#menu-horizontale li {
-
-    display: inline-block;
-}
-#menu-horizontale ul li {
-
-    display: inherit;
-}
-#menu-horizontale a {
-    text-decoration: none;
-    display: block;
-    color:white;
-}
-#menu-horizontale ul {
-    position: absolute;
-
-    left: -999em;
-    text-align: left;
-    z-index: 1000;
-}
-#menu-horizontale li:hover ul {
-    left: auto;
-}
-
 
 .column {
   float: left;
@@ -186,36 +132,62 @@ body{
 }
 
 
-.column2 {
-float: left;
-  width: 40%;
-  padding: 10px;
+.ecriture{
+font-size: 15px;
+color:black;
+margin-left: 40px;
 
 }
-
-
-.row2:after {
-   content: "";
-  display: table;
-  clear: both;
-}
-
-
-.panier{
+.adresse{
   width: 600px;
   padding: 10px;
   border: 2px solid #FF7459;
   margin: 0;
-  font-size: 20px;
+  font-size: 15px;
   margin-left: 40px;
   color: #FF7459;
-  margin-top: 30px;
+  margin-top: 0px;
   margin-left: 50px;
 
 }
 
+.livraison{
+  width: 600px;
+  padding: 10px;
+  border: 2px solid #FF7459;
+  margin: 0;
+  font-size: 15px;
+  color: #FF7459;
+  margin-top: 0px;
+  margin-left: 55px;
+
+}
+
+.livraison1{
+  width: 600px;
+  padding: 10px;
+  border: 2px solid #FF7459;
+  margin: 0;
+  font-size: 15px;
+  color: #FF7459;
+  margin-top: 40px;
+  margin-left: 55px;
+
+}
+
+.paiement2{
+  width: 600px;
+  padding: 10px;
+  border: 2px solid #FF7459;
+  margin: 0;
+  font-size: 15px;
+  color: #FF7459;
+  margin-top: 365px;
+  margin-left: 65px;
+}
+
 .total{
-    position: fixed;
+   position: fixed;
   width: 500px;
   padding: 10px;
   border: 2px solid #FF7459;
@@ -223,8 +195,49 @@ float: left;
   font-size: 20px;
   margin-left: 40px;
   color: #FF7459;
-  margin-top: 30px;
+  margin-top: 0px;
   
+
+}
+
+.titres{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.style1{
+  color: grey;
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: -20px;
+  margin-left: 100px;
+}
+
+.style2{
+  color: #BAB6B6;
+  font-size: 13px;
+  margin-left: 100px;
+  
+}
+.style3{
+  color: black;
+  font-size: 13px;
+  margin-left: 100px;
+  
+}
+
+.style4{
+  color: black;
+  font-size: 15px;
+  margin-left: 100px;
+  font-weight: bold;
+  
+}
+
+.style5{
+  color: grey;
+  font-size: 15px;
+  font-weight: bold;
 
 }
 
@@ -243,22 +256,37 @@ hr{
     
 }
 
-.ecriture{
-font-size: 20px;
-color:black;
-margin-left: 40px;
-}
-
-.ecriture2{
-font-size: 15px;
-color:grey;
-}
 
 .donnezArgent{
     color:red;
     font-weight: bold;
     font-size: 20px;
 }
+
+.couleur{
+  color:grey;
+}
+
+.photoTotal{
+  width: 100px;
+  height: 130px;
+  margin-left: -300px;
+}
+
+.column2 {
+  margin-left: 0px;
+  width: 70%;
+  padding: 10px;
+
+}
+
+
+.row2:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 
 .footer{
    position: fixed;
