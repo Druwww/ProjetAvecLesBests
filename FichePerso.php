@@ -52,7 +52,7 @@ session_start();
 			</form>
 		</li>
 		<li class = "detail1">
-			<form action="AccueilClientOuvertureFichePerso.php" method="post">
+			<form action="Panier.php" method="post">
 			<tr>
 				<button class="button button1">Mon Panier</button>
 			</tr>

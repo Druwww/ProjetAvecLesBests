@@ -3,6 +3,14 @@
 	session_start();
 
 	$quantity = isset($_POST["quantite"]) ? $_POST["quantite"] : "";
+	$taille = isset($_POST["taille"]) ? $_POST["taille"] : "";
+	$couleur = isset($_POST["couleur"]) ? $_POST["couleur"] : "";
+
+	if($taille != "" && $couleur != ""){
+		$categorie = "Vetement";
+	}else{
+		$categorie = "";
+	}
 
 	//identifier votre BDD
 	$database = "Amazon";
@@ -29,11 +37,31 @@
 
 	}else{
 
+		if($categorie == "Vetement"){
+			$requetteTrouverVetement = "SELECT * FROM `objetvetement` WHERE `idP` LIKE '$idP' AND `taille` LIKE '$taille' AND `couleur` LIKE '$couleur'";
+			$resultatTrouverVetement = mysqli_query($db_handle, $requetteTrouverVetement);
+
+			while($dataVetement = mysqli_fetch_assoc($resultatTrouverVetement)){
+				$idVetement = $dataVetement["idVetement"];
+			}
+		}
+
 		$requetteVerificationAchat = "SELECT * FROM `objetpanier` WHERE `email` LIKE '$email' AND `idP` LIKE '$idP'";
+		if($categorie == "Vetement"){
+			$requetteVerificationAchat .= " AND `idVetement` LIKE '$idVetement'";
+		}
 		$resultVerificationAchat = mysqli_query($db_handle, $requetteVerificationAchat);
 
 		if(mysqli_num_rows($resultVerificationAchat) == 0){
-			$requetteAjout = "INSERT INTO `objetpanier` (`email`, `idP`, `nbArticles`) VALUES ('$email', '$idP', '$quantity')";
+
+			//vetement
+			if($categorie != ""){
+				$requetteAjout = "INSERT INTO `objetpanier` (`email`, `idP`, `idVetement`, `nbArticles`) VALUES ('$email', '$idP', '$idVetement', '$quantity')";
+				
+			}else{
+				$requetteAjout = "INSERT INTO `objetpanier` (`email`, `idP`, `idVetement`, `nbArticles`) VALUES ('$email', '$idP', 0, '$quantity')";
+			}
+
 			$resultAjout = mysqli_query($db_handle, $requetteAjout);
 			echo "<script>alert('Normalement c'est bon !);</script>";
 		}else{	//sinon il avait déja acheté 
@@ -42,7 +70,10 @@
 				$newValueAchat = $oldValueAchat + $quantity;
 
 				$requetteUpdateAchat = "UPDATE `objetpanier` SET `nbArticles` = '$newValueAchat' WHERE objetpanier.email = '$email' AND objetpanier.idP = '$idP'";
-				echo "<br>Requette : ";
+
+				if($categorie == "Vetement"){
+					$requetteUpdateAchat .= " AND objetpanier.idVetement = '$idVetement'";
+				}
 				$resultUpdate = mysqli_query($db_handle, $requetteUpdateAchat);
 			}
 		}
