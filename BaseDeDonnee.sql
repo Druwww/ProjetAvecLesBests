@@ -159,7 +159,7 @@ INSERT INTO `Produit` (`idP`, `emailVendeur`, `nom` ,`categorie`, `description`,
 (29, 'vendeur@gmail.com', 'L homme qui rit',  'Livre', 'Une aventure incroybale', 23, 10, 76),
 (30, 'vendeur@gmail.com', 'Les misérables',  'Livre', 'Un classique à avoir lu!', 8, 2, 45),
 (31, 'vendeur@gmail.com', 'Germinal',  'Livre', 'Un classique à avoir lu!', 15, 7, 18),
-(32, 'vendeur@gmail.com', 'Nana',  'Livre', 'Un GRAND classsique de votre bibliothèque!', 19, 9, 10),
+(32, 'vendeur@gmail.com', 'Nana',  'Livre', 'Un GRAND classsique de votre bibliothèque!', 19, 9, 10)
 ;
 
 --
@@ -237,7 +237,7 @@ INSERT INTO `infolivre` (`idP`, `auteur`, `editeur`, `genre`, `anneeParution`) V
 (29, 'Victor Hugo', 'Hachette', 'Romance', 1862),
 (30, 'Victor Hugo', 'Hachette', 'Romance', 1869),
 (31, 'Emile Zola', 'Enriche', 'Romance', 1885),
-(32, 'Emile Zola', 'Enriche', 'Romance', 1880),
+(32, 'Emile Zola', 'Enriche', 'Romance', 1880)
 ;
 
 --
