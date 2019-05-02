@@ -33,7 +33,7 @@
 		$resultVerificationAchat = mysqli_query($db_handle, $requetteVerificationAchat);
 
 		if(mysqli_num_rows($resultVerificationAchat) == 0){
-			$requetteAjout = "INSERT INTO `objetpanier` (`email`, `idP`, `nbArticles`) VALUES ('$email', '$idP', '$quantity')";
+			$requetteAjout = "INSERT INTO `objetpanier` (`email`, `idP`, `idVetement`, `nbArticles`) VALUES ('$email', '$idP', 0, '$quantity')";
 			$resultAjout = mysqli_query($db_handle, $requetteAjout);
 			echo "<script>alert('Normalement c'est bon !);</script>";
 		}else{	//sinon il avait déja acheté 

@@ -199,3 +199,14 @@ INSERT INTO `infomusique` (`idP`, `artiste`, `anneeParution` , `genre`) VALUES
 INSERT INTO `infosl` (`idP`, `marque`, `genre`) VALUES
 (4, 'Decathlon', 'Sport')
 ;
+
+
+--
+-- Contenu de la table `objetVetement`
+--
+
+INSERT INTO `objetvetement` (`idVetement`, `idP`, `couleur`, `taille`, `nbDispo`) VALUES
+(1, 2, 'Rouge', 'S', 100),
+(2, 2, 'Rouge', 'M', 100),
+(3, 2, 'Rouge', 'L', 100)
+;

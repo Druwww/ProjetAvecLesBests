@@ -211,29 +211,84 @@
 				    			echo '<a href="FicheProduit.php?produit='. $idP .'" ><img src="'. $myPhoto .'" class="detailImg2"></a>';
 							}
 
-							//Affichage du prix
-							$requetPrixProduit = "SELECT `prix` FROM `produit` WHERE `idP` LIKE '$idP'";
+							//Affichage du prix + recuperation de si c'est un vetement
+							$requetPrixProduit = "SELECT * FROM `produit` WHERE `idP` LIKE '$idP'";
 							$resultatrequetPrixProduit = mysqli_query($db_handle, $requetPrixProduit);
 							if(mysqli_num_rows($resultatrequetPrixProduit) == 1){
 								while ($dataProduitPrix = mysqli_fetch_assoc($resultatrequetPrixProduit)) {
 									$prix = $dataProduitPrix["prix"];
+									$categorie = $dataProduitPrix["categorie"];
+									if($categorie == "Vetement"){
+										$idVetement = $dataProduit["idVetement"];
+									}
 								}
 							}
 							$prixtotal = $prix * $nbArticles;
 
 							echo '</div><div class="column2"><table width="100%" border ="1" cellspacing="0" ><tr><td><div>';
 
-							echo ' Prix : ' . $prixtotal . '<br>Quantite : ' . $nbArticles;
+							echo ' Prix : ' . $prixtotal . ' €<br>Quantite : ' . $nbArticles;
 
-							echo '<form action="modificationPanier.php?produit=' . $idP . '" method="post">
-										<p class ="ecriture2">Modifier la quantite : </p>
-										<input type="number" id = "quantite" name="quantite">
-										<button class="button button3">Valider</button>
-									</form>';
+							if($categorie == "Vetement"){
+								echo '<form action="modificationPanier.php?produit=' . $idP . '&vetement=' . $idVetement .'" method="post">';
+							}else{
+								echo '<form action="modificationPanier.php?produit=' . $idP . '" method="post">';
+							}
+
+							echo '<p class ="ecriture2">Modifier la quantite : </p>
+									<input type="number" id = "quantite" name="quantite">
+									<button class="button button3">Valider</button>
+								</form>';
+
+							if($categorie == "Vetement"){
+								$requetteRecuperationVetement = "SELECT * FROM `objetvetement` WHERE `idVetement` LIKE '$idVetement'";
+								$resultatRecuperationVetement = mysqli_query($db_handle, $requetteRecuperationVetement);
+
+								while ($dataVetement = mysqli_fetch_assoc($resultatRecuperationVetement)) {
+									$size = $dataVetement["taille"];
+									$couleur = $dataVetement["couleur"];
+									echo '<br>Couleur : ' . $couleur .  '<br>Taille : ' . $size . '<br>';
+
+
+									echo '<p class ="ecriture2">Modifier la taille : </p>
+													   <form action="changementTaille.php?vetement='. $idVetement .'&produit='. $idP .'" method="post">
+															<center>
+																<table>
+														    		<tr>
+																        <td>
+															    			<select name ="taille">';
+									$requetteAllSizeVetement = "SELECT `taille` FROM `objetvetement` WHERE `idP` LIKE '$idP'";
+									$resultatAllSizeVetement = mysqli_query($db_handle, $requetteAllSizeVetement);
+
+									while ($dataSize = mysqli_fetch_assoc($resultatAllSizeVetement)) {
+										$taillePossible = $dataSize["taille"];
+										echo '<option value="' . $taillePossible .'">' . $taillePossible .'</option>';
+									}
+									echo'</select>
+																			<br>
+																		</td>
+																    </tr>
+																</table>
+															</center>
+															<button class="button button3">Valider</button>
+														</form>';
+
+								}
+
+							}
 
 							echo '</div></td><tr></table>';
 
-							echo '<form action="suppresionProduit.php?produit=' . $idP . '" method="post"><button class="button button2">Supprimer mon produit</button></form></div></div>';
+
+							if($categorie == "Vetement"){
+								echo '<form action="suppresionProduit.php?produit=' . $idP . '&vetement=' . $idVetement .'" method="post">';
+							}else{
+								echo '<form action="suppresionProduit.php?produit=' . $idP . '" method="post">';
+							}
+							
+
+
+							echo '<button class="button button2">Supprimer mon produit</button></form></div></div>';
 
 						
 						}
@@ -249,8 +304,8 @@
 		</div>
 
 
-<!-- POUR LES VETEMENTS -->
-					<!-- <div class="row2">
+
+<!-- 					 <div class="row2">
 								<div class="column2">
 									<img src="img/random.jpg" class = "detailImg2">
 								</div>
@@ -287,8 +342,7 @@
 									</table>
 									<button class="button button2">Supprimer mon produit</button>
 								</div>
-						</div>
-					 -->
+						</div> -->
 
  		<div class="column">
 			<div class = "total">
