@@ -95,10 +95,11 @@ PRIMARY KEY (email)
 CREATE TABLE ObjetPanier(
 email varchar(255) NOT NULL,
 idP int(11) NOT NULL,
+idVetement int(11),
 nbArticles int(11) NOT NULL,
 FOREIGN KEY (email) REFERENCES Compte(email),
 FOREIGN KEY (idP) REFERENCES Produit(idP),
-PRIMARY KEY (email,idP)
+PRIMARY KEY (email,idP,idVetement)
 );
 
 --
