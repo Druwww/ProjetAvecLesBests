@@ -86,15 +86,37 @@
    
     <p>Description : </p>
     <p>Prix : </p>
-    <p>En stock</p>
+    <p>En stock :</p>
+    
+
   </article>
 
     <form action="achat.php" method="post">
 			<center>
 				<table>
+					<tr>
+			        	<td><label class ="ecriture"> Taille : </label>
+					    		<select name ="taille">
+							  		<option value="s">S</option>
+							  		<option value="m">M</option>
+							  		<option value="l">L</option>
+								</select>
+							<br>
+						</td>
+		    		</tr>
+		    	<tr>
+			        <td><label class ="ecriture" > Couleur : </label>
+			    		<select name ="couleur">
+					  		<option value="bleu">bleu</option>
+					  		<option value="rouge">rouge</option>
+					  		<option value="blanc">blanc</option>
+						</select>
+						<br>
+					</td>
+		   		 </tr>
 
 				 <tr>
-			        <td><label for="CP">J'en veux :</label></td>
+			        <td><label for="quantite">J'en veux :</label></td>
 			        <td><input type="number" id="quantite" name="quantite"></td>
 		    	</tr>
 			    
