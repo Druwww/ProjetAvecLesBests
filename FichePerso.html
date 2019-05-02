@@ -4,24 +4,50 @@
 	<title>Mon Compte</title>
 	<link rel="icon" href="img/favicon.png" />
 	<link rel="stylesheet" type="text/css" href="styles3.css">
+	
 </head>
 <body>
 
-	<ul class="navigation1">
-				  <li class = "detail1"><a href="#monCompte" class = "detail2">Mon Compte<img src="img/monCompte.png" style="width:45px;height:40px;" class = "detailImg"></a></li>
-				  <li class = "detail1"><a href="#panier" class = "detail2">Mon Panier<img src="img/panier.png" style="width:42px;height:40px;" class = "detailImg"></a></li>
+		<ul class="navigation1">
+				  <div class = "detail1">
+				  	<tr>
+						<button class="button button1">Mon Compte</button>
+					</tr>
+					<tr>
+						<img src="img/monCompte.png" style="width:50px;height:40px;" class = "detailImg">
+					</tr>
+				  	 <tr>
+						<button class="button button1">Mon Panier</button>
+					</tr>
+					<tr>
+						<img src="img/panier.png" style="width:45px;height:40px;" class = "detailImg">
+					</tr>
+				  </div>
+				  
 		</ul>
 
 		<nav class="navbarCouleur"> 
-			<a href="AccueilClient.html"><img src="img/LogoSite.png" alt="Logo" style="width:400px;height:160px;"></a> 
-			<button class="button button2" >Déconnexion</button>
-		</nav>
+					<a href="AccueilClient.php"><img src="img/LogoSite.png" alt="Logo" class ="logo"  onclick="document.location.href='ChangementPDC.html';"></a> 
+				</nav>
 
 
-<p class="slogan"> Là où tout achat est possible</p>
+				<p class="slogan"> <img src="img/slogan.png" alt="Logo" style="width:500px;height:80;"></p>
 
-<div class = "centerPDC"><img class = "pdpDesign" src="img/random.jpg" alt="PDP" style="width:150px;height:150px;"></div>
-<img class = "pdcDesign" src="img/pdcRandom.jpg" alt="PDC" style="width: 100 ;height:300px;">
+
+
+
+
+
+<div class = "contient"> 
+	<img src="img/pdcRandom.jpg" alt="PDC" style="width: 100 ;height:300px;">
+	<a href="ChangementPDC.html"><button class="bouton1" >Modifier ma photo de couverture</button></a>
+
+</div>
+
+<div class = "contient"> 
+	<img  class = "pdpDesign" src="img/random.jpg" alt="PDP" style="width:150px;height:150px;">
+	<<a href="ChangementPDP.html"><button class="bouton2">Modifier ma photo de profil</button></a>
+</div>
 
 <div class ="monCompte">
 	<h1>Nom: </h1>
@@ -44,6 +70,7 @@
 <center><button class="button button1">Paramètres à modifier</button></center>
 <center><button class="button button1">Mes produits</button></center>
 <center><button class="button button1">Mes vendeurs</button></center>
+
 <br>
 <br>
 <br>
