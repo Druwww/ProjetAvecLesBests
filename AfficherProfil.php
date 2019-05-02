@@ -1,6 +1,42 @@
 <?php
-// Start the session
-session_start();
+	$emailVendeur = $_GET["emailVendeur"];
+	
+
+	define('DB_SERVER', 'localhost');
+	define('DB_USER', 'root');
+	define('DB_PASS', '');
+
+
+	//identifier le nom de la BDD
+	$database = "Amazon";
+
+	//se connecter à la BDD
+	//$db_handle = mysql_connect(localhost,root,'');
+	$db_handle = mysqli_connect(DB_SERVER, DB_USER ,DB_PASS);
+	$db_found = mysqli_select_db($db_handle, $database);
+	
+	$addsql = "SELECT * FROM compte WHERE email = '$emailVendeur'";
+	$result1 = mysqli_query($db_handle, $addsql);
+	
+	while ($dataVendeur = mysqli_fetch_assoc($result1)) {
+		$myPseudo = $dataVendeur["pseudo"];
+		$myNom = $dataVendeur["nom"];
+		$myPrenom = $dataVendeur["prenom"];
+		$myAdLine1 = $dataVendeur["adLine1"];
+		$myAdLine2 = $dataVendeur["adLine2"];
+		$myPays = $dataVendeur["pays"];
+		$myCP = $dataVendeur["codePostal"];
+		$myTel = $dataVendeur["numTel"];
+		$myPhotoP = $dataVendeur["photoProfil"];
+		$myPhotoC = $dataVendeur["imageFond"];
+	}
+	
+	$addsq2 = "SELECT * FROM statvendeur WHERE email = '$emailVendeur'";
+	$result2 = mysqli_query($db_handle, $addsq2);
+	
+	while ($dataGain = mysqli_fetch_assoc($result2)) {
+		$myGain = $dataGain["gain"];
+	}
 ?>
 
 <!DOCTYPE html>
@@ -9,10 +45,8 @@ session_start();
 	<title>Mon Compte</title>
 	<link rel="icon" href="img/favicon.png" />
 	<link rel="stylesheet" type="text/css" href="styles3.css">
-	
 </head>
 <body>
-
 
 	<ul class="navigation1">
 		<li class = "detail1">
@@ -35,6 +69,7 @@ session_start();
 			</tr>
 			</form>
 		</li>
+		
 	</ul>
 
 		<nav class="navbarCouleur"> 
@@ -47,46 +82,43 @@ session_start();
 		</nav>
 
 
-				<p class="slogan"> <img src="img/slogan.png" alt="Logo" style="width:500px;height:80;"></p>
+<p class="slogan"> Là où tout achat est possible</p>
 
 
+<?php
+	echo "<div class = 'centerPDC'><img class = 'pdpDesign' src=" . $myPhotoP . " alt='PDP' style='width:150px;height:150px;'></div>";
+?>
+<?php
+	echo "<img class = 'pdcDesign' src=" . $myPhotoC . " alt='PDC' style='width: 100 ;height:300px;'>";
+?>
 
-
-
-
-<div class = "contient"> 
-	<img src="img/pdcRandom.jpg" alt="PDC" style="width: 100 ;height:300px;">
-	<a href="ChangementPDC.html"><button class="bouton1" >Modifier ma photo de couverture</button></a>
-
-</div>
-
-<div class = "contient"> 
-	<img  class = "pdpDesign" src="img/random.jpg" alt="PDP" style="width:150px;height:150px;">
-	<<a href="ChangementPDP.html"><button class="bouton2">Modifier ma photo de profil</button></a>
-</div>
 
 
 
 <div class ="monCompte">
 	<h1>Pseudo: 
 	<?php
-		echo $_SESSION["pseudo"];
+		echo $myPseudo;
 	?></h1>
 	<h1>Nom: 
 	<?php
-		echo $_SESSION["nom"];
+		echo $myNom;
 	?></h1>
 	<h1>Prenom: 
 	<?php
-		echo $_SESSION["prenom"];
+		echo $myPrenom;
+	?></h1>
+	<h1>Gain: 
+	<?php
+		echo $myGain;
 	?></h1>
 	<h1>Adresse: 
 	<?php
-		echo $_SESSION["adresse1"]."<br>".$_SESSION["adresse2"]."<br>".$_SESSION["codePostal"]."<br>".$_SESSION["pays"];
+		echo $myAdLine1."<br>".$myAdLine2."<br>".$myCP."<br>".$myPays;
 	?></h1>
 	<h1>Telephone: 
 	<?php
-		echo $_SESSION["numTel"];
+		echo $myTel;
 	?></h1>
 </div>
 
@@ -99,34 +131,20 @@ session_start();
   <div class="message-header">Bienvenue<img src="img/star.png" style="width:50px;height:40px;" class = "detailImg"></div>
   <span class="fermeture" onclick="this.parentElement.style.display='none';">×</span>
   <div class="message-container">
-    <p>Toujours un plaisir de vous retrouvez chez Amazon ECE. Achetez et vendez en toute sécurité sur notre site!</p>
+    <p>Espèce de petit espion va !!!</p>
   </div>
 </div>
 
-<center><button class="button button1">Paramètres à modifier</button></center>
-<center><button class="button button1">Mes produits</button></center>
-<center><button class="button button1">Mes vendeurs</button></center>
 
-<form action="EnvoieTomodificationCompte.php" method="post">
-	<tr>
-		<center><button class="button button1">Paramètres à modifier</button></center>
-	</tr>
-</form>
-
+<br>
+<br>
+<br>
+<br>
 
 <?php
-	if($_SESSION["statut"] == "vendeur")
-		echo "<center><button class='button button1'>Mes produits</button></center>";
-	
-	if($_SESSION["statut"] == "admin")
-		echo "<center><button class='button button1'>Mes vendeurs</button></center>";
-	
+	//fermer la connection
+	mysqli_close($db_handle);
 ?>
-
-<br>
-<br>
-<br>
-<br>
 
 
 

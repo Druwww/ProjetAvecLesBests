@@ -1,6 +1,34 @@
 <?php
+
+
 // Start the session
 session_start();
+
+	
+
+	define('DB_SERVER', 'localhost');
+	define('DB_USER', 'root');
+	define('DB_PASS', '');
+
+
+	//identifier le nom de la BDD
+	$database = "Amazon";
+
+	//se connecter à la BDD
+	//$db_handle = mysql_connect(localhost,root,'');
+	$db_handle = mysqli_connect(DB_SERVER, DB_USER ,DB_PASS);
+	$db_found = mysqli_select_db($db_handle, $database);
+	
+	$email = $_SESSION["email"];
+	
+	$addsql = "SELECT * FROM compte WHERE email = '$email'";
+	$result1 = mysqli_query($db_handle, $addsql);
+	
+	while ($dataVendeur = mysqli_fetch_assoc($result1)) {
+		$myPhotoP = $dataVendeur["photoProfil"];
+		$myPhotoC = $dataVendeur["imageFond"];
+	}
+	
 ?>
 
 <!DOCTYPE html>
@@ -9,10 +37,8 @@ session_start();
 	<title>Mon Compte</title>
 	<link rel="icon" href="img/favicon.png" />
 	<link rel="stylesheet" type="text/css" href="styles3.css">
-	
 </head>
 <body>
-
 
 	<ul class="navigation1">
 		<li class = "detail1">
@@ -35,6 +61,7 @@ session_start();
 			</tr>
 			</form>
 		</li>
+		
 	</ul>
 
 		<nav class="navbarCouleur"> 
@@ -47,24 +74,14 @@ session_start();
 		</nav>
 
 
-				<p class="slogan"> <img src="img/slogan.png" alt="Logo" style="width:500px;height:80;"></p>
+<p class="slogan"> Là où tout achat est possible</p>
 
-
-
-
-
-
-<div class = "contient"> 
-	<img src="img/pdcRandom.jpg" alt="PDC" style="width: 100 ;height:300px;">
-	<a href="ChangementPDC.html"><button class="bouton1" >Modifier ma photo de couverture</button></a>
-
-</div>
-
-<div class = "contient"> 
-	<img  class = "pdpDesign" src="img/random.jpg" alt="PDP" style="width:150px;height:150px;">
-	<<a href="ChangementPDP.html"><button class="bouton2">Modifier ma photo de profil</button></a>
-</div>
-
+<?php
+	echo "<div class = 'centerPDC'><img class = 'pdpDesign' src=" . $myPhotoP . " alt='PDP' style='width:150px;height:150px;'></div>";
+?>
+<?php
+	echo "<img class = 'pdcDesign' src=" . $myPhotoC . " alt='PDC' style='width: 100 ;height:300px;'>";
+?>
 
 
 <div class ="monCompte">
@@ -103,10 +120,6 @@ session_start();
   </div>
 </div>
 
-<center><button class="button button1">Paramètres à modifier</button></center>
-<center><button class="button button1">Mes produits</button></center>
-<center><button class="button button1">Mes vendeurs</button></center>
-
 <form action="EnvoieTomodificationCompte.php" method="post">
 	<tr>
 		<center><button class="button button1">Paramètres à modifier</button></center>
@@ -116,13 +129,19 @@ session_start();
 
 <?php
 	if($_SESSION["statut"] == "vendeur")
-		echo "<center><button class='button button1'>Mes produits</button></center>";
+		echo"<form action='AccesProduitVendeur.php' method='post'>
+				<tr>
+					<center><button class='button button1'>Mes produits</button></center>
+				</tr>
+			</form>";
 	
 	if($_SESSION["statut"] == "admin")
-		echo "<center><button class='button button1'>Mes vendeurs</button></center>";
-	
+		echo"<form action='accesProduitAdmin.php' method='post'>
+				<tr>
+					<center><button class='button button1'>Mes vendeurs</button></center>
+				</tr>
+			</form>";
 ?>
-
 <br>
 <br>
 <br>
