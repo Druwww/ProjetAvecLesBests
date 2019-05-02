@@ -1,10 +1,12 @@
 <?php  
 
-	// Start the session
-	if(!isset($_SESSION)){ session_start(); }
+	$status = session_status();
+	if($status == PHP_SESSION_NONE){
+		//There is no active session
+		session_start();
+	}
 	$email = $_SESSION["email"];
 
-	echo "email : ". $email;
 	
 	
 	//identifier votre BDD 
