@@ -156,28 +156,6 @@ body{
     background-color: #FF7459;
 }
 
-.pdpDesign{
-	border: 1px black solid;
-  border-radius: 50%;
-	object-fit: cover;
-  margin-top: -150px;
-}
-
-
-
-
-.pdcDesign{
-  opacity: 0.13;
-  width: 100%;
-  height: auto;
-  margin-top: 12px;
-}
-
-.monCompte{
-		font-family: monospace;
-		text-align: center;
-    margin-top: 350px;
-}
 
 
 .button {
@@ -200,56 +178,6 @@ body{
   border: 2px solid #FFEB03;
 }
 
-.button2{
-  background-color: white; 
-  color: black; 
-  border: 2px solid #FFEB03;
- float:right;
- 
-}
-
-.button3{
-  background-color: white; 
-  color: black; 
-  border: 2px solid #FFEB03;
- float:right;
- 
-}
-
-
-.message {
-  position: fixed;
-  bottom: 75px;
-  right: 20px;
-  margin-left: 20px;
-  max-width: 300px;
-}
-
-.message-header {
-  padding: 25px 15px;
-  background: #6779FF;
-  font-size: 30px;
-  color: white;
-}
-
-.message-container {
-  padding: 15px;
-  background-color: #BAC2FF;
-  color: black
-}
-
-.fermeture {
-  position: absolute;
-  top: 5px;
-  right: 15px;
-  color: white;
-  font-size: 30px;
-  cursor: pointer;
-}
-
-.fermeture:hover {
-  color: white;
-}
 
 .footer{
    position: fixed;
