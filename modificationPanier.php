@@ -19,10 +19,16 @@
 	$email = $_SESSION["email"];
 
 	$idP = isset($_GET["produit"]) ? $_GET["produit"] : "";
+	$idVetement = isset($_GET["vetement"]) ? $_GET["vetement"] : "";
 	$newQuantity = isset($_POST["quantite"]) ? $_POST["quantite"] : "";
 
 	$requetModificationPanier = "UPDATE `objetpanier` SET `nbArticles` = '$newQuantity' WHERE objetpanier.email = '$email' AND objetpanier.idP = '$idP'";
-	//echo $requetModificationPanier;
+
+	if($idVetement != ""){
+		$requetModificationPanier .= " AND objetpanier.idVetement = '$idVetement'";
+	}
+
+/*	echo $requetModificationPanier;*/
 	$resultUpdate = mysqli_query($db_handle, $requetModificationPanier);
 
 	header('Location: panier.php');

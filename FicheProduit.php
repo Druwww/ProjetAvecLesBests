@@ -29,6 +29,7 @@
 			}	
 
 			$idP = $_GET['produit'];
+			$sizeVetementChoisis = isset($_GET['taille']) ? $_GET['taille'] : "";
 			$email = $_SESSION["email"];
 			$_SESSION["produitView"] = $idP;
 		
@@ -131,8 +132,6 @@
   		$produit = "SELECT * FROM `Produit` WHERE `idP` LIKE '$idP'";
 		$monProduit = mysqli_query($db_handle, $produit);
 
-		$nbProduitAffiche = 0;
-
 		while ($dataProduit = mysqli_fetch_assoc($monProduit)) {
 			$nomInfo = array();
 
@@ -202,21 +201,72 @@
 			<center>
 				<table>
 
-				 <tr>
-			        <td><label for="CP">J'en veux :</label></td>
-			        <td><input type="number" id="quantite" name="quantite"></td>
-		    	</tr>
+					<?php
+						$produit = "SELECT * FROM `Produit` WHERE `idP` LIKE '$idP'";
+						$monProduit = mysqli_query($db_handle, $produit);
+
+						while ($dataProduit = mysqli_fetch_assoc($monProduit)) {
+							$categorie = $dataProduit["categorie"];
+
+							if($categorie == "Vetement"){
+								echo '<tr><td><label class ="ecriture"> Taille : </label><select name ="taille">';
+
+								$requetteAllSizeVetement = "SELECT `taille` FROM `objetvetement` WHERE `idP` LIKE '$idP'";
+								$resultatAllSizeVetement = mysqli_query($db_handle, $requetteAllSizeVetement);
+
+								while ($dataSize = mysqli_fetch_assoc($resultatAllSizeVetement)) {
+									$taillePossible = $dataSize["taille"];
+									echo '<option value="' . $taillePossible .'">' . $taillePossible .'</option>';
+								}
+								echo '</select><br></td></tr>';
+
+								echo '<tr><td><label class ="ecriture"> Couleur : </label><select name ="couleur">';
+
+								$requetteAllSizeVetement = "SELECT `couleur` FROM `objetvetement` WHERE `idP` LIKE '$idP'";
+								$resultatAllSizeVetement = mysqli_query($db_handle, $requetteAllSizeVetement);
+
+								while ($dataSize = mysqli_fetch_assoc($resultatAllSizeVetement)) {
+									$couleurPossible = $dataSize["couleur"];
+									echo '<option value="' . $couleurPossible .'">' . $couleurPossible .'</option>';
+								}
+								echo '</select><br></td></tr>';
+							}
+						}
+					?>
+
+					 <tr>
+				        <td><label for="CP">J'en veux :</label></td>
+				        <td><input type="number" id="quantite" name="quantite"></td>
+			    	</tr>
 			    
 					
 		    	</table>
 		    	<button class="button button1">Acheter</button><br>
 		    	<?php
+
 					$requetteVerificationAchat = "SELECT * FROM `objetpanier` WHERE `email` LIKE '$email' AND `idP` LIKE '$idP'";
+					
+
 					$resultVerificationAchat = mysqli_query($db_handle, $requetteVerificationAchat);
 
 					if(mysqli_num_rows($resultVerificationAchat) != 0){
 						while ($dataPrecedentAchat = mysqli_fetch_assoc($resultVerificationAchat)) {
-							echo '<label for="CP">Actuellement dans votre panier : ' . $dataPrecedentAchat["nbArticles"] . '</label>';
+							echo '<label for="CP">Actuellement dans votre panier : ' . $dataPrecedentAchat["nbArticles"];
+
+							if($categorie == "Vetement"){
+								$idVetementPrecedent = $dataPrecedentAchat["idVetement"];
+
+								$requetDataVetementPrecedentAchat = "SELECT * FROM `objetvetement` WHERE `idVetement` LIKE '$idVetementPrecedent'";
+								$resultatDataVetementPrecedentAchat = mysqli_query($db_handle, $requetDataVetementPrecedentAchat);
+
+								while ($dataVetementPrecedentAchat = mysqli_fetch_assoc($resultatDataVetementPrecedentAchat)) {
+									$size = $dataVetementPrecedentAchat["taille"];
+									$couleur = $dataVetementPrecedentAchat["couleur"];
+
+									echo ' en taille : ' . $size . " en couleur : " . $couleur . '<br>';
+								}
+							}
+							echo '</label>';
 						}
 					}
 				?>
