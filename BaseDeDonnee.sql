@@ -55,7 +55,7 @@ CREATE TABLE ObjetVetement(
 idVetement int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
 idP int(11) NOT NULL,
 couleur varchar(255) NOT NULL,
-taille int(11) NOT NULL,
+taille varchar(255) NOT NULL,
 nbDispo int(11) NOT NULL,
 FOREIGN KEY (idP) REFERENCES Produit(idP)
 );
@@ -95,10 +95,11 @@ PRIMARY KEY (email)
 CREATE TABLE ObjetPanier(
 email varchar(255) NOT NULL,
 idP int(11) NOT NULL,
+idVetement int(11),
 nbArticles int(11) NOT NULL,
 FOREIGN KEY (email) REFERENCES Compte(email),
 FOREIGN KEY (idP) REFERENCES Produit(idP),
-PRIMARY KEY (email,idP)
+PRIMARY KEY (email,idP,idVetement)
 );
 
 --
@@ -141,12 +142,10 @@ INSERT INTO `Produit` (`idP`, `emailVendeur`, `nom` ,`categorie`, `description`,
 INSERT INTO `photo` (`idPhoto`, `idP`, `lienPhoto`) VALUES
 (1, 1, 'img/livre1.jpg'),
 (4, 3, 'img/prince.jpg'),
-(5, 1, 'img/echarpe.jpg'),
-(6, 1, 'img/raquette.jpg'),
-
+(5, 2, 'img/echarpe.jpg'),
+(6, 4, 'img/raquette.jpg'),
 (2, 5, 'img/cherub.jpg'),
-(3, 5, 'img/cherub2.jpg')
-;
+(3, 5, 'img/cherub2.jpg');
 
 
 --

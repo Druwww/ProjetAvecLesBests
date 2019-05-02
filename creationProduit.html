@@ -45,10 +45,10 @@
 											<tr>
 									        <td><label> Genre :     </label>
 								    		<select name ="genre">
-										  		<option value="client">Romantique</option>
-										  		<option value="vendeur">Historique</option>
-										  		<option value="client">Policier</option>
-										  		<option value="vendeur">Science Fiction</option>
+										  		<option value="Romantique">Romantique</option>
+										  		<option value="Historique">Historique</option>
+										  		<option value="Policier">Policier</option>
+										  		<option value="Science Fiction">Science Fiction</option>
 											</select><br></td>
 									    </tr>
 									    <tr>
@@ -59,10 +59,13 @@
 									        <td><label for="prenom">Auteur :</label></td>
 									        <td><input type="text" id="Auteur" name="Auteur"></td>
 									    </tr>
-									    
+									    <tr>
+									        <td><label for="prenom">Editeur :</label></td>
+									        <td><input type="text" id="Editeur" name="Editeur"></td>
+									    </tr>
 									    <tr>
 									        <td><label for="mail">Date de parution:</label></td>
-									        <td><input type="text" id="Date" name="Date"></td>
+									        <td><input type="number" id="Date" name="Date"></td>
 									    </tr>
 									    <tr>
 									        <td><label for="nom">Description :</label></td>
@@ -156,7 +159,7 @@
 							  
 							  <div class="column">
 							    <h2>Ajouter un vêtement</h2><br>
-							    <form action="ajoutMusique.php" method="post">
+							    <form action="ajoutVetement.php" method="post">
 										<center><table>
 											<tr>
 									        <td><label> Genre :     </label>
@@ -168,19 +171,23 @@
 									    </tr>
 									    <tr>
 									        <td><label> Taille :     </label>
-								    		<select name ="genre">
+								    		<select name ="taille">
 										  		<option value="s">S</option>
 										  		<option value="m">M</option>
 										  		<option value="l">L</option>
 										  	</select><br></td>
+									    </tr>
+										<tr>
+									        <td><label for="prenom">Nom :</label></td>
+									        <td><input type="text" id="Titre" name="Titre"></td>
 									    </tr>
 									    <tr>
 									        <td><label for="nom">Marque :</label></td>
 									        <td><input type="text" id="Marque" name="Marque"></td>
 									    </tr>
 									    <tr>
-									        <td><label for="prenom">Titre :</label></td>
-									        <td><input type="text" id="Titre" name="Titre"></td>
+									        <td><label for="prenom">Couleur :</label></td>
+									        <td><input type="text" id="Couleur" name="Couleur"></td>
 									    </tr>
 									    <tr>
 									        <td><label for="nom">Description :</label></td>
@@ -216,7 +223,7 @@
 							  </div>
 							  <div class="column">
 							    <h2>Ajouter à sport et loisir</h2><br>
-							    <form action="ajoutMusique.php" method="post">
+							    <form action="ajoutSL.php" method="post">
 										<center><table>
 											<tr>
 									        <td><label> Genre :     </label>

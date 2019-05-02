@@ -1,3 +1,3 @@
 <?php
-include('MesProduitsVendeur.html');
+include('MesProduitsVendeur.php');
 ?>

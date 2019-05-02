@@ -1,3 +1,8 @@
+<?php
+	// Start the session
+	if(!isset($_SESSION)){ session_start(); }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +18,7 @@
 		</ul>
 
 		<nav class="navbarCouleur"> 
-			<a href="AccueilClient.html"><img src="img/LogoSite.png" alt="Logo" style="width:400px;height:160px;"></a> 
+			<a href="AccueilClient.php"><img src="img/LogoSite.png" alt="Logo" style="width:400px;height:160px;"></a> 
 		</nav>
 		<p class="slogan"> Là où tout achat est possible</p>
 
@@ -41,6 +46,56 @@
     </ul>
   </section>
 
+  
+<?php
+	define('DB_SERVER', 'localhost');
+	define('DB_USER', 'root');
+	define('DB_PASS', '');
+
+
+	//identifier le nom de la BDD
+	$database = "Amazon";
+
+	//se connecter à la BDD
+	//$db_handle = mysql_connect(localhost,root,'');
+	$db_handle = mysqli_connect(DB_SERVER, DB_USER ,DB_PASS);
+	$db_found = mysqli_select_db($db_handle, $database);
+
+	//si la BDD existe, faire le traitement
+	if($db_found)
+	{
+		$sql = "SELECT * FROM Compte WHERE statut = 'vendeur'";
+		
+		$result = mysqli_query($db_handle, $sql);
+		//regarder s'il y a de résultat
+		if (mysqli_num_rows($result) == 0) {
+			//le compte recherché n'existe pas
+			echo "Il n'y a pas de vendeur";
+		} 
+		else {
+			//on trouve le compte recherché
+			while ($dataVente = mysqli_fetch_assoc($result)) {
+				echo ("<div class='mesVendeurs'>
+				<a target='_blank' href=AfficherProfil.php?emailVendeur=" . $dataVente['email'] . ">
+					<img src=" . $dataVente['photoProfil'] . " alt='vendeur' width='200' height='300'>
+				</a>
+				<div class='desc'> " . $dataVente['prenom'] . " " . $dataVente['nom'] . "<br> Supprimer le vendeur <a href=suppressionVendeuur.php?emailVendeur=" . $dataVente['email'] . "><img src='img/supprimer.png' style='width:25px;height:20px;' class = 'detailImg'></a></div>
+				</div>");
+				
+			}
+		}
+	} //end if
+	else //si la BDD n'existe passthru
+	{
+		echo "Database not found";
+	} //end else
+
+	//fermer la connection
+	mysqli_close($db_handle);
+?>
+
+
+<!--
   <div class="mesVendeurs">
   <a target="_blank" href="">
     <img src="img/random.jpg" alt="vendeur" width="200" height="300">
@@ -105,7 +160,7 @@
 </div>
 
 
-
+-->
 
 
 

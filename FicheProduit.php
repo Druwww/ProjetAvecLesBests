@@ -15,7 +15,7 @@
 			session_start();
 
 			if(!isset($_SESSION["email"])){
-				header('Location: index.html');
+				//header('Location: index.html');
 			}
 
 			$database = "Amazon";
@@ -35,7 +35,7 @@
 
 		<ul class="navigation1">
 				  <li class = "detail1"><a href="FichePerso.html" class = "detail2">Mon Compte<img src="img/monCompte.png" style="width:45px;height:40px;" class = "detailImg"></a></li>
-				  <li class = "detail1"><a href="#panier" class = "detail2">Mon Panier<img src="img/panier.png" style="width:42px;height:40px;" class = "detailImg"></a></li>
+				  <li class = "detail1"><a href="panier.php" class = "detail2">Mon Panier<img src="img/panier.png" style="width:42px;height:40px;" class = "detailImg"></a></li>
 		</ul>
 
 		<nav class="navbarCouleur"> 
@@ -59,7 +59,8 @@
 						$resultPhotoProduit = mysqli_query($db_handle, $photoProduitsql);
 
 						if(mysqli_num_rows($resultPhotoProduit) == 0){
-							echo '<a href="index.html?produit=' . $idP .'"><img src="img/random.jpg" style="width:100px;height:150px;" class="hover-shadow"></a>';
+
+							echo '<img src="img/random.jpg" style="width:100px;height:150px;" class="hover-shadow">';
 						}else{
 								while ($dataPhoto = mysqli_fetch_assoc($resultPhotoProduit)) {
 			        				$myPhoto = $dataPhoto["lienPhoto"];

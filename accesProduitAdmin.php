@@ -1,3 +1,3 @@
 <?php
-include('MesVendeursAdmin.html');
+include('MesVendeursAdmin.php');
 ?>
