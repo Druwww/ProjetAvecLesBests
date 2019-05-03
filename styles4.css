@@ -1,77 +1,9 @@
-body{
-	background-color: #FFEFEC;
-  font-family: monospace;
-}
-.navbarCouleur {
 
- background:#FFBBAF;
-}
-
-
-.navigation2 {
-
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #FF8E79;
-}
-
-.slogan{
-	
-	color: #B2473E;
-    font-size: 30px;
-    margin-top: -90px;
-    margin-bottom: 43px;
-    margin-right: 150px;
-    margin-left: 500px;
-}
-
-
-.detail1{
-	 float: right;
-	 vertical-align: top;
-}
-
-.detail2 {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-  
-    font-size: 30px;
-}
-
-.detail2:hover {
-    color: #FF7459;
-}
-
-.button {
-  background-color: #FFEB03; 
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-  font-family: monospace;
-}
-
-.button1 {
-  background-color: white; 
-  color: black; 
-  border: 2px solid #FFEB03;
-  margin: auto;
-}
 
 
 .message {
-  position: fixed;
-  bottom: 35px;
+  
+  margin-top: 55px;
   right: 20px;
   margin-left: 20px;
   max-width: 300px;
@@ -101,15 +33,4 @@ body{
 
 .fermeture:hover {
   color: white;
-}
-
-
-.footer{
-   position: fixed;
-   left: 0;
-   bottom: 0;
-   width: 100%;
-   background-color: #FF8E79;
-   color: white;
-   text-align: center;
 }
