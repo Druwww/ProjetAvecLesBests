@@ -1,9 +1,11 @@
 <?php
 
 
-// Start the session
-session_start();
-
+	$status = session_status();
+	if($status == PHP_SESSION_NONE){
+		//There is no active session
+		session_start();
+	}
 	
 
 	define('DB_SERVER', 'localhost');
@@ -28,8 +30,8 @@ session_start();
 		$myPhotoP = $dataVendeur["photoProfil"];
 		$myPhotoC = $dataVendeur["imageFond"];
 	}
-	
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -37,8 +39,10 @@ session_start();
 	<title>Mon Compte</title>
 	<link rel="icon" href="img/favicon.png" />
 	<link rel="stylesheet" type="text/css" href="styles3.css">
+	
 </head>
 <body>
+
 
 	<ul class="navigation1">
 		<li class = "detail1">
@@ -61,7 +65,6 @@ session_start();
 			</tr>
 			</form>
 		</li>
-		
 	</ul>
 
 		<nav class="navbarCouleur"> 
@@ -74,14 +77,28 @@ session_start();
 		</nav>
 
 
-<p class="slogan"> Là où tout achat est possible</p>
+				<p class="slogan"> <img src="img/slogan.png" alt="Logo" style="width:500px;height:80;"></p>
 
-<?php
-	echo "<div class = 'centerPDC'><img class = 'pdpDesign' src=" . $myPhotoP . " alt='PDP' style='width:150px;height:150px;'></div>";
-?>
+
+
+
+
+
+<div class = "contient"> 
 <?php
 	echo "<img class = 'pdcDesign' src=" . $myPhotoC . " alt='PDC' style='width: 100 ;height:300px;'>";
 ?>
+	<a href="ChangementPDC.html"><button class="bouton1" >Modifier ma photo de couverture</button></a>
+
+</div>
+
+<div class = "contient"> 
+<?php
+	echo "<img class = 'pdpDesign' src=" . $myPhotoP . " alt='PDP' style='width:150px;height:150px;'>";
+?>
+	<a href="ChangementPDP.html"><button class="bouton2">Modifier ma photo de profil</button></a>
+</div>
+
 
 
 <div class ="monCompte">
@@ -120,12 +137,13 @@ session_start();
   </div>
 </div>
 
+
+
 <form action="EnvoieTomodificationCompte.php" method="post">
 	<tr>
 		<center><button class="button button1">Paramètres à modifier</button></center>
 	</tr>
 </form>
-
 
 <?php
 	if($_SESSION["statut"] == "vendeur")
@@ -142,6 +160,7 @@ session_start();
 				</tr>
 			</form>";
 ?>
+
 <br>
 <br>
 <br>

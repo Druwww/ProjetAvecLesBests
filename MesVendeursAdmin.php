@@ -29,7 +29,7 @@
     	<br>
       <p>
       	<img src="img/vendeur.png" style="width:50px;height:40px;" class = "detailImg">Ajouter un vendeur : 
-      	<form action="ajoutVendeur.php" method="post">
+      	<form action="envoyerMail.php" method="post">
 			<table>
 				<tr>
 		        <td><label for="mail">E-mail :</label></td>

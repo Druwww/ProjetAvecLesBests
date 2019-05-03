@@ -33,17 +33,14 @@
 	
 ?>
 
-
 <!DOCTYPE html>
 <html>
 <head>
 	<title>Mon Compte</title>
 	<link rel="icon" href="img/favicon.png" />
 	<link rel="stylesheet" type="text/css" href="styles3.css">
-	
 </head>
 <body>
-
 
 	<ul class="navigation1">
 		<li class = "detail1">
@@ -66,6 +63,7 @@
 			</tr>
 			</form>
 		</li>
+		
 	</ul>
 
 		<nav class="navbarCouleur"> 
@@ -78,7 +76,20 @@
 		</nav>
 
 
-				<p class="slogan"> <img src="img/slogan.png" alt="Logo" style="width:500px;height:80;"></p>
+<p class="slogan"> Là où tout achat est possible</p>
+
+<!--
+<div class = "contient"> 
+	<img src="img/pdcRandom.jpg" alt="PDC" style="width: 100 ;height:300px;">
+	<a href="ChangementPDC.html"><button class="bouton1" >Modifier ma photo de couverture</button></a>
+
+</div>
+
+<div class = "contient"> 
+	<img  class = "pdpDesign" src="img/random.jpg" alt="PDP" style="width:150px;height:150px;">
+	<a href="ChangementPDP.html"><button class="bouton2">Modifier ma photo de profil</button></a>
+</div>
+-->
 
 
 <div class = "contient"> 
@@ -86,16 +97,13 @@
 	echo "<img class = 'pdcDesign' src=" . $myPhotoC . " alt='PDC' style='width: 100 ;height:300px;'>";
 ?>
 	<a href="ChangementPDC.html"><button class="bouton1" >Modifier ma photo de couverture</button></a>
-
 </div>
-
 <div class = "contient"> 
 <?php
 	echo "<img class = 'pdpDesign' src=" . $myPhotoP . " alt='PDP' style='width:150px;height:150px;'></div>";
 ?>
 	<a href="ChangementPDP.html"><button class="bouton2">Modifier ma photo de profil</button></a>
 </div>
-
 
 
 <div class ="monCompte">
@@ -134,15 +142,12 @@
   </div>
 </div>
 
-<center><button class="button button1">Paramètres à modifier</button></center>
-<center><button class="button button1">Mes produits</button></center>
-<center><button class="button button1">Mes vendeurs</button></center>
-
 <form action="EnvoieTomodificationCompte.php" method="post">
 	<tr>
 		<center><button class="button button1">Paramètres à modifier</button></center>
 	</tr>
 </form>
+
 
 <?php
 	if($_SESSION["statut"] == "vendeur")
@@ -159,7 +164,6 @@
 				</tr>
 			</form>";
 ?>
-
 <br>
 <br>
 <br>
