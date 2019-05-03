@@ -5,7 +5,13 @@
 	define('DB_SERVER', 'localhost');
 	define('DB_USER', 'root');
 	define('DB_PASS', '');
-
+	
+	if(!isset($_SESSION["photoProduit1"]))
+		$_SESSION["photoProduit1"]= NULL;
+	if(!isset($_SESSION["photoProduit2"]))
+		$_SESSION["photoProduit2"] = NULL;
+	if(!isset($_SESSION["photoProduit3"]))
+		$_SESSION["photoProduit3"] = NULL;
 
 	//identifier le nom de la BDD
 	$database = "Amazon";

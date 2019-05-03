@@ -20,8 +20,10 @@ $emailVendeur = $_GET["emailVendeur"];
 	if($db_found)
 	{
 		$sqlSupp = "DELETE FROM compte WHERE email = '$emailVendeur'";
-		echo $sqlSupp;
 		$result = mysqli_query($db_handle, $sqlSupp);
+		
+		$sqlSuppBIS = "DELETE FROM statvendeur WHERE email = '$emailVendeur'";
+		$resultBIS = mysqli_query($db_handle, $sqlSuppBIS);
 		
 		header("Location: MesVendeursAdmin.php");
 	} //end if

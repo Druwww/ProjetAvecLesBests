@@ -10,9 +10,9 @@ session_start();
 	$description = isset($_POST["Description"]) ? $_POST["Description"] : "";
 	$prix = isset($_POST["Prix"]) ? $_POST["Prix"] : 0;
 	$quantite = isset($_POST["Quantité"]) ? $_POST["Quantité"] : 0;
-	$image1 = isset($_POST["image1"]) ? $_POST["image1"] : "";
-	$image2 = isset($_POST["image2"]) ? $_POST["image2"] : "";
-	$image3 = isset($_POST["image3"]) ? $_POST["image3"] : "";
+	$image1 = isset($_SESSION["photoProduit1"]) ? $_SESSION["photoProduit1"] : "";
+	$image2 = isset($_SESSION["photoProduit2"]) ? $_SESSION["photoProduit2"] : "";
+	$image3 = isset($_SESSION["photoProduit3"]) ? $_SESSION["photoProduit3"] : "";
 
 	
 	
