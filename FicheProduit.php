@@ -38,6 +38,7 @@
 
 			$idP = $_GET['produit'];
 			$sizeVetementChoisis = isset($_GET['taille']) ? $_GET['taille'] : "";
+			echo "TAILLE :::::: " . $sizeVetementChoisis;
 			$email = $_SESSION["email"];
 			$_SESSION["produitView"] = $idP;
 		
@@ -217,19 +218,50 @@
 							$categorie = $dataProduit["categorie"];
 
 							if($categorie == "Vetement"){
-								echo '<tr><td><label class ="ecriture"> Taille : </label><select id="p1" name ="taille">';
-
+								
+								//on recherche la première taille disponible dans ce vetement
+								$rechercheTaille = "SELECT * FROM `objetvetement` WHERE `idP` LIKE '$idP'";
+								$resultRechercheTaille = mysqli_query($db_handle, $rechercheTaille);
+								while ($resultObjetVetement = mysqli_fetch_assoc($resultRechercheTaille)) {
+									$myFirstTaille = $resultObjetVetement["taille"];
+								}
+								echo "my first taille = ". $myFirstTaille . "<br>";
+								
+								//si la taille n'a pas encore été renseinger alors on la fixe avec la première taille trouvé de ce vetement
+								/*if($_POST["taille"])
+								{
+									echo "J ai pas trouver la taille";
+								}
+								else
+								{
+									echo $_POST["taille"];
+								}*/
+								
+								$taille = isset($_POST["taille"]) ? $_POST["taille"] : $myFirstTaille;
+								echo "COUCOU = ". $taille . "<br><br>";
+								
+								
+								//formulaire pour connaitre la taille
+								//echo '<form action= "taille.php?produit=' . $idP . '" method="post"> ';
+								echo '<form action= "taille.php" method="post"> ';
+								echo '<tr><td><label class ="ecriture"> Taille : </label><select id="taille" name ="taille">';
+								
+								
 								$requetteAllSizeVetement = "SELECT `taille` FROM `objetvetement` WHERE `idP` LIKE '$idP'";
 								$resultatAllSizeVetement = mysqli_query($db_handle, $requetteAllSizeVetement);
-
 								while ($dataSize = mysqli_fetch_assoc($resultatAllSizeVetement)) {
 									$taillePossible = $dataSize["taille"];
 									echo '<option value="' . $taillePossible .'">' . $taillePossible .'</option>';
 								}
-								echo '</select><br></td></tr>';
+								echo "</select>
+									
+										<input type='submit' value='Soumettre'>
+									";
+								echo "</form>";
+									
 
 
-								/////////////////////here
+								//formulaire pour avoir la couleur
 								echo '<tr><td><label class ="ecriture"> Couleur : </label><select name ="couleur">';
 
 								$requetteAllSizeVetement = "SELECT `couleur` FROM `objetvetement` WHERE `idP` LIKE '$idP'";

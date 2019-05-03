@@ -120,7 +120,7 @@
 					</form>
 					</div>
 					</div>");
-				else // SI C EST UN VETEMENT C EST PLUS COMPLIOQU
+				else // SI C EST UN VETEMENT C EST PLUS COMPLIQUE
 				{
 					$sqlVetement = "SELECT * FROM objetvetement WHERE idP = '$idP'";
 					$resultVetement = mysqli_query($db_handle, $sqlVetement);
