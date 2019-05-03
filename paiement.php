@@ -7,12 +7,13 @@
 	
 </head>
 <body>
+
 	<?php
 			// Start the session
 			session_start();
 
 			if(!isset($_SESSION["email"])){
-				//header('Location: index.html');
+				header('Location: index.html');
 			}
 
 			$database = "Amazon";
@@ -21,15 +22,16 @@
 			$db_found = mysqli_select_db($db_handle, $database);
 
 			if(! $db_found){
-				echo "<script>alert('Echec connexion BDD !');</script>";
-			}	
-			$email = $_SESSION["email"];
+				echo "<script>alert('Echec connexion BDD !');</script>"; 
+			}
+
+		
 	?>
 
 		<ul class="navigation1">
 				  <div class = "detail1">
 				  	<tr>
-						<button class="button button1">Mon Compte</button>
+						<a href="AccueilClientOuvertureFichePerso.php"><button class="button button1">Mon Compte</button></a>
 					</tr>
 					<tr>
 						<img src="img/monCompte.png" style="width:50px;height:40px;" class = "detailImg">
@@ -61,7 +63,13 @@
 		<div class="column">
 			<div class = "adresse">
 					<p class = "titres">Adresse de livraison</p>
-					<form action="inscription.php" method="post">
+
+					<?php
+
+						if($_SESSION["adresseLivraison"] == "OUI"){
+							echo '<br><p>Votre adresse a bien ete enregistree<p><br>';
+						}else{
+							echo '<form action="validationAdresse.php" method="post">
 								<center>
 									<table>
 							    
@@ -92,15 +100,16 @@
 							    </tr>
 							    <tr>
 							        <td><label for="tel">Numéro de telephone :</label></td>
-							        <td><input type="tel" id="tel" name="user_tel" pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}" required></td>
+							        <td><input type="tel" id="tel" name="user_tel" pattern="[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}[0-9]{2}" required></td>
 							        <td><span class="note">Format: 0X-XX-XX-XX-XX</span></td>
 							    </tr>  
 							</table><br>
-							
+							<button class="button button1">Enregistrer adresse</button>
 						</center>
-					</form>
-						
-					
+					</form>';
+						}
+
+					?>		
 			</div>
 		</div>
 
@@ -108,13 +117,29 @@
 
  		<div class="column">
 			<div class = "total">
-				<p class = "titres">X Articles</p>
-				<p class = "couleur">Sous-total: XX €</p>
-				<p class = "couleur">Livraison: XX €</p>
-				<p class = "couleur">Code promo: -XX %</p>
 
-				<p class = "donnezArgent">TOTAL A REGLER : XX €</p>
-				<button class="button button1">COMMANDER</button>
+				<?php
+					echo '<p class = "titres">'. $_SESSION["nbProduit"] .' Articles</p>';
+					echo '<p class = "couleur">Sous-total: '. $_SESSION["total"] .' €</p>';
+					echo '<p class = "couleur">Livraison: '. $_SESSION["Livraison"] .' €</p>';
+					echo '<p class = "couleur">Code promo: '. $_SESSION["Promo"] .' %</p>';
+					$totalapayer = $_SESSION["total"] + $_SESSION["Livraison"];
+
+					if($_SESSION["Promo"] != 0){
+						$reduction = $totalapayer * ($_SESSION["Promo"] / 100);
+						$totalapayer -= $reduction;
+					}
+
+					echo '<p class = "donnezArgent">TOTAL A REGLER : ' . $totalapayer .' €</p>';
+
+
+					if($_SESSION["adresseLivraison"] != "" && $_SESSION["validationLivraison"] != "" && $_SESSION["validationPayement"] != ""){
+						echo '<a href="achatConfirmer.php"><button class="button button1">COMMANDER</button></a>';
+					}else{
+						echo '<button class="button button1">COMMANDER</button>';
+					}
+
+				?>
 			</div>
 
 		</div>
@@ -126,19 +151,21 @@
 
 		<div class="column">
 			<div class = "livraison">
+					<form action="validationLivraison.php" method="post">
 					<center><p class = "titres">Option de livraison</p></center>
 
-					<h3><i><input type="radio" id="gratuit" name="gratuit" value="gratuit" >Gratuit</i><p class="style1">Livraison standart</p></h3>
+					<h3><i><input type="radio" id="modeLivraison" name="modeLivraison" value="gratuit" >Gratuit</i><p class="style1">Livraison standart</p></h3>
 					<p class="style2">Livraison d'ici 5 jours.</p>
 					<p class="style3">Aucune livraison les jours fériés.</p>
 					
 						<br>
 
-					<hr><h3><i><input type="radio" id="gratuit" name="gratuit" value="gratuit" >10€</i><p class="style1">Livraison 24H</p></h3>
+					<hr><h3><i><input type="radio" id="modeLivraison" name="modeLivraison" value="payant" >10€</i><p class="style1">Livraison 24H</p></h3>
 					<p class="style2">Livraison entre 7h et 22h.</p>
 					<p class="style3">Aucune livraison les jours fériés.</p>
 						<br>
-					
+						<center><button class="button button1">Option de livraison</button></center>
+				</form>	
 			</div>
 		</div>
 
@@ -147,13 +174,19 @@
 					<center><p class = "titres">Paiement</p></center>
 					
 					<p ><i>Adresse de facturation</i></p>
-					<p class = "style4">ICI ADRESSE</p>
+					<p class = "style4">Adresse dans Adresse de livraison</p>
 						<hr>
 						<p><i>Type de paiement</i></p>
-						<p class ="ecriture">Nous acceptons : </p>
+
+
+						<?php
+							if($_SESSION["validationPayement"] == "OUI"){
+								echo '<br><p class = "style4">Votre moyen de paiement a bien ete enregistree<p><br>';
+							}else{
+								echo '<p class ="ecriture">Nous acceptons : </p>
 							<center><img src="img/cdc.png" ></center>
 
-							<form action="cdc.php" method="post">
+							<form action="validationCarte.php" method="post">
 								<center>
 									<table>
 							    
@@ -162,7 +195,7 @@
 							        <td><input type="text" id="carte" name="carte" pattern="[0-9]{16}" required></td>
 							    </tr>
 							    <tr>
-							        <td><label for="prenom">DATE D'EXPIRATION :</label></td>
+							        <td><label for="prenom">DATE D EXPIRATION :</label></td>
 							        <td><input type="text" id="date" name="date"></td>
 							    </tr>
 							    
@@ -176,14 +209,19 @@
 							    </tr>
 							    
 							</table><br>
-							
+							<button class="button button1">Enregistrer</button>
 						</center>
-					</form>
+					</form>';
+							}
+						?>
+
+
+						
 			</div>
 
 			<div class="column">
 			<div class = "livraison">
-					<form>
+					<form action="validationCodePromo.php" method="post">
 						<center>
 							<table>
 								<p class = "titres">Code promo</p>

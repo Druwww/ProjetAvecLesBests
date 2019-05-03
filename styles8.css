@@ -80,16 +80,17 @@ body{
 }
 
 div.produit {
-    height: 300px;
   margin: 5px;
   border: 1px solid #ccc;
+  float: right;
   margin-top: -10px;
   width: 180px;
   margin-bottom: 20px;
   margin-left: 20px;
   float:left;
+  height: 350px;
+}
 
- 
 }
 
 div.produit:hover {
@@ -97,15 +98,14 @@ div.produit:hover {
 }
 
 div.produit img {
-    width: 100px;
-   height: 300px;
-
+  width: 100%;
+ 
 }
 
 div.desc {
-  text-align: center;
+  
   width:300px;
-  height:180px;
+  float: left;
 }
 
 .recherche input[type=text] {
