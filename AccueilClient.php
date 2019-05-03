@@ -27,23 +27,29 @@
 		?>
 
 		<ul class="navigation1">
-				<li class = "detail1">
-					<a href="AccueilClientOuvertureFichePerso.php" class = "detail2">Mon Compte<img src="img/monCompte.png" style="width:42px;height:40px;" class = "detailImg"></a>
-				</li>
-				
-				<li class = "detail1">
-					<a href="panier.php" class = "detail2">Mon Panier<img src="img/panier.png" style="width:42px;height:40px;" class = "detailImg"></a>
-				</li>
+				  <div class = "detail1">
+				  	<tr><br>
+						<a href="AccueilClientOuvertureFichePerso.php"><button class="button button1">Mon Compte</button></a>
+					</tr>
+					<tr>
+						<img src="img/monCompte.png" style="width:50px;height:40px;" class = "detailImg">
+					</tr>
+				  	 <tr>
+						<a href="panier.php"><button class="button button1">Mon Panier</button></a>
+					</tr>
+					<tr>
+						<img src="img/panier.png" style="width:45px;height:40px;" class = "detailImg">
+					</tr>
+				  </div>
+				  
 		</ul>
 
 		<nav class="navbarCouleur"> 
-			<a href="AccueilClient.php"><img src="img/LogoSite.png" alt="Logo" style="width:400px;height:160px;"></a> 
+					<a href="AccueilClient.php"><img src="img/LogoSite.png" alt="Logo" class ="logo"></a> 
+				</nav>
 
-		</nav>
 
-
-<p class="slogan"> Là où tout achat est possible</p>
-
+				<p class="slogan"> <img src="img/slogan.png" alt="Logo" style="width:500px;height:80;"></p>
 
 		<ul class="navigation2" id="menu-deroulant">
 		  <li class = "detail3"><a href="categorie.php?categorie=Livre" class = "detail4">Livre<img src="img/livre.png" style="width:40px;height:40px;" class = "detailImg"></a>
@@ -138,7 +144,7 @@
 			$categorie = array('Livre', 'Musique', 'Vetement', 'SL');
 
 			for($i = 0; $i < 4; $i++){
-				echo '<p class ="myFont">Meilleures ventes ' . $categorie[$i] . '</p>';
+				echo '<hr><br><p class ="myFont">Meilleures ventes ' . $categorie[$i] . '</p>';
 
 				echo '<div class="row">';
 
@@ -162,19 +168,19 @@
 					$resultPhotoProduit = mysqli_query($db_handle, $photoProduitsql);
 
 					if(mysqli_num_rows($resultPhotoProduit) == 0){
-						echo '<a href="FicheProduit.php?produit=' . $idP .'"><img src="img/random.jpg" style="width:100px;height:150px;" class="hover-shadow"></a>';
+						echo '<a href="FicheProduit.php?produit=' . $idP .'"><img src="img/random.jpg" style="width:150px;height:200px;" class="hover-shadow"></a>';
 					}else{
 							while ($dataPhoto = mysqli_fetch_assoc($resultPhotoProduit)) {
 		        				$myPhoto = $dataPhoto["lienPhoto"];
 		    				}	
-							echo '<a href="FicheProduit.php?produit=' . $idP .'"><img src="' . $myPhoto . '" style="width:100px;height:150px;" class="hover-shadow"></a>'; 
+							echo '<a href="FicheProduit.php?produit=' . $idP .'"><img src="' . $myPhoto . '" style="width:150px;height:200px;" class="hover-shadow"></a>'; 
 					}
-					echo "<br>Nom : " . $dataVente["nom"] . "<br>";
-					echo "prix : " . $dataVente["prix"] . "<br>";
-					echo "Nombre Vendu : " . $dataVente["nbVendu"] . "<br>";
+					echo "<br><i><center>Nom : </i>" . $dataVente["nom"] . "</center>";
+					echo "<i><center>Prix : </i>" . $dataVente["prix"] . "</center>";
+					echo "<i><center>Nombre Vendu : </i>" . $dataVente["nbVendu"] . "</center><br>";
 					echo "</div>";
 				}
-				echo "</div>";
+				echo "</div><br><hr>";
 			}
 
 		?>
@@ -190,7 +196,8 @@
   <br>
 
 <div class="footer">
- <p><img src="img/coeur.png" style="width:50px;height:40px;" class = "detailImg"> &copy; 2019 Copyright | Amazon ECE<img src="img/coeur.png" style="width:50px;height:40px;" class = "detailImg"><p>
+ <p><a href="equipe"><p class = "style1">Mieux nous connaitre</p></a><img src="img/coeur.png" style="width:50px;height:40px;" class = "detailImg"> &copy; 2019 Copyright | Amazon ECE<img src="img/coeur.png" style="width:50px;height:40px;" class = "detailImg"><p>
+ 	
 </div>
 
 
