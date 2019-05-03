@@ -375,7 +375,8 @@
 					echo '<p class = "donnezArgent">' . $total . ' €</p>';
 
 				?>
-				<button class="button button1">Paiement</button>
+
+				<a href="paiement.php"><button class="button button1">Paiement</button></a>
 
 				<p class ="ecriture">Nous acceptons : </p>
 				<img src="img/cdc.png" >
