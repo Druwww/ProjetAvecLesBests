@@ -27,19 +27,13 @@
 		?>
 
 		<ul class="navigation1">
-				 <li class = "detail1">
-				 <!--<a href="FichePerso.html" class = "detail2">Mon Compte<img src="img/monCompte.png" style="width:45px;height:40px;" class = "detailImg"></a></li>-->
-				 <form action="AccueilClientOuvertureFichePerso.php" method="post">
-				
-					<tr>
-						<button class="button button1">Mon Compte</button>
-					</tr>
-					<tr>
-						<img src="img/monCompte.png" style="width:45px;height:40px;" class = "detailImg">
-					</tr>
-				</form>
+				<li class = "detail1">
+					<a href="AccueilClientOuvertureFichePerso.php" class = "detail2">Mon Compte<img src="img/monCompte.png" style="width:42px;height:40px;" class = "detailImg"></a>
 				</li>
-				  <li class = "detail1"><a href="panier.php" class = "detail2">Mon Panier<img src="img/panier.png" style="width:42px;height:40px;" class = "detailImg"></a></li>
+				
+				<li class = "detail1">
+					<a href="panier.php" class = "detail2">Mon Panier<img src="img/panier.png" style="width:42px;height:40px;" class = "detailImg"></a>
+				</li>
 		</ul>
 
 		<nav class="navbarCouleur"> 

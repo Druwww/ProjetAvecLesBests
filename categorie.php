@@ -99,12 +99,12 @@
             echo '<div class="produit"><a target="_blank" href="FicheProduit?produit=' . $idProduit .'">';
 
             if(mysqli_num_rows($resultPhotoProduit) == 0){
-              echo '<img src="img/random.jpg" alt="produit" width="200" height="300">';
+              echo '<img src="img/random.jpg" alt="produit">';
             }else{
               while ($dataPhotoProduit = mysqli_fetch_assoc($resultPhotoProduit)) {
                 $myPhoto = $dataPhotoProduit["lienPhoto"];
               } 
-              echo '<img src="' . $myPhoto . '" alt="produit" width="200" height="300">'; 
+              echo '<img src="' . $myPhoto . '" alt="produit" style="width:180px;height:300px;">'; 
             }
 
             echo '</a><div class="desc">'. $dataProduit["nom"] . '<br>Prix : ' . $dataProduit["prix"] . '€ </div>';
@@ -119,6 +119,18 @@
 
   ?>
 
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <br>
 <br>
 <br>
