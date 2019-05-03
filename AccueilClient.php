@@ -54,7 +54,7 @@
 				<ul id="menu-horizontale">
 					<li><a href="categorie.php?categorie=Livre&souscategorie=genre">Genre</a>
 						<ul>
-							<li><a href="categorie.php?categorie=Livre&souscategorie=genre&value=SF">Science Fiction</a></li>
+							<li><a href="categorie.php?categorie=Livre&souscategorie=genre&value=Science Fiction">Science Fiction</a></li>
 							<li><a href="categorie.php?categorie=Livre&souscategorie=genre&value=Romance">Romance</a></li>
 							<li><a href="categorie.php?categorie=Livre&souscategorie=genre&value=Policier">Policier</a></li>
 							<li><a href="categorie.php?categorie=Livre&souscategorie=genre&value=Historique">Historique</a></li>
