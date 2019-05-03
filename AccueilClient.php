@@ -4,6 +4,7 @@
 	<title>Accueil</title>
 	<link rel="icon" href="img/favicon.png" />
 	<link rel="stylesheet" type="text/css" href="styles2.css">
+	<link rel="stylesheet" type="text/css" href="stylesBase.css">
 	<script> 
 	</script>
 </head>
