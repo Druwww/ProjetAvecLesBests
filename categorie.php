@@ -43,14 +43,16 @@
     <?php 
       $categorie = isset($_GET["categorie"]) ? $_GET["categorie"] : "";
       $souscategorie = isset($_GET["souscategorie"]) ? $_GET["sousquantite"] : "";
+      $value = isset($_GET["value"]) ? $_GET["value"] : "";
 
       if($categorie != ""){
         $_SESSION["categorie"] = $categorie;
         echo '<p>Catégorie : ' . $categorie . '</p>';
       }
-      if($souscategorie != ""){
+      if($souscategorie != "" || $value != ""){
         $_SESSION["souscategorie"] = $souscategorie;
-        echo '<p>Sous-catégorie : ' . $souscategorie . '</p>';
+        $_SESSION["value"] = $value;
+        echo '<p>Sous-catégorie : ' . $value . '</p>';
       }
 
     ?>

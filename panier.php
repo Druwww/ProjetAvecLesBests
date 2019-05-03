@@ -26,6 +26,9 @@
 			}
 
 			$email = $_SESSION["email"];
+			$_SESSION["adresseLivraison"] = "";
+			$_SESSION["validationLivraison"] = "";
+			$_SESSION["validationPayement"] = "";
 	?>
 
 		<ul class="navigation1">
@@ -356,6 +359,7 @@
 					$resultatrequetAllProductPannier = mysqli_query($db_handle, $requetAllProductPannier);
 
 					$total = 0;
+					$nb_produit = 0;
 
 					if(mysqli_num_rows($resultatrequetAllProductPannier) != 0){
 						while ($dataProduit = mysqli_fetch_assoc($resultatrequetAllProductPannier)) {
@@ -370,7 +374,13 @@
 								}
 							}
 							$total += $idQuantity * $prix;
+							$nb_produit += $idQuantity;
+
 						}
+						$_SESSION["total"] = $total;
+						$_SESSION["nbProduit"] = $nb_produit;
+						$_SESSION["Livraison"] = 0;
+						$_SESSION["Promo"] = 0;
 					}
 					echo '<p class = "donnezArgent">' . $total . ' €</p>';
 
