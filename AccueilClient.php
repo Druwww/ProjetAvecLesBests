@@ -54,10 +54,10 @@
 				<ul id="menu-horizontale">
 					<li><a href="categorie.php?categorie=Livre&souscategorie=genre">Genre</a>
 						<ul>
-							<li><a href="#">Science Fiction</a></li>
-							<li><a href="#">Romance</a></li>
-							<li><a href="#">Policier</a></li>
-							<li><a href="#">Historique</a></li>
+							<li><a href="categorie.php?categorie=Livre&souscategorie=genre&value=SF">Science Fiction</a></li>
+							<li><a href="categorie.php?categorie=Livre&souscategorie=genre&value=Romance">Romance</a></li>
+							<li><a href="categorie.php?categorie=Livre&souscategorie=genre&value=Policier">Policier</a></li>
+							<li><a href="categorie.php?categorie=Livre&souscategorie=genre&value=Historique">Historique</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -82,9 +82,9 @@
 				<ul id="menu-horizontale">
 					<li><a href="categorie.php?categorie=Musique&souscategorie=genre">Genre</a>
 						<ul>
-							<li><a href="#">POP</a></li>
-							<li><a href="#">Rock</a></li>
-							<li><a href="#">Classique</a></li>
+							<li><a href="categorie.php?categorie=Musique&souscategorie=genre&value=POP">POP</a></li>
+							<li><a href="categorie.php?categorie=Musique&souscategorie=genre&value=Rock">Rock</a></li>
+							<li><a href="categorie.php?categorie=Musique&souscategorie=genre&value=Classique">Classique</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -102,30 +102,15 @@
 		  <li class = "detail3"><a href="categorie.php?categorie=Vetement" class = "detail4">Vetement<img src="img/vetement.png" style="width:40px;height:40px;" class = "detailImg"></a>
 		  		<ul>
 					<ul id="menu-horizontale">
-					<li><a href="categorie.php?categorie=Vetement&genre=Homme">Homme</a>
-						<ul>
-							<li><a href="#">T Shirt</a></li>
-							<li><a href="#">Short</a></li>
-							<li><a href="#">Chaussures</a></li>
-						</ul>
+					<li><a href="categorie.php?categorie=Vetement&value=Homme">Homme</a>
 					</li>
 				</ul>
 					<ul id="menu-horizontale">
-					<li><a href="categorie.php?categorie=Vetement&genre=Femme">Femme</a>
-						<ul>
-							<li><a href="#">T Shirt</a></li>
-							<li><a href="#">Jupe</a></li>
-							<li><a href="#">Chaussures</a></li>
-						</ul>
+					<li><a href="categorie.php?categorie=Vetement&value=Femme">Femme</a>
 					</li>
 				</ul>
 					<ul id="menu-horizontale">
-					<li><a href="categorie.php?categorie=Vetement&genre=Enfant">Enfant</a>
-						<ul>
-							<li><a href="#">T Shirt</a></li>
-							<li><a href="#">Pantalon</a></li>
-							<li><a href="#">Chaussures</a></li>
-						</ul>
+					<li><a href="categorie.php?categorie=Vetement&value=Enfant">Enfant</a>
 					</li>
 				</ul>
 				</ul>
@@ -133,21 +118,11 @@
 		  <li class = "detail3"><a href="categorie.php?categorie=SL" class = "detail4">Sport et Loisirs<img src="img/sport.png" style="width:40px;height:40px;" class = "detailImg"></a>
 		  		<ul>
 					<ul id="menu-horizontale">
-					<li><a href="categorie.php?categorie=SL">Tous les sports</a>
-						<ul>
-							<li><a href="#">Tennis</a></li>
-							<li><a href="#">HandBall</a></li>
-							<li><a href="#">Natation</a></li>
-						</ul>
+					<li><a href="categorie.php?categorie=SL&value=S">Tous les sports</a>
 					</li>
 				</ul>
 					<ul id="menu-horizontale">
-					<li><a href="categorie.php?categorie=SL">Mode et loisir</a>
-						<ul>
-							<li><a href="#">T Shirt</a></li>
-							<li><a href="#">Pantalon</a></li>
-							<li><a href="#">Chaussures</a></li>
-						</ul>
+					<li><a href="categorie.php?categorie=SL&value=L">Mode et loisir</a>
 					</li>
 				</ul>
 					<ul id="menu-horizontale">
