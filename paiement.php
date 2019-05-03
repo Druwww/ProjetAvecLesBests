@@ -7,6 +7,24 @@
 	
 </head>
 <body>
+	<?php
+			// Start the session
+			session_start();
+
+			if(!isset($_SESSION["email"])){
+				//header('Location: index.html');
+			}
+
+			$database = "Amazon";
+
+			$db_handle = mysqli_connect('localhost', 'root', '');
+			$db_found = mysqli_select_db($db_handle, $database);
+
+			if(! $db_found){
+				echo "<script>alert('Echec connexion BDD !');</script>";
+			}	
+			$email = $_SESSION["email"];
+	?>
 
 		<ul class="navigation1">
 				  <div class = "detail1">
@@ -17,7 +35,7 @@
 						<img src="img/monCompte.png" style="width:50px;height:40px;" class = "detailImg">
 					</tr>
 				  	 <tr>
-						<button class="button button1">Mon Panier</button>
+						<a href="panier.php"><button class="button button1">Mon Panier</button></a>
 					</tr>
 					<tr>
 						<img src="img/panier.png" style="width:45px;height:40px;" class = "detailImg">
@@ -150,7 +168,7 @@
 							    
 							    <tr>
 							        <td><label for="ad1">NOM APPARAISSANT SUR LA CARTE :</label></td>
-							        <td><input type="text" id="nom" name="nom"</td>
+							        <td><input type="text" id="nom" name="nom"></td>
 							    </tr>
 							    <tr>
 							        <td><label for="ad2">CVV :</label></td>

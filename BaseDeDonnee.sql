@@ -138,7 +138,28 @@ INSERT INTO `Produit` (`idP`, `emailVendeur`, `nom` ,`categorie`, `description`,
 (8, 'vendeur@gmail.com', 'Le web pour les nul',  'Livre', 'un livre sur comment avoir une bonne note à la piscine', 30, 0, 10),
 (9, 'vendeur@gmail.com', 'Titeuf : La loi du preau',  'Livre', 'un livre sur les aventures de Titeuf', 15, 6, 50),
 (10, 'vendeur@gmail.com', 'Naruto Tome 1',  'Livre', 'un manga sur un jeune ninja un peu rebelle', 9, 450, 1000),
-(11, 'vendeur@gmail.com', 'Nos etoiles contraire',  'Livre', 'un livre sur une romance entre deux personnes malade', 18, 100, 200)
+(11, 'vendeur@gmail.com', 'Nos etoiles contraire',  'Livre', 'un livre sur une romance entre deux personnes malade', 18, 100, 200),
+(12, 'vendeur@gmail.com', 'Purple rain', 'Musique', 'LE tube de prince', 12, 1, 10),
+(13, 'vendeur@gmail.com', 'Billie Jean', 'Musique', 'LE tube de Michael', 14, 3, 30),
+(14, 'vendeur@gmail.com', 'Beat it', 'Musique', 'Un tube rock de la légende Michael', 5, 8, 80),
+(15, 'vendeur@gmail.com', 'La flûte enchantée', 'Musique', 'Un morceau de génie', 22, 15, 50),
+(16, 'vendeur@gmail.com', 'Requiem', 'Musique', 'Un morceau leger et incroyablement bien construit', 2, 23, 59),
+(17, 'vendeur@gmail.com', 'Dies Arae', 'Musique', 'Un morceau gravé dans l histoire', 19, 5, 20),
+(18, 'vendeur@gmail.com', 'Californication', 'Musique', 'Un tube de la musique rock', 21, 35, 120),
+(19, 'vendeur@gmail.com', 'Snow', 'Musique', 'Un classique pour les fans du groupe', 10, 5, 200),
+(20, 'vendeur@gmail.com', 'Sweet Child O Mine', 'Musique', 'Le morceau le plus connu interprété par un groupe de légendes', 14, 45, 130),
+(21, 'vendeur@gmail.com', 'November rain', 'Musique', 'La base du rock', 13, 67, 78),
+(22, 'vendeur@gmail.com', 'Heroes', 'Musique', 'Un morceau qui donne le sourire', 19, 34, 69),
+(23, 'vendeur@gmail.com', 'Let s dance', 'Musique', 'DANSEZ au rythme de cette chanson ultra famous', 6, 25, 47),
+(24, 'vendeur@gmail.com', 'La lettre à elise', 'Musique', 'Prenez le temps d ecouter au morceau du grand genie Beethov', 17, 6, 67),
+(25, 'vendeur@gmail.com', 'Menuet', 'Musique', 'Ma préférée du génie', 9, 51, 223),
+(26, 'vendeur@gmail.com', '20 mille lieues sous les mers',  'Livre', 'un livre qui vous fera voyager', 1, 20, 108),
+(27, 'vendeur@gmail.com', 'Le tout du monde en 80 jours',  'Livre', 'A l aventure!', 15, 60, 78),
+(28, 'vendeur@gmail.com', 'Notre dame de paris',  'Livre', 'Un livre plein de surprises', 12, 30, 160),
+(29, 'vendeur@gmail.com', 'L homme qui rit',  'Livre', 'Une aventure incroybale', 23, 10, 76),
+(30, 'vendeur@gmail.com', 'Les misérables',  'Livre', 'Un classique à avoir lu!', 8, 2, 45),
+(31, 'vendeur@gmail.com', 'Germinal',  'Livre', 'Un classique à avoir lu!', 15, 7, 18),
+(32, 'vendeur@gmail.com', 'Nana',  'Livre', 'Un GRAND classsique de votre bibliothèque!', 19, 9, 10)
 ;
 
 --
@@ -157,7 +178,43 @@ INSERT INTO `photo` (`idPhoto`, `idP`, `lienPhoto`) VALUES
 (9, 8, 'img/webnul.jpg'),
 (10, 9, 'img/titeuf.jpg'),
 (11, 10, 'img/naruto.jpg'),
-(12, 11, 'img/etoiles.jpg')
+(12, 11, 'img/etoiles.jpg'),
+(13, 12, 'img/purpleRain.jpg'),
+(14, 12, 'img/purpleRain2.jpg'),
+(15, 13, 'img/billieJean.jpg'),
+(16, 13, 'img/billieJean2.jpg'),
+(17, 14, 'img/beatIt.jpg'),
+(18, 15, 'img/fE.jpg'),
+(19, 16, 'img/requiem.jpg'),
+(20, 16, 'img/requiem2.jpg'),
+(21, 17, 'img/dies.jpg'),
+(22, 18, 'img/cali.jpg'),
+(23, 19, 'img/snow.jpg'),
+(24, 20, 'img/sw.jpg'),
+(25, 21, 'img/nr.jpg'),
+(26, 21, 'img/nr1.jpg'),
+(27, 21, 'img/nr2.jpg'),
+(28, 22, 'img/heroes.jpg'),
+(29, 23, 'img/ld.jpg'),
+(30, 23, 'img/ld2.jpg'),
+(31, 24, 'img/le.jpg'),
+(32, 24, 'img/le2.jpg'),
+(33, 25, 'img/menuet.jpg'),
+(34, 26, 'img/20.jpg'),
+(35, 26, 'img/20b.jpg'),
+(36, 27, 'img/tdm.jpg'),
+(37, 27, 'img/tdm2.jpg'),
+(38, 27, 'img/tdm3.jpg'),
+(39, 28, 'img/ndp.jpg'),
+(40, 29, 'img/lqr.jpg'),
+(41, 30, 'img/m.jpg'),
+(42, 30, 'img/m1.jpg'),
+(43, 30, 'img/m2.jpg'),
+(44, 31, 'img/g.jpg'),
+(45, 31, 'img/g1.jpg'),
+(46, 32, 'img/nana1.jpg'),
+(47, 32, 'img/nana2.jpg')
+
 ;
 
 
@@ -173,7 +230,14 @@ INSERT INTO `infolivre` (`idP`, `auteur`, `editeur`, `genre`, `anneeParution`) V
 (8, 'John R. Levine', 'Pour les nul', 'Science Fiction', 2005),
 (9, 'Zep', 'Glenat', 'Romance', 2008),
 (10, 'Masashi Kishimoto', 'Kana', 'Science Fiction', 2002),
-(11, 'John Green', 'Nathan', 'Romance', 2012)
+(11, 'John Green', 'Nathan', 'Romance', 2012),
+(26, 'Jules Verne', 'Pierre-Jules Hetzel', 'Science Fiction', 1872),
+(27, 'Jules Verne', 'Pierre-Jules Hetzel', 'Science Fiction', 1869),
+(28, 'Victor Hugo', 'Hachette', 'Romance', 1831),
+(29, 'Victor Hugo', 'Hachette', 'Romance', 1862),
+(30, 'Victor Hugo', 'Hachette', 'Romance', 1869),
+(31, 'Emile Zola', 'Enriche', 'Romance', 1885),
+(32, 'Emile Zola', 'Enriche', 'Romance', 1880)
 ;
 
 --
@@ -189,7 +253,21 @@ INSERT INTO `infovetement` (`idP`, `marque`, `genre`) VALUES
 --
 
 INSERT INTO `infomusique` (`idP`, `artiste`, `anneeParution` , `genre`) VALUES
-(3, 'Prince', 2006, 'Rock')
+(3, 'Prince', 2006, 'Rock'),
+(12, 'Prince', 1984, 'Pop'),
+(13, 'Michael Jackson', 1982, 'Pop'),
+(14, 'Michael Jackson', 1982, 'Pop'),
+(15, 'Mozart', 1793, 'Classique'),
+(16, 'Mozart', 1791, 'Classique'),
+(17, 'Mozart', 1789, 'Classique'),
+(18, 'Red Hot', 1999, 'Rock'),
+(19, 'Red Hot', 2004, 'Rock'),
+(20, 'Guns n Roses', 2003, 'Rock'),
+(21, 'Guns n Roses', 1996, 'Rock'),
+(22, 'David Bowie', 2000, 'Pop'),
+(23, 'David Bowie ', 2005, 'Pop'),
+(24, 'Beethoven', 1810, 'Classique'),
+(25, 'Beethoven', 1800, 'Classique')
 ;
 
 --

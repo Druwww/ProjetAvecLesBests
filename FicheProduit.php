@@ -6,6 +6,14 @@
 	<link rel="stylesheet" type="text/css" href="styles7.css">
 	
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+	<script>
+		$(document).ready(function(){
+    		$('#p1').change(function(){
+         		alert(this.value);
+    		});
+		});
+	</script>
 	
 </head>
 <body>
@@ -209,7 +217,7 @@
 							$categorie = $dataProduit["categorie"];
 
 							if($categorie == "Vetement"){
-								echo '<tr><td><label class ="ecriture"> Taille : </label><select name ="taille">';
+								echo '<tr><td><label class ="ecriture"> Taille : </label><select id="p1" name ="taille">';
 
 								$requetteAllSizeVetement = "SELECT `taille` FROM `objetvetement` WHERE `idP` LIKE '$idP'";
 								$resultatAllSizeVetement = mysqli_query($db_handle, $requetteAllSizeVetement);
@@ -220,6 +228,8 @@
 								}
 								echo '</select><br></td></tr>';
 
+
+								/////////////////////here
 								echo '<tr><td><label class ="ecriture"> Couleur : </label><select name ="couleur">';
 
 								$requetteAllSizeVetement = "SELECT `couleur` FROM `objetvetement` WHERE `idP` LIKE '$idP'";
@@ -230,6 +240,7 @@
 									echo '<option value="' . $couleurPossible .'">' . $couleurPossible .'</option>';
 								}
 								echo '</select><br></td></tr>';
+								/////////////////////////////
 							}
 						}
 					?>

@@ -55,7 +55,7 @@
 		if(mysqli_num_rows($resultVerificationAchat) == 0){
 
 			//vetement
-			if($categorie != ""){
+			if($categorie == "Vetement"){
 				$requetteAjout = "INSERT INTO `objetpanier` (`email`, `idP`, `idVetement`, `nbArticles`) VALUES ('$email', '$idP', '$idVetement', '$quantity')";
 				
 			}else{
