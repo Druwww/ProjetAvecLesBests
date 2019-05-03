@@ -180,7 +180,7 @@
 				$monLivre = mysqli_query($db_handle, $requetteInfoLivre);
 
 				while($dataLivre = mysqli_fetch_assoc($monLivre)){
-					echo '<p>' . $nomInfo[1] . ' : ' . $dataLivre["marque"] .'</p>'; 
+					echo '<p>' . $nomInfo[1] . ' : ' . $dataLivre["artiste"] .'</p>'; 
 					echo '<p>' . $nomInfo[2] . ' : ' . $dataLivre["genre"] .'</p>'; 
 				}
 			}
