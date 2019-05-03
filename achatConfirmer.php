@@ -58,7 +58,6 @@
 		}
 	}
 
-	echo '<script>alert("Votre achat est confirme ! cliquez sur le bouton pour revenir a l accueil !")</script>';
-	echo '<a href="AccueilClient.php"><button">Retour accueil</button></a>';
+	header('Location: fin.php')
 
 ?>
