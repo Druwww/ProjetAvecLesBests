@@ -74,24 +74,31 @@
 
 		<nav class="navbarCouleur"> 
 			<a href="AccueilClient.php"><img src="img/LogoSite.png" alt="Logo" style="width:400px;height:160px;"></a> 
-			<form action="deconnection.php" method="post">
-				<tr>
-					<button class="button button2" >Déconnexion</button>
-				</tr>
-			</form>
 		</nav>
 
 
-<p class="slogan"> Là où tout achat est possible</p>
+<p class="slogan"> <img src="img/slogan.png" alt="Logo" style="width:500px;height:80px;"></p>
 
 
 <?php
-	echo "<div class = 'centerPDC'><img class = 'pdpDesign' src=" . $myPhotoP . " alt='PDP' style='width:150px;height:150px;'></div>";
+	//echo "<div class = 'centerPDC'><img class = 'pdpDesign' src=" . $myPhotoP . " alt='PDP' style='width:150px;height:150px;'></div>";
 ?>
+<?php
+	//echo "<img class = 'pdcDesign' src=" . $myPhotoC . " alt='PDC' style='width: 100 ;height:300px;'>";
+?>
+
+
+<div class = "contient"> 
 <?php
 	echo "<img class = 'pdcDesign' src=" . $myPhotoC . " alt='PDC' style='width: 100 ;height:300px;'>";
 ?>
+</div>
 
+<div class = "contient"> 
+<?php
+	echo "<img class = 'pdpDesign' src=" . $myPhotoP . " alt='PDP' style='width:150px;height:150px;'>";
+?>
+</div>
 
 
 
