@@ -53,6 +53,13 @@
 					<tr>
 						<img src="img/monCompte.png" style="width:50px;height:40px;" class = "detailImg">
 					</tr>
+
+					<tr>
+						<a href="index.html"><button class="button button1">Deconnexion</button></a>
+					</tr>
+					<tr>
+						<img src="img/deco.png" style="width:55px;height:45px;" class = "detailImg">
+					</tr>
 				  	 <tr>
 						<a href="panier.php"><button class="button button1">Mon Panier</button></a>
 					</tr>
@@ -68,7 +75,7 @@
 				</nav>
 
 
-				<p class="slogan"> <img src="img/slogan.png" alt="Logo" style="width:500px;height:80;"></p>
+				<p class="slogan"> <img src="img/slogan.png" alt="Logo" style="width:400px;height:50px;"></p>
 
 
 
@@ -133,7 +140,7 @@
 
 <form action="EnvoieTomodificationCompte.php" method="post">
 	<tr>
-		<center><button class="button button1">Paramètres à modifier</button></center>
+		<center><button class="button button1">Paramètres à modifier</button></center><br>
 	</tr>
 </form>
 

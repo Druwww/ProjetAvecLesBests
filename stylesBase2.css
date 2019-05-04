@@ -35,8 +35,8 @@ body{
 .slogan{  
     margin-top: -80px;
     margin-bottom: 0px;
-    margin-right: 150px;
-    margin-left: 400px;   
+    margin-left: 300px;   
+    float: left;
 }
 
 .button {

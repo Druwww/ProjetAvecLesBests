@@ -10,18 +10,36 @@
 <title>Mes Produits</title>
 	<link rel="icon" href="img/favicon.png" />
 	<link rel="stylesheet" type="text/css" href="styles6.css">
+	<link rel="stylesheet" type="text/css" href="stylesBase2.css">
 </head>
 <body>
 		<ul class="navigation1">
-				  <li class = "detail1"><a href="FichePerso.php" class = "detail2">Mon Compte<img src="img/monCompte.png" style="width:45px;height:40px;" class = "detailImg"></a></li>
-				  <li class = "detail1"><a href="panier.php" class = "detail2">Mon Panier<img src="img/panier.png" style="width:42px;height:40px;" class = "detailImg"></a></li>
+				  <div class = "detail1">
+				  	<tr><br>
+						<a href="AccueilClientOuvertureFichePerso.php"><button class="button button1">Mon Compte</button></a>
+					</tr>
+					<tr>
+						<img src="img/monCompte.png" style="width:50px;height:40px;" class = "detailImg">
+					</tr>
+				  	 <tr>
+						<a href="panier.php"><button class="button button1">Mon Panier</button></a>
+					</tr>
+					<tr>
+						<img src="img/panier.png" style="width:45px;height:40px;" class = "detailImg">
+					</tr>
+				  </div>
+				  
 		</ul>
 
 		<nav class="navbarCouleur"> 
-			<a href="AccueilClient.php"><img src="img/LogoSite.png" alt="Logo" style="width:400px;height:160px;"></a> 
-		</nav>
-		<p class="slogan"> Là où tout achat est possible</p>
+					<a href="AccueilClient.php"><img src="img/LogoSite.png" alt="Logo" class ="logo"></a> 
+				</nav>
 
+
+				<p class="slogan"> <img src="img/slogan.png" alt="Logo" style="width:500px;height:80;"></p>
+
+<div class="row">
+  		<div class="column">
 		<section class ="miseenforme">
    			 <ul>
     	<br>
@@ -45,8 +63,9 @@
       </p>
     </ul>
   </section>
+</div>
 
-  
+  <div class="column">
 <?php
 	define('DB_SERVER', 'localhost');
 	define('DB_USER', 'root');
@@ -93,7 +112,7 @@
 	//fermer la connection
 	mysqli_close($db_handle);
 ?>
-
+</div>
 
 <!--
   <div class="mesVendeurs">
@@ -178,9 +197,11 @@
 </div>
 
 
+
 <div class="footer">
- <p><img src="img/coeur.png" style="width:50px;height:40px;" class = "detailImg"> &copy; 2019 Copyright | Amazon ECE<img src="img/coeur.png" style="width:50px;height:40px;" class = "detailImg"><p>
-</div>  
+ <p><a href="equipe"><p class = "style1">Mieux nous connaitre</p></a><img src="img/coeur.png" style="width:50px;height:40px;" class = "detailImg"> &copy; 2019 Copyright | Amazon ECE<img src="img/coeur.png" style="width:50px;height:40px;" class = "detailImg"><p>
+ 	
+</div> 
 
 </body>
 </html>

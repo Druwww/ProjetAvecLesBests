@@ -100,7 +100,7 @@
 			    </ul>
 			  </section>
 			</div>
-
+<div class="column">
 
 <?php
 	//identifier le nom de la BDD
@@ -138,7 +138,7 @@
 				if($categorie != "Vetement") //SI CE N EST PAS UN VETEMENT C EST PLUS SIMPLE
 					echo ("<div class='mesProduits'>
 					<a href=FicheProduit.php?produit=" . $idP ." >
-					<img src=  " . $myPhoto .  " alt='Forest' width='200' height='300'>
+					<img src=  " . $myPhoto .  " alt='produit1' width='200' height='300'>
 					</a>
 					<div class='desc'>" . $nom . "<br>" . $categorie . "<br> Supprimer le produit <a href=deleteProduit.php?produit=" . $idP ."><img src='img/supprimer.png' style='width:25px;height:20px;' class = 'detailImg'></a>
 					<br> Ajouter du stock <form action='AjoutStock.php?produit=" . $idP ."' method='post'><input type='number' id='stock' name='stock'
@@ -213,7 +213,7 @@
 	//fermer la connection
 	mysqli_close($db_handle);
 ?>
-
+</div>
 
 </div>
 </div>
