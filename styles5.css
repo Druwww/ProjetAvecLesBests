@@ -10,37 +10,30 @@ div.produit {
   margin: 5px;
   border: 1px solid #ccc;
   float: right;
-  margin-top: -10px;
+  margin-top: -100px;
   width: 180px;
-  margin-bottom: 20px;
-  margin-left: 20px;
-  float:left;
-  height: 350px;
-
-
+  margin-left: 200px;
+  margin-bottom: 120px;
 }
 
 div.produit:hover {
   border: 1px solid #777;
-
 }
 
 div.produit img {
   width: 100%;
- 
+  height: auto;
 }
 
 div.desc {
-  
-  width:180px;
-  float: left;
+  padding: 1px;
+  text-align: center;
 }
-
 .column {
   margin-left: 100px;
   float: left;
-  width: 10%;
-  padding: 15px;
+  width: 20%;
+  padding: 10px;
 }
 
 .row:after {
