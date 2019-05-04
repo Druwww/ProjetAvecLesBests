@@ -1,9 +1,8 @@
 
 
-
 .message {
-  
-  margin-top: 55px;
+  position: fixed;
+  margin-bottom: 105px;
   right: 20px;
   margin-left: 20px;
   max-width: 300px;
