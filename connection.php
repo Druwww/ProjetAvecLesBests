@@ -52,6 +52,8 @@ if($erreur == "")
 		if (mysqli_num_rows($result) == 0) {
 			//le compte recherché n'existe pas
 			echo "email not found";
+   			header('Location: index.html');
+
 		} 
 		else {
 			//on trouve le compte recherché

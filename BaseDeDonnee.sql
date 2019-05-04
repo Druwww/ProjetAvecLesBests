@@ -202,7 +202,7 @@ INSERT INTO `photo` (`idPhoto`, `idP`, `lienPhoto`) VALUES
 (33, 25, 'img/menuet.jpg'),
 (34, 26, 'img/20.jpg'),
 (35, 26, 'img/20b.jpg'),
-(36, 27, 'img/tdm.jpg'),
+(36, 27, 'img/tdm.jpeg'),
 (37, 27, 'img/tdm2.jpg'),
 (38, 27, 'img/tdm3.jpg'),
 (39, 28, 'img/ndp.jpg'),
