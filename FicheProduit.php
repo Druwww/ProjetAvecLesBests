@@ -333,9 +333,6 @@
 								//formulaire pour avoir la couleur
 								echo '<tr><td><label class ="ecriture"> Couleur en  ' . $taille .' :</label><select name ="couleur">';
 
-								if($taille == ""){
-									$taille = $myFirstTaille;
-								}
 
 								$requetteAllSizeVetement = "SELECT * FROM `objetvetement` WHERE `idP` LIKE '$idP'";
 								$resultatAllSizeVetement = mysqli_query($db_handle, $requetteAllSizeVetement);
