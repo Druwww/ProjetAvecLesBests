@@ -268,52 +268,13 @@
 					}
 					else{
 						echo '<br><br><p>Vous n\'avez pas d\'articles dans votre panier</p><br><br>';
+						$_SESSION["total"] = 0;
+						$_SESSION["nbProduit"] = 0;
 					}
 					?>
 					<hr>
 			</div>
 		</div>
-
-
-
-<!-- 					 <div class="row2">
-								<div class="column2">
-									<img src="img/random.jpg" class = "detailImg2">
-								</div>
-								<div class="column2">
-									<table width="100%" border ="1" cellspacing="0" >
-										<tr>
-											<td>
-												<div> Prix : <br>
-													  Quantite : 1
-													  <p class ="ecriture2">Modifier la quantite : </p><input type="number" id = "quantité" name="quantité"><button class="button button3">Valider</button><br>
-													  Taille : M
-													  <p class ="ecriture2">Modifier la taille : </p>
-													   <form action="changementTaille.php" method="post">
-															<center>
-																<table>
-														    		<tr>
-																        <td>
-															    			<select name ="taille">
-																				<option value="S">S</option>
-																				<option value="M">M</option>
-																				<option value="L">L</option>
-																			</select>
-																			<br>
-																		</td>
-																    </tr>
-																</table>
-															</center>
-															<button class="button button3">Valider</button>
-														</form>
-												</div>
-											</td>
-										<tr>
-											 
-									</table>
-									<button class="button button2">Supprimer mon produit</button>
-								</div>
-						</div> -->
 
  		<div class="column">
 			<div class = "total">
@@ -352,10 +313,14 @@
 					}
 					echo '<p class = "donnezArgent">' . $total . ' €</p>';
 
+					if($_SESSION["total"] == 0){
+						echo '<button class="button button1">Paiement</button>';
+					}
+					else{
+						echo '<a href="paiement.php"><button class="button button1">Paiement</button></a>';
+					}
+
 				?>
-
-				<a href="paiement.php"><button class="button button1">Paiement</button></a>
-
 				<p class ="ecriture">Nous acceptons : </p>
 				<img src="img/cdc.png" >
 				<p class ="ecriture2">Vous avez un code promotionnel ? Ajoutez-le à la prochaine étape. </p>

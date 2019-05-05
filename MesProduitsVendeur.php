@@ -93,9 +93,9 @@
 			    	<br>
 			    	<br>
 					<?php
-						echo "<p><img src='img/money.png' style='width:50px;height:40px;' class = 'detailImg'>Mes gains : " . $gain . "</p><br><br>"; 
+						echo "<p><img src='img/money.png' style='width:50px;height:40px;' class = 'detailImg'>Mes gains : " . $gain . " €</p><br><br>"; 
 					?>
-			      <p><img src="img/product.png" style="width:50px;height:40px;" class = "detailImg">Ajouter un produit : <a href=creationProduit.html><img src="img/ajout.png" style="width:50px;height:40px;" class = "detailImg"></a></p>
+			      <p><img src="img/product.png" style="width:50px;height:40px;" class = "detailImg">Ajouter un produit<a href=creationProduit.html><img src="img/ajout.png" style="width:50px;height:40px;" class = "detailImg"></a></p>
 			    
 			    </ul>
 			  </section>
@@ -122,7 +122,7 @@
 		//regarder s'il y a de résultat
 		if (mysqli_num_rows($result) == 0) {
 			//le compte recherché n'existe pas
-			echo "Il n'y a pas de produit";
+			echo "<p><i>Il n'y a pas de produit</i><p>";
 		} 
 		else {
 			//on trouve le compte recherché

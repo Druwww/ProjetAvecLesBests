@@ -84,14 +84,6 @@ lienPhoto varchar(255) NOT NULL,
 FOREIGN KEY (idP) REFERENCES Produit(idP)
 );
 
-CREATE TABLE Panier(
-email varchar(255) NOT NULL,
-prixTotal int(11) NOT NULL,
-nbArticles int(11) NOT NULL,
-FOREIGN KEY (email) REFERENCES Compte(email),
-PRIMARY KEY (email)
-);
-
 CREATE TABLE ObjetPanier(
 email varchar(255) NOT NULL,
 idP int(11) NOT NULL,
@@ -138,7 +130,7 @@ INSERT INTO `Produit` (`idP`, `emailVendeur`, `nom` ,`categorie`, `description`,
 (8, 'vendeur@gmail.com', 'Le web pour les nul',  'Livre', 'un livre sur comment avoir une bonne note à la piscine', 30, 0, 10),
 (9, 'vendeur@gmail.com', 'Titeuf : La loi du preau',  'Livre', 'un livre sur les aventures de Titeuf', 15, 6, 50),
 (10, 'vendeur@gmail.com', 'Naruto Tome 1',  'Livre', 'un manga sur un jeune ninja un peu rebelle', 9, 450, 1000),
-(11, 'vendeur@gmail.com', 'Nos etoiles contraire',  'Livre', 'un livre sur une romance entre deux personnes malade', 18, 100, 200),
+(11, 'vendeur@gmail.com', 'Nos etoiles contraires',  'Livre', 'un livre sur une romance entre deux personnes malade', 18, 100, 200),
 (12, 'vendeur@gmail.com', 'Purple rain', 'Musique', 'LE tube de prince', 12, 1, 10),
 (13, 'vendeur@gmail.com', 'Billie Jean', 'Musique', 'LE tube de Michael', 14, 3, 30),
 (14, 'vendeur@gmail.com', 'Beat it', 'Musique', 'Un tube rock de la légende Michael', 5, 8, 80),
@@ -154,12 +146,29 @@ INSERT INTO `Produit` (`idP`, `emailVendeur`, `nom` ,`categorie`, `description`,
 (24, 'vendeur@gmail.com', 'La lettre a elise', 'Musique', 'Prenez le temps d ecouter au morceau du grand genie Beethov', 17, 6, 67),
 (25, 'vendeur@gmail.com', 'Menuet', 'Musique', 'Ma préférée du génie', 9, 51, 223),
 (26, 'vendeur@gmail.com', '20 mille lieues sous les mers',  'Livre', 'un livre qui vous fera voyager', 1, 20, 108),
-(27, 'vendeur@gmail.com', 'Le tout du monde en 80 jours',  'Livre', 'A l aventure!', 15, 60, 78),
+(27, 'vendeur@gmail.com', 'Le tours du monde en 80 jours',  'Livre', 'A l aventure!', 15, 60, 78),
 (28, 'vendeur@gmail.com', 'Notre dame de paris',  'Livre', 'Un livre plein de surprises', 12, 30, 160),
 (29, 'vendeur@gmail.com', 'L homme qui rit',  'Livre', 'Une aventure incroybale', 23, 10, 76),
 (30, 'vendeur@gmail.com', 'Les miserables',  'Livre', 'Un classique à avoir lu!', 8, 2, 45),
 (31, 'vendeur@gmail.com', 'Germinal',  'Livre', 'Un classique à avoir lu!', 15, 7, 18),
-(32, 'vendeur@gmail.com', 'Nana',  'Livre', 'Un GRAND classsique de votre bibliothèque!', 19, 9, 10)
+(32, 'vendeur@gmail.com', 'Nana',  'Livre', 'Un GRAND classsique de votre bibliothèque!', 19, 9, 10),
+(33, 'vendeur@gmail.com', 'Chaussettes style',  'Vetement', 'Impressionez tout le monde avec vos chausette', 4, 0, 100),
+(34, 'vendeur@gmail.com', 'Tee shirt simple',  'Vetement', 'Le tee shirt le plus simple du monde', 5, 103, 1000),
+(35, 'vendeur@gmail.com', 'Pull a col roule',  'Vetement', 'Le pull qui va vous gratter le cou', 20, 0, 30),
+(36, 'vendeur@gmail.com', 'Manteau hiver',  'Vetement', 'Un manteau pour etre sur de ne pas avoir froid en hiver', 80, 92, 500),
+(37, 'vendeur@gmail.com', 'Manteau ete',  'Vetement', 'Un manteau pour ne pas avoir trop chaud en ete', 60, 0, 100),
+(38, 'vendeur@gmail.com', 'Chemise swag',  'Vetement', 'Pour etre sur que vos professeur vous dise que votre chemise est trop swag', 25, 734, 1000),
+(39, 'vendeur@gmail.com', 'Short tendance',  'Vetement', 'Parfait pour vos sortie barbecue', 12, 33, 333),
+(40, 'vendeur@gmail.com', 'Raquette ping pong',  'SL', 'La raquette des champions', 40, 10, 300),
+(41, 'vendeur@gmail.com', 'Ballon de basket',  'SL', 'Avec ce ballon vous serez le nouveau Tony Paker', 10, 10, 100),
+(42, 'vendeur@gmail.com', 'Kayak',  'SL', 'Pour faire des randonnes sur l eau avec vos amis', 560, 1, 100),
+(43, 'vendeur@gmail.com', 'Balles Ping Pong',  'SL', 'Des balles approuve pour les competitions', 1, 68, 1000),
+(44, 'vendeur@gmail.com', 'Frisbee',  'SL', 'Parfait pour vos journees dans un park ou a la plage entre ami', 3, 33, 500),
+(45, 'vendeur@gmail.com', 'Jeu d echec',  'SL', 'Apprenez un des jeux prefere du monde', 30, 0, 100),
+(46, 'vendeur@gmail.com', 'XBOX one',  'SL', 'Un outil pour devenir le meilleure GAMEUR sur la terre', 300, 12, 600),
+(47, 'vendeur@gmail.com', 'PS4',  'SL', 'Un outil pour devenir le meilleure GAMEUR sur la terre', 300, 12, 600),
+(48, 'vendeur@gmail.com', 'Nintendo Switch',  'SL', 'Un outil pour devenir le meilleure GAMEUR sur la terre', 300, 12, 600),
+(49, 'vendeur@gmail.com', 'Mario Kart',  'SL', 'Le Jeu de l annee', 50, 780, 1000)
 ;
 
 --
@@ -202,7 +211,7 @@ INSERT INTO `photo` (`idPhoto`, `idP`, `lienPhoto`) VALUES
 (33, 25, 'img/menuet.jpg'),
 (34, 26, 'img/20.jpg'),
 (35, 26, 'img/20b.jpg'),
-(36, 27, 'img/tdm.jpg'),
+(36, 27, 'img/tdm.jpeg'),
 (37, 27, 'img/tdm2.jpg'),
 (38, 27, 'img/tdm3.jpg'),
 (39, 28, 'img/ndp.jpg'),
@@ -210,11 +219,42 @@ INSERT INTO `photo` (`idPhoto`, `idP`, `lienPhoto`) VALUES
 (41, 30, 'img/m.jpg'),
 (42, 30, 'img/m1.jpg'),
 (43, 30, 'img/m2.jpg'),
-(44, 31, 'img/g.jpg'),
+(44, 31, 'img/g.jpeg'),
 (45, 31, 'img/g1.jpg'),
 (46, 32, 'img/nana1.jpg'),
-(47, 32, 'img/nana2.jpg')
-
+(47, 32, 'img/nana2.jpg'),
+(48, 33, 'img/chausette1.jpg'),
+(49, 33, 'img/chausette2.jpg'),
+(50, 33, 'img/chausette3.jpeg'),
+(51, 34, 'img/tee1.jpg'),
+(52, 34, 'img/tee2.jpg'),
+(53, 34, 'img/tee3.jpg'),
+(54, 35, 'img/pullcol.jpg'),
+(55, 36, 'img/nikem.jpg'),
+(56, 37, 'img/nikemm.jpg'),
+(57, 37, 'img/nikemmm.jpg'),
+(58, 38, 'img/chemise.jpg'),
+(59, 39, 'img/short.jpg'),
+(60, 40, 'img/ping1.jpg'),
+(61, 40, 'img/ping2.jpg'),
+(62, 41, 'img/ballon.jpg'),
+(63, 41, 'img/ballon1.jpg'),
+(64, 41, 'img/ballon2.jpg'),
+(65, 42, 'img/kayak.jpeg'),
+(66, 43, 'img/balles.jpg'),
+(67, 43, 'img/balles1.jpg'),
+(68, 44, 'img/frees.jpg'),
+(69, 45, 'img/echec.jpg'),
+(70, 45, 'img/echec1.jpg'),
+(71, 45, 'img/echec2.jpg'),
+(72, 46, 'img/xbox.jpg'),
+(73, 46, 'img/xbox1.jpg'),
+(74, 47, 'img/ps4.jpg'),
+(75, 47, 'img/ps41.jpg'),
+(76, 48, 'img/nin.jpg'),
+(77, 48, 'img/nin1.jpg'),
+(78, 48, 'img/nin2.jpg'),
+(79, 49, 'img/nin3.jpg')
 ;
 
 
@@ -245,7 +285,14 @@ INSERT INTO `infolivre` (`idP`, `auteur`, `editeur`, `genre`, `anneeParution`) V
 --
 
 INSERT INTO `infovetement` (`idP`, `marque`, `genre`) VALUES
-(2, 'Decathlon', 'Running')
+(2, 'Decathlon', 'Homme'),
+(33, 'Decathlon', 'Femme'),
+(34, 'Decathlon', 'Enfant'),
+(35, 'Nike', 'Homme'),
+(36, 'Nike', 'Homme'),
+(37, 'Nike', 'Homme'),
+(38, 'Uniqlo', 'Femme'),
+(39, 'Decathlon', 'Homme')
 ;
 
 --
@@ -275,7 +322,17 @@ INSERT INTO `infomusique` (`idP`, `artiste`, `anneeParution` , `genre`) VALUES
 --
 
 INSERT INTO `infosl` (`idP`, `marque`, `genre`) VALUES
-(4, 'Decathlon', 'Sport')
+(4, 'Decathlon', 'Sport'),
+(40, 'Decathlon', 'Sport'),
+(41, 'Decathlon', 'Sport'),
+(42, 'Decathlon', 'Sport'),
+(43, 'Decathlon', 'Sport'),
+(44, 'Decathlon', 'Sport'),
+(45, 'Hasbrot', 'Loisir'),
+(46, 'Microsoft', 'Loisir'),
+(47, 'Sony', 'Loisir'),
+(48, 'Nintendo', 'Loisir'),
+(49, 'Nintendo', 'Loisir')
 ;
 
 
@@ -286,5 +343,30 @@ INSERT INTO `infosl` (`idP`, `marque`, `genre`) VALUES
 INSERT INTO `objetvetement` (`idVetement`, `idP`, `couleur`, `taille`, `nbDispo`) VALUES
 (1, 2, 'Rouge', 'S', 100),
 (2, 2, 'Rouge', 'M', 100),
-(3, 2, 'Rouge', 'L', 100)
+(3, 2, 'Rouge', 'L', 100),
+(4, 33, 'Rouge', 'S', 100),
+(5, 33, 'Vert', 'S', 100),
+(6, 33, 'Marron', 'S', 100),
+(7, 33, 'Rouge', 'M', 100),
+(8, 33, 'Rouge', 'L', 100),
+(9, 33, 'Vert', 'L', 100),
+(10, 33, 'Bleu', 'L', 100),
+(11, 34, 'Rouge', 'L', 100),
+(12, 34, 'Rouge', 'M', 100),
+(13, 34, 'Bleu', 'M', 100),
+(14, 35, 'Vert', 'S', 100),
+(15, 35, 'Bleu', 'S', 100),
+(16, 35, 'Bleu', 'L', 100),
+(17, 36, 'Jaune', 'L', 100),
+(18, 36, 'Jaune', 'M', 100),
+(19, 36, 'Blanc', 'S', 100),
+(20, 37, 'Blanc', 'S', 100),
+(21, 37, 'Blanc', 'M', 100),
+(22, 37, 'Blanc', 'L', 100),
+(23, 38, 'Vert', 'S', 100),
+(24, 38, 'Vert', 'M', 100),
+(25, 38, 'Blanc', 'M', 100),
+(26, 39, 'Rose', 'S', 100),
+(27, 39, 'Blanc', 'S', 100),
+(28, 39, 'Jaune', 'S', 100)
 ;

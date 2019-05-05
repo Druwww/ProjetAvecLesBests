@@ -36,7 +36,7 @@
 				$resultatAddVendeur = mysqli_query($db_handle, $requestAddVendeur);
 			}
 
-			echo "<script>alert('Compte Creer, veillez vous conneter');</script>";
+			echo "<script>alert('Compte Cree, veuillez vous connecter');</script>";
 			echo "<script>window.close();</script>";
 		}
 

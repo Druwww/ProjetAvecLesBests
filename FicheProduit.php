@@ -17,7 +17,7 @@
 			session_start();
 
 			if(!isset($_SESSION["email"])){
-				//header('Location: index.html');
+				header('Location: index.html');
 			}
 
 			$database = "Amazon";
@@ -292,7 +292,7 @@
 			}
 
 			echo '<p>Description : ' . $dataProduit["description"] . '</p>'; 
-			echo '<p>Prix : ' . $dataProduit["prix"] . '</p>';
+			echo '<p>Prix : ' . $dataProduit["prix"] . ' €</p>';
 			$dispo =  $dataProduit["nbDispo"] - $dataProduit["nbVendu"];
 			$_SESSION["nbProduitDispo"] = $dispo;
 			echo '<p>En stock : ' . $dispo . '</p>';
@@ -313,27 +313,12 @@
 							$categorie = $dataProduit["categorie"];
 
 							if($categorie == "Vetement"){
-								//on recherche la première taille disponible dans ce vetement
-
-
-								if($taille == ""){
-									$rechercheTaille = "SELECT `taille` FROM `objetvetement` WHERE `idP` LIKE '$idP'";
-									$resultRechercheTaille = mysqli_query($db_handle, $rechercheTaille);
-									while ($resultObjetVetement = mysqli_fetch_assoc($resultRechercheTaille)) {
-										$myFirstTaille = $resultObjetVetement["taille"];
-									}
-									$taille = $myFirstTaille;
-								}
-
-								
-							
-								
+								//on recherche la première taille disponible dans ce vetement								
 								
 								echo '<tr>
 										<td>
-											<form action= "FicheProduit.php" method="post">
 												<label class ="ecriture"> Taille : </label>
-												<select id="taille" name ="size">';
+												<select id="taille" name ="taille">';
 								
 								
 								$requetteAllSizeVetement = "SELECT  DISTINCT `taille` FROM `objetvetement` WHERE `idP` LIKE '$idP'";
@@ -342,15 +327,8 @@
 									$taillePossible = $dataSize["taille"];
 												echo '<option value="' . $taillePossible .'">' . $taillePossible .'</option>';
 								}
-											echo "</select>
-									
-												<input type='submit' value='Soumettre'>
-									";
-										echo "</form>
-										</td>
-									</tr>";
-									
-									echo 'TAILLE : '. $_POST["size"];
+								echo "</select>";
+								echo "</td></tr>";
 
 								//formulaire pour avoir la couleur
 								echo '<tr><td><label class ="ecriture"> Couleur en  ' . $taille .' :</label><select name ="couleur">';
@@ -359,17 +337,17 @@
 									$taille = $myFirstTaille;
 								}
 
-								$requetteAllSizeVetement = "SELECT `couleur` FROM `objetvetement` WHERE `idP` LIKE '$idP' AND `taille` LIKE '$taille'";
+								$requetteAllSizeVetement = "SELECT * FROM `objetvetement` WHERE `idP` LIKE '$idP'";
 								$resultatAllSizeVetement = mysqli_query($db_handle, $requetteAllSizeVetement);
 
 
 
 								while ($dataSize = mysqli_fetch_assoc($resultatAllSizeVetement)) {
 									$couleurPossible = $dataSize["couleur"];
-									echo '<option value="' . $couleurPossible .'">' . $couleurPossible .'</option>';
+									$sizeencouleur = $dataSize["taille"];
+									echo '<option value="' . $couleurPossible .'">' . $couleurPossible . ' en ' . $sizeencouleur .'</option>';
 								}
 								echo '</select><br></td></tr>';
-								/////////////////////////////
 							}
 						}
 					?>
@@ -396,14 +374,16 @@
 							if($categorie == "Vetement"){
 								$idVetementPrecedent = $dataPrecedentAchat["idVetement"];
 
-								$requetDataVetementPrecedentAchat = "SELECT * FROM `objetvetement` WHERE `idVetement` LIKE '$idVetementPrecedent'";
-								$resultatDataVetementPrecedentAchat = mysqli_query($db_handle, $requetDataVetementPrecedentAchat);
+								if($idVetementPrecedent != 0){
+									$requetDataVetementPrecedentAchat = "SELECT * FROM `objetvetement` WHERE `idVetement` LIKE '$idVetementPrecedent'";
+									$resultatDataVetementPrecedentAchat = mysqli_query($db_handle, $requetDataVetementPrecedentAchat);
 
-								while ($dataVetementPrecedentAchat = mysqli_fetch_assoc($resultatDataVetementPrecedentAchat)) {
-									$size = $dataVetementPrecedentAchat["taille"];
-									$couleur = $dataVetementPrecedentAchat["couleur"];
+									while ($dataVetementPrecedentAchat = mysqli_fetch_assoc($resultatDataVetementPrecedentAchat)) {
+										$size = $dataVetementPrecedentAchat["taille"];
+										$couleur = $dataVetementPrecedentAchat["couleur"];
 
-									echo ' en taille : ' . $size . " en couleur : " . $couleur . '<br>';
+										echo ' en taille : ' . $size . " en couleur : " . $couleur . '<br>';
+									}
 								}
 							}
 							echo '</label>';
