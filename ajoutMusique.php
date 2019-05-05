@@ -82,7 +82,7 @@ if($erreur == ""){
 			echo "J'ai pas reussi à l'ajouter";
 		
 		//on retrouve le produit pour avoir son ID Produit
-		$sqlRecherche = "SELECT * FROM `produit` WHERE `emailVendeur` = '$emailVendeur' AND `nom` = '$titre' AND `categorie` = 'Livre' AND `description` = '$description' AND `prix` = '$prix' AND `nbVendu` = '0' AND `nbDispo`= '$quantite'";
+		$sqlRecherche = "SELECT * FROM `produit` WHERE `emailVendeur` = '$emailVendeur' AND `nom` = '$titre' AND `categorie` = 'Musique' AND `description` = '$description' AND `prix` = '$prix' AND `nbVendu` = '0' AND `nbDispo`= '$quantite'";
 		$resultRecherche = mysqli_query($db_handle, $sqlRecherche);
 		
 		if($resultRecherche)

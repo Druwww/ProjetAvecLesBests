@@ -292,7 +292,7 @@
 			}
 
 			echo '<p>Description : ' . $dataProduit["description"] . '</p>'; 
-			echo '<p>Prix : ' . $dataProduit["prix"] . '</p>';
+			echo '<p>Prix : ' . $dataProduit["prix"] . ' €</p>';
 			$dispo =  $dataProduit["nbDispo"] - $dataProduit["nbVendu"];
 			$_SESSION["nbProduitDispo"] = $dispo;
 			echo '<p>En stock : ' . $dispo . '</p>';

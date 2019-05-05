@@ -70,11 +70,11 @@ if($erreur == ""){
 	if($db_found)
 	{
 		$nbVendu = 0;
-		$categorie = "vetement";
+		$categorie = "Vetement";
 		//On créer dans produit
 		$sqlAjout = "INSERT INTO `produit` (`emailVendeur`, `nom`, `categorie`, `description`, `prix`, `nbVendu`, `nbDispo`)
 		VALUES ('$emailVendeur', '$nom', '$categorie' , '$description' , '$prix', '$nbVendu', '$quantite')";
-		echo $sqlAjout;
+		echo 'Ajout produit : '. $sqlAjout . '<br>';
 		$ajout = mysqli_query($db_handle, $sqlAjout);
 		
 		if($ajout)
@@ -83,13 +83,17 @@ if($erreur == ""){
 			echo "J'ai pas reussi à l'ajouter";
 		
 		//on retrouve le produit pour avoir son ID Produit
-		$sqlRecherche = "SELECT * FROM `produit` WHERE `emailVendeur` = '$emailVendeur' AND `nom` = '$nom' AND `categorie` = 'Livre' AND `description` = '$description' AND `prix` = '$prix' AND `nbVendu` = '0' AND `nbDispo`= '$quantite'";
+		$sqlRecherche = "SELECT * FROM `produit` WHERE `emailVendeur` = '$emailVendeur' AND `nom` = '$nom' AND `categorie` = 'Vetement' AND `description` = '$description' AND `prix` = '$prix' AND `nbDispo`= '$quantite'";
+		echo 'Recherche id produit : ' . $sqlRecherche .'<br>';
+
 		$resultRecherche = mysqli_query($db_handle, $sqlRecherche);
 		
-		if($resultRecherche)
+		if($resultRecherche){
 			echo "J'ai reussi à le trouver !!!";
-		else
+		}
+		else{
 			echo "J'ai pas reussi à le trouver";
+		}
 		
 		
 		while ($dataVetement = mysqli_fetch_assoc($resultRecherche)) {
@@ -97,17 +101,21 @@ if($erreur == ""){
 		 }
 		
 		
-		$sqlAjout2 = "INSERT INTO `infosl` (`idP`, `marque`, `genre`) 
+		$sqlAjout2 = "INSERT INTO `infovetement` (`idP`, `marque`, `genre`) 
 			VALUES ('$myID', '$marque', '$genre')";
+		echo 'Ajout info vetement : ' . $sqlAjout2 .'<br>';
 		$ajout2 = mysqli_query($db_handle, $sqlAjout2);
 		
-		$sqlAjout2BIS = "INSERT INTO `infosl` (`idP`, `couleur`, `taille`, `nbDispo`) 
+		$sqlAjout2BIS = "INSERT INTO `objetvetement` (`idP`, `couleur`, `taille`, `nbDispo`) 
 			VALUES ('$myID', '$couleur', '$taille', '$quantite')";
+		echo 'Ajout objet vetement : ' . $sqlAjout2BIS .'<br>';
+
 		$ajout2BIS = mysqli_query($db_handle, $sqlAjout2BIS);
 		
 		///Ajouter la photo
 		$sqlAjout3 = "INSERT INTO `photo` (`idP`, `lienPhoto`) 
 			VALUES ('$myID','$image1')";
+		echo 'Ajout photo vetement : ' . $sqlAjout3 .'<br>';
 		$ajout3 = mysqli_query($db_handle, $sqlAjout3);
 		
 		if($image2 != "")
@@ -129,7 +137,7 @@ if($erreur == ""){
 		echo "Database not found";
 	} //end else
 		
-	header('Location: MesProduitsVendeur.php');
+	//header('Location: MesProduitsVendeur.php');
 
 	//fermer la connection
 	mysqli_close($db_handle);
