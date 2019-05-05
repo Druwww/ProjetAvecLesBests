@@ -1,0 +1,35 @@
+
+
+.message {
+  position: fixed;
+  margin-bottom: 105px;
+  right: 20px;
+  margin-left: 20px;
+  max-width: 300px;
+}
+
+.message-header {
+  padding: 25px 15px;
+  background: #6779FF;
+  font-size: 30px;
+  color: white;
+}
+
+.message-container {
+  padding: 15px;
+  background-color: #BAC2FF;
+  color: black
+}
+
+.fermeture {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.fermeture:hover {
+  color: white;
+}

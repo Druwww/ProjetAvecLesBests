@@ -1,0 +1,47 @@
+
+
+.miseenpage{
+      text-align: center;
+      color:#00B1A5;
+       font-size: 30px;
+       margin-top: 30px;
+}
+
+
+
+div.produit {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: right;
+  margin-top: -10px;
+  width: 180px;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  float:left;
+  height: 350px;
+
+}
+
+}
+
+div.produit:hover {
+  border: 1px solid #777;
+
+}
+
+div.produit img {
+  width: 100%;
+ 
+}
+
+div.desc {
+  
+  width:180px;
+  float: left;
+}
+
+.recherche input[type=text] {
+    border: 1px solid #ccc;  
+
+  }
+

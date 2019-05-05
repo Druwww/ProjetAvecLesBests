@@ -1,0 +1,65 @@
+
+
+.contient {
+  position: relative;
+  width: 100%;
+  
+}
+
+.contient img {
+   position: absolute;
+   width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  opacity: 0.8;
+  margin-top: 160px;
+  
+}
+
+.contient .bouton1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #F9FFA0;
+  color: black;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 60px;
+   margin-left: 500px;
+}
+
+.contient .bouton1:hover {
+  background-color: yellow;
+}
+
+.contient .bouton2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #F9FFA0;
+  color: black;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  margin-top: 260px;
+   margin-left: 0px;
+}
+
+.contient .bouton2:hover {
+  background-color: yellow;
+}
+
+

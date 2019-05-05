@@ -1,0 +1,28 @@
+
+article {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1;
+  font-family: monospace;
+  background-color: #FFEFEC;
+  color: #B2473E;
+  padding: 5px;
+}
+
+.mySlides {display:none}
+.w3-left, .w3-right, .w3-badge {cursor:pointer}
+.w3-badge {height:13px;width:13px;padding:0}
+
+.column {
+  margin-left: 100px;
+  float: left;
+  width: 40%;
+  padding: 15px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+

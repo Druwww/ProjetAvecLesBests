@@ -1,0 +1,82 @@
+
+
+.miseenforme{
+    font-size: 20px;
+    color: #00B1A5;
+    font-weight: bold;
+}
+
+div.mesVendeurs {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: right;
+  margin-top: -100px;
+  width: 180px;
+  margin-left: 200px;
+  margin-bottom: 120px;
+}
+
+div.mesVendeurs:hover {
+  border: 1px solid #777;
+}
+
+div.mesVendeurs img {
+  width: 100%;
+  height: auto;
+}
+
+div.desc {
+  padding: 1px;
+  text-align: center;
+}
+
+.column {
+  margin-left: 100px;
+  float: left;
+  width: 20%;
+  padding: 10px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+
+.message {
+  position: fixed;
+  bottom: 100px;
+  left: 20px;
+  margin-right: 20px;
+  max-width: 300px;
+}
+
+.message-header {
+  padding: 25px 15px;
+  background: #6779FF;
+  font-size: 30px;
+  color: white;
+}
+
+.message-container {
+  padding: 15px;
+  background-color: #BAC2FF;
+  color: black
+}
+
+.fermeture {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.fermeture:hover {
+  color: white;
+}
+
+

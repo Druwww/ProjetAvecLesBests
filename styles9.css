@@ -1,0 +1,136 @@
+
+.button2 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid red;
+  margin: 20px;
+}
+.button3 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid green;
+  margin: 2px;
+  font-size: 10px;
+
+}
+
+.detail1{
+	 float: right;
+	 margin-top: 10px;
+     margin-right: 10px;
+}
+
+.detailImg{
+	vertical-align: middle;   
+}
+
+
+.detail3 {
+    float: left;
+}
+
+.detail4 {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 16px;
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 15px;
+    margin-top: 0px;
+}
+
+.detail4:hover {
+    background-color: #FF7459;
+}
+
+
+
+.column {
+  float: left;
+  width: 45%;
+  padding: 10px;
+}
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+.column2 {
+float: left;
+  width: 40%;
+  padding: 10px;
+
+}
+
+
+.row2:after {
+   content: "";
+  display: table;
+  clear: both;
+}
+
+
+.panier{
+  width: 600px;
+  padding: 10px;
+  border: 2px solid #FF7459;
+  margin: 0;
+  font-size: 20px;
+  margin-left: 40px;
+  color: #FF7459;
+  margin-top: 30px;
+  margin-left: 50px;
+
+}
+
+.total{
+    position: fixed;
+  width: 500px;
+  padding: 10px;
+  border: 2px solid #FF7459;
+  margin: 0;
+  font-size: 20px;
+  margin-left: 40px;
+  color: #FF7459;
+  margin-top: 30px;
+  
+
+}
+
+hr{
+  display: block;
+  margin-top: 0.2em;
+  margin-bottom: 0.5em;
+  margin-left: 40px;
+  margin-right: 40px;
+  border-width: 1px;
+}
+
+.detailImg2{
+    width: 150px;
+    height: 200px;
+    
+}
+
+.ecriture{
+font-size: 20px;
+color:black;
+margin-left: 40px;
+}
+
+.ecriture2{
+font-size: 15px;
+color:grey;
+}
+
+.donnezArgent{
+    color:red;
+    font-weight: bold;
+    font-size: 20px;
+}
+

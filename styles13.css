@@ -1,0 +1,136 @@
+body{
+  background-color: #FFEFEC;
+  font-family: monospace;
+}
+
+@font-face {
+  font-family: sansation;
+  src: url(sansation_light.woff);
+}
+
+.navbarCouleur {
+
+ background:#FFBBAF;
+ width: 100%;
+
+
+}
+
+
+.navigation2 {
+
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #FF8E79;
+    width:100%;
+
+
+}
+
+.logo{
+
+    margin-bottom: 0px;
+    width:250px;
+    height:100px;
+}
+
+.slogan{  
+    margin-top: -80px;
+    margin-bottom: 0px;
+    margin-right: 150px;
+    margin-left: 500px;   
+}
+
+.button {
+  background-color: #FFEB03; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-family: monospace;
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #FFEB03;
+  margin: auto;
+}
+
+
+.fin{
+  margin-top: 50px;
+  
+}
+
+.detail1{
+   float: right;
+   margin-top: 10px;
+     margin-right: 10px;
+}
+
+.detailImg{
+  vertical-align: middle;   
+}
+
+
+.livraison{
+  width: 600px;
+  padding: 10px;
+  border: 2px solid #FF7459;
+  margin: 0;
+  font-size: 15px;
+  color: #FF7459;
+  margin-top: 0px;
+  margin-left: 55px;
+
+}
+
+.titres{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.style1{
+  color: grey;
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: -20px;
+  margin-left: 100px;
+}
+
+.style2{
+  color: #BAB6B6;
+  font-size: 13px;
+  margin-left: 100px;
+  
+}
+
+
+
+.detailImg2{
+    width: 150px;
+    height: 200px;
+    
+}
+
+
+
+.footer{
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #FF8E79;
+   color: white;
+   text-align: center;
+}
+
+
