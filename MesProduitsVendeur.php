@@ -139,7 +139,7 @@
 							echo ("
 						<div class='mesProduits'>
 							<a href=FicheProduit.php?produit=" . $idP ." >
-								<img src=  " . $myPhoto .  " alt='produit1' width='200' height='300'>
+								<img src=  " . $myPhoto .  " alt='produit1' width='150' height='230'>
 							</a>
 							<div class='desc'>" . $nom . "<br>" . $categorie . "
 								<br> Supprimer le produit 
@@ -189,7 +189,7 @@
 							echo ("
 						<div class='mesProduits'>
 							<a href=FicheProduit.php?produit=" . $idP ." >
-								<img src=  " . $myPhoto .  " alt='Forest' width='200' height='300'>
+								<img src=  " . $myPhoto .  " alt='Forest' width='150' height='230'>
 							</a>
 							<div class='desc'>" . $nom . "
 								<br>" . $categorie . "

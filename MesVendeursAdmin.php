@@ -64,9 +64,9 @@
 		</div>
 
 <br><br><br><br><br><br><br><br><br>
-
-<div class="row">
   <div class="column">
+	<div class="row2">
+
 <?php
 	define('DB_SERVER', 'localhost');
 	define('DB_USER', 'root');
@@ -95,7 +95,8 @@
 		else {
 			//on trouve le compte recherché
 			while ($dataVente = mysqli_fetch_assoc($result)) {
-	echo ("<section class='miseenforme'>
+	echo ("<div class='column2'>
+			<div class='mesVendeurs'>
 			<a target='_blank' href=AfficherProfil.php?emailVendeur=" . $dataVente['email'] . ">
 				<img src=" . $dataVente['photoProfil'] . " alt='vendeur' width='200' height='300'>
 			</a>
@@ -106,7 +107,8 @@
 					<img src='img/supprimer.png' style='width:25px;height:20px;' class = 'detailImg'>
 				</a>
 			</div>
-		</section>");
+			</div>
+		</div>");
 				
 			}
 		}
@@ -119,6 +121,7 @@
 	//fermer la connection
 	mysqli_close($db_handle);
 ?>
+</div>
 </div>
 </div>
 
