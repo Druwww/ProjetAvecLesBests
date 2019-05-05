@@ -46,7 +46,7 @@
     	<br>
     	<br>
       <p>
-      	<img src="img/vendeur.png" style="width:50px;height:40px;" class = "detailImg">Ajouter un vendeur : 
+      	<img src="img/vendeur.png" style="width:50px;height:40px;" class = "detailImg">Ajouter un vendeur: 
       	<form action="envoyerMail.php" method="post">
 			<table>
 				<tr>
@@ -64,7 +64,7 @@
     </ul>
   </section>
 </div>
-
+<br><br><br><br><br><br><br><br><br>
   <div class="column">
 <?php
 	define('DB_SERVER', 'localhost');
@@ -184,11 +184,9 @@
 
 
 
-
-
-
-
-<div class="message">
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><div class="message">
   <div class="message-header">Mes vendeurs<img src="img/star.png" style="width:50px;height:40px;" class = "detailImg"></div>
   <span class="fermeture" onclick="this.parentElement.style.display='none';">×</span>
   <div class="message-container">

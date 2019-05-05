@@ -105,6 +105,7 @@
 <?php
 	//identifier le nom de la BDD
 	$database = "Amazon";
+	echo '<div class="row2"><div class="column2">';
 
 	//se connecter à la BDD
 	//$db_handle = mysql_connect(localhost,root,'');
@@ -212,6 +213,7 @@
 
 	//fermer la connection
 	mysqli_close($db_handle);
+
 ?>
 </div>
 

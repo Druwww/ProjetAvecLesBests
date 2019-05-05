@@ -45,39 +45,42 @@
 	<title>Mon Compte</title>
 	<link rel="icon" href="img/favicon.png" />
 	<link rel="stylesheet" type="text/css" href="styles3.css">
+		<link rel="stylesheet" type="text/css" href="stylesBase2.css">
+
 </head>
 <body>
 
-	<ul class="navigation1">
-		<li class = "detail1">
-			<form action="AccueilClientOuvertureFichePerso.php" method="post">
-			<tr>
-				<button class="button button1">Mon Compte</button>
-			</tr>
-			<tr>
-				<img src="img/monCompte.png" style="width:45px;height:40px;" class = "detailImg">
-			</tr>
-			</form>
-		</li>
-		<li class = "detail1">
-			<form action="AccueilClientOuvertureFichePerso.php" method="post">
-			<tr>
-				<button class="button button1">Mon Panier</button>
-			</tr>
-			<tr>
-				<img src="img/panier.png" style="width:42px;height:40px;" class = "detailImg">
-			</tr>
-			</form>
-		</li>
-		
-	</ul>
+		<ul class="navigation1">
+				  <div class = "detail1">
+				  	<tr><br>
+						<a href="AccueilClientOuvertureFichePerso.php"><button class="button button1">Mon Compte</button></a>
+					</tr>
+					<tr>
+						<img src="img/monCompte.png" style="width:50px;height:40px;" class = "detailImg">
+					</tr>
+
+					<tr>
+						<a href="index.html"><button class="button button1">Deconnexion</button></a>
+					</tr>
+					<tr>
+						<img src="img/deco.png" style="width:55px;height:45px;" class = "detailImg">
+					</tr>
+				  	 <tr>
+						<a href="panier.php"><button class="button button1">Mon Panier</button></a>
+					</tr>
+					<tr>
+						<img src="img/panier.png" style="width:45px;height:40px;" class = "detailImg">
+					</tr>
+				  </div>
+				  
+		</ul>
 
 		<nav class="navbarCouleur"> 
-			<a href="AccueilClient.php"><img src="img/LogoSite.png" alt="Logo" style="width:400px;height:160px;"></a> 
-		</nav>
+					<a href="AccueilClient.php"><img src="img/LogoSite.png" alt="Logo" class ="logo"></a> 
+				</nav>
 
 
-<p class="slogan"> <img src="img/slogan.png" alt="Logo" style="width:500px;height:80px;"></p>
+				<p class="slogan"> <img src="img/slogan.png" alt="Logo" style="width:400px;height:50px;"></p>
 
 
 <?php
