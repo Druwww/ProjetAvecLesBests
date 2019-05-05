@@ -132,7 +132,7 @@
   <div class="message-header">Bienvenue<img src="img/star.png" style="width:50px;height:40px;" class = "detailImg"></div>
   <span class="fermeture" onclick="this.parentElement.style.display='none';">×</span>
   <div class="message-container">
-    <p>Toujours un plaisir de vous retrouvez chez Amazon ECE. Achetez et vendez en toute sécurité sur notre site!</p>
+    <p>Toujours un plaisir de vous retrouver chez Amazon ECE. Achetez et vendez en toute sécurité sur notre site!</p>
   </div>
 </div >
 

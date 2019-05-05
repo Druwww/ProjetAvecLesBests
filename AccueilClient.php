@@ -142,20 +142,20 @@
 		  </li>
 		</ul>
 
-		<form action="recherche.php">
+		<center>
+			<form action="recherche.php">
 				<br>
 				 <img src="img/recherche.png" alt="recherche" style="width:42px;height:40px;" class = "detailImg">
 
 		     <?php
 
-		        if($recherche != ""){
-		          echo '<input id="recherche" name="recherche" type="text" placeholder="'. $recherche .'">';
-		        }else{
+		        
 		          echo '<input id="recherche" name="recherche" type="text" placeholder="...">';
-		        }
+		        
 		     ?>
 				   <button type="submit" class="button button1">Rechercher</button>
 		</form>
+		</center>
 
 
 		<?php

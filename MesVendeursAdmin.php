@@ -41,31 +41,32 @@
 <div class="row">
   		<div class="column">
 		<section class ="miseenforme">
-   			 <ul>
-    	<br>
-    	<br>
-    	<br>
-      <p>
-      	<img src="img/vendeur.png" style="width:50px;height:40px;" class = "detailImg">Ajouter un vendeur : 
-      	<form action="envoyerMail.php" method="post">
-			<table>
-				<tr>
-		        <td><label for="mail">E-mail :</label></td>
-		        <td><input type="text" id="mail" name="user_mail"></td>
-		    </tr>
-		    </table>
-		    
-		    <br>
-		    <tr>
-				<button class="button button1">Ajout Vendeur</button>
-			</tr>
-	</form>
-      </p>
-    </ul>
-  </section>
-</div>
+   			<ul>
+					    	<br>
+					    	<br>
+					    	<br>
+			      			<img src="img/vendeur.png" style="width:50px;height:40px;" class = "detailImg">Ajouter un vendeur: 
+			      	<form action="envoyerMail.php" method="post">
+						<table>
+							<tr>
+						        <td><label for="mail">E-mail :</label></td>
+						        <td><input type="text" id="mail" name="user_mail"></td>
+					    	</tr>
+					    </table>
+					    
+					    <br>
+					    <tr>
+							<button class="button button1">Ajout Vendeur</button>
+						</tr>
+					</form>
+    		</ul>
+ 		 </section>
+		</div>
 
+<br><br><br><br><br><br><br><br><br>
   <div class="column">
+	<div class="row2">
+
 <?php
 	define('DB_SERVER', 'localhost');
 	define('DB_USER', 'root');
@@ -94,12 +95,20 @@
 		else {
 			//on trouve le compte recherché
 			while ($dataVente = mysqli_fetch_assoc($result)) {
-				echo ("<div class='mesVendeurs'>
-				<a target='_blank' href=AfficherProfil.php?emailVendeur=" . $dataVente['email'] . ">
-					<img src=" . $dataVente['photoProfil'] . " alt='vendeur' width='200' height='300'>
+	echo ("<div class='column2'>
+			<div class='mesVendeurs'>
+			<a target='_blank' href=AfficherProfil.php?emailVendeur=" . $dataVente['email'] . ">
+				<img src=" . $dataVente['photoProfil'] . " alt='vendeur' width='200' height='300'>
+			</a>
+			<div class='desc'> 
+				" . $dataVente['prenom'] . " " . $dataVente['nom'] . "
+				<br> Supprimer le vendeur 
+				<a href=suppressionVendeuur.php?emailVendeur=" . $dataVente['email'] . ">
+					<img src='img/supprimer.png' style='width:25px;height:20px;' class = 'detailImg'>
 				</a>
-				<div class='desc'> " . $dataVente['prenom'] . " " . $dataVente['nom'] . "<br> Supprimer le vendeur <a href=suppressionVendeuur.php?emailVendeur=" . $dataVente['email'] . "><img src='img/supprimer.png' style='width:25px;height:20px;' class = 'detailImg'></a></div>
-				</div>");
+			</div>
+			</div>
+		</div>");
 				
 			}
 		}
@@ -113,82 +122,12 @@
 	mysqli_close($db_handle);
 ?>
 </div>
-
-<!--
-  <div class="mesVendeurs">
-  <a target="_blank" href="">
-    <img src="img/random.jpg" alt="vendeur" width="200" height="300">
-  </a>
-  <div class="desc">Description <br> Supprimer le vendeur <a href=""><img src="img/supprimer.png" style="width:25px;height:20px;" class = "detailImg"></a></div>
+</div>
 </div>
 
-<div class="mesVendeurs">
-  <a target="_blank" href="">
-    <img src="img/random.jpg" alt="vendeur" width="200" height="300">
-  </a>
-  <div class="desc">Description <br> Supprimer le vendeur <a href=""><img src="img/supprimer.png" style="width:25px;height:20px;" class = "detailImg"></a></div>
-</div>
-
-<div class="mesVendeurs">
-  <a target="_blank" href="">
-    <img src="img/random.jpg" alt="vendeur" width="200" height="300">
-  </a>
-  <div class="desc">Description <br> Supprimer le vendeur <a href=""><img src="img/supprimer.png" style="width:25px;height:20px;" class = "detailImg"></a></div>
-</div>
-
-<div class="mesVendeurs">
-  <a target="_blank" href="">
-    <img src="img/random.jpg" alt="vendeur" width="200" height="300">
-  </a>
-  <div class="desc">Description <br> Supprimer le vendeur <a href=""><img src="img/supprimer.png" style="width:25px;height:20px;" class = "detailImg"></a></div>
-</div>
-
-<div class="mesVendeurs">
-  <a target="_blank" href="">
-    <img src="img/random.jpg" alt="vendeur" width="200" height="300">
-  </a>
-  <div class="desc">Description <br> Supprimer le vendeur <a href=""><img src="img/supprimer.png" style="width:25px;height:20px;" class = "detailImg"></a></div>
-</div>
-
-<div class="mesVendeurs">
-  <a target="_blank" href="">
-    <img src="img/random.jpg" alt="vendeur" width="200" height="300">
-  </a>
-  <div class="desc">Description <br> Supprimer le vendeur <a href=""><img src="img/supprimer.png" style="width:25px;height:20px;" class = "detailImg"></a></div>
-</div>
-
-<div class="mesVendeurs">
-  <a target="_blank" href="">
-    <img src="img/random.jpg" alt="vendeur" width="200" height="300">
-  </a>
-  <div class="desc">Description <br> Supprimer le vendeur <a href=""><img src="img/supprimer.png" style="width:25px;height:20px;" class = "detailImg"></a></div>
-</div>
-
-<div class="mesVendeurs">
-  <a target="_blank" href="">
-    <img src="img/random.jpg" alt="vendeur" width="200" height="300">
-  </a>
-  <div class="desc">Description <br> Supprimer le vendeur <a href=""><img src="img/supprimer.png" style="width:25px;height:20px;" class = "detailImg"></a></div>
-</div>
-
-<div class="mesVendeurs">
-  <a target="_blank" href="">
-    <img src="img/random.jpg" alt="vendeur" width="200" height="300">
-  </a>
-  <div class="desc">Description <br> Supprimer le vendeur <a href=""><img src="img/supprimer.png" style="width:25px;height:20px;" class = "detailImg"></a></div>
-</div>
-
-
--->
-
-
-
-
-
-
-
-
-<div class="message">
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><div class="message">
   <div class="message-header">Mes vendeurs<img src="img/star.png" style="width:50px;height:40px;" class = "detailImg"></div>
   <span class="fermeture" onclick="this.parentElement.style.display='none';">×</span>
   <div class="message-container">
