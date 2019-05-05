@@ -1,39 +1,43 @@
 
 
 .miseenforme{
-    font-size: 20px;
+    font-size: 30px;
     color: #00B1A5;
     font-weight: bold;
-
+margin-left: 100px;
 }
 
-div.produit {
+
+div.mesProduits {
   margin: 5px;
   border: 1px solid #ccc;
-  float: right;
-  margin-top: -100px;
+  float: left;
+  margin-top: 5px;
   width: 180px;
-  margin-left: 200px;
-  margin-bottom: 120px;
+  height: 450px;
+  margin-left: 30px;
+  margin-bottom: 5px;
 }
 
-div.produit:hover {
+div.mesProduits:hover {
   border: 1px solid #777;
+
 }
 
-div.produit img {
+div.mesProduits img {
   width: 100%;
   height: auto;
+
 }
 
 div.desc {
-  padding: 1px;
+  padding: 10px;
   text-align: center;
 }
 
 .column {
   float: left;
-  width: 45%;
+  width: 40%;
   padding: 10px;
 }
 
@@ -47,8 +51,8 @@ div.desc {
 
 .column2 {
 float: left;
-  width: 20%;
-  padding: 30px;
+  width: 30%;
+  padding: 10px;
 
 }
 
@@ -57,6 +61,7 @@ float: left;
    content: "";
   display: table;
   clear: both;
+
 }
 .message {
   position: fixed;
@@ -90,14 +95,5 @@ float: left;
 
 .fermeture:hover {
   color: white;
-}
-.footer{
-   position: fixed;
-   left: 0;
-   bottom: 0;
-   width: 100%;
-   background-color: #FF8E79;
-   color: white;
-   text-align: center;
 }
 
